@@ -1,0 +1,2208 @@
+2019-06-07 12:32:17 [::1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: device_type in /var/www/html/chiefsRS/api/controllers/UsersController.php:63
+Stack trace:
+#0 /var/www/html/chiefsRS/api/controllers/UsersController.php(63): yii\base\ErrorHandler->handleError(8, 'Undefined index...', '/var/www/html/c...', 63, Array)
+#1 [internal function]: api\controllers\UsersController->actionLogin()
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/login', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/api/web/index.php(32): yii\base\Application->run()
+#8 {main}
+2019-06-07 12:32:17 [::1][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_email' => 'rutusha1212jdddoshi@gmail.com'
+    'password' => 'admin'
+    'device_id' => 'APA91bH5NJVttJXKC04OA36UDykn8RUIwtbciU6Y9t0Yg5GikL7RLz1aUIagVb9d8kPJJxqVOcCe8o9Ai67xrrXRDonlHl_R7id-p-uKbl8Gkr6NsehbqE8'
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------982597501315909345662423'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => 'ac5655bb-56ce-49fc-8a04-9ea903ff4997'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.6.0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '533'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/api/web/index.php'
+    'REMOTE_PORT' => '46274'
+    'REDIRECT_URL' => '/chiefsRS/api/web/users/login'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/api/web/users/login'
+    'SCRIPT_NAME' => '/chiefsRS/api/web/index.php'
+    'PHP_SELF' => '/chiefsRS/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1559910737.668
+    'REQUEST_TIME' => 1559910737
+]
+2019-06-07 12:33:20 [::1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: device_type in /var/www/html/chiefsRS/api/controllers/UsersController.php:69
+Stack trace:
+#0 /var/www/html/chiefsRS/api/controllers/UsersController.php(69): yii\base\ErrorHandler->handleError(8, 'Undefined index...', '/var/www/html/c...', 69, Array)
+#1 [internal function]: api\controllers\UsersController->actionLogin()
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/login', Array)
+#6 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/chiefsRS/api/web/index.php(32): yii\base\Application->run()
+#8 {main}
+2019-06-07 12:33:20 [::1][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_email' => 'rutusha1212jdddoshi@gmail.com'
+    'password' => 'admin'
+    'device_id' => 'APA91bH5NJVttJXKC04OA36UDykn8RUIwtbciU6Y9t0Yg5GikL7RLz1aUIagVb9d8kPJJxqVOcCe8o9Ai67xrrXRDonlHl_R7id-p-uKbl8Gkr6NsehbqE8'
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------977631412718434385928171'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '457ad69a-8919-4237-aa71-3e0b5a0cca35'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.6.0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '533'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/api/web/index.php'
+    'REMOTE_PORT' => '46278'
+    'REDIRECT_URL' => '/chiefsRS/api/web/users/login'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/api/web/users/login'
+    'SCRIPT_NAME' => '/chiefsRS/api/web/index.php'
+    'PHP_SELF' => '/chiefsRS/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1559910800.257
+    'REQUEST_TIME' => 1559910800
+]
+2019-06-07 12:33:41 [::1][-][-][error][yii\db\Exception] PDOException: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type' at row 1 in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `de...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('device_details', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(false, NULL)
+#6 /var/www/html/chiefsRS/api/controllers/UsersController.php(73): yii\db\BaseActiveRecord->save(false)
+#7 [internal function]: api\controllers\UsersController->actionLogin()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/login', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/api/web/index.php(32): yii\base\Application->run()
+#14 {main}
+
+Next yii\db\Exception: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type' at row 1
+The SQL being executed was: INSERT INTO `device_details` (`device_tocken`, `type`, `gcm_id`, `user_id`) VALUES ('APA91bH5NJVttJXKC04OA36UDykn8RUIwtbciU6Y9t0Yg5GikL7RLz1aUIagVb9d8kPJJxqVOcCe8o9Ai67xrrXRDonlHl_R7id-p-uKbl8Gkr6NsehbqE8', 'ipad', '', 2) in /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `de...')
+#1 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `de...')
+#2 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/Schema.php(433): yii\db\Command->execute()
+#3 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(600): yii\db\Schema->insert('device_details', Array)
+#4 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/ActiveRecord.php(566): yii\db\ActiveRecord->insertInternal(NULL)
+#5 /var/www/html/chiefsRS/vendor/yiisoft/yii2/db/BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(false, NULL)
+#6 /var/www/html/chiefsRS/api/controllers/UsersController.php(73): yii\db\BaseActiveRecord->save(false)
+#7 [internal function]: api\controllers\UsersController->actionLogin()
+#8 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#11 /var/www/html/chiefsRS/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/login', Array)
+#12 /var/www/html/chiefsRS/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /var/www/html/chiefsRS/api/web/index.php(32): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 01000
+    [1] => 1265
+    [2] => Data truncated for column 'type' at row 1
+)
+
+2019-06-07 12:33:41 [::1][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_email' => 'rutusha1212jdddoshi@gmail.com'
+    'password' => 'admin'
+    'device_id' => 'APA91bH5NJVttJXKC04OA36UDykn8RUIwtbciU6Y9t0Yg5GikL7RLz1aUIagVb9d8kPJJxqVOcCe8o9Ai67xrrXRDonlHl_R7id-p-uKbl8Gkr6NsehbqE8'
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------482259851521881651064605'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '38753806-65d6-4e4f-9b7b-d0993b48b415'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.6.0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '533'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/chiefsRS/api/web/index.php'
+    'REMOTE_PORT' => '46282'
+    'REDIRECT_URL' => '/chiefsRS/api/web/users/login'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/chiefsRS/api/web/users/login'
+    'SCRIPT_NAME' => '/chiefsRS/api/web/index.php'
+    'PHP_SELF' => '/chiefsRS/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1559910821.588
+    'REQUEST_TIME' => 1559910821
+]
+2019-09-11 12:02:57 [49.36.12.22][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/jmfurnishers.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/jmfurnishers.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-09-11 12:02:57 [49.36.12.22][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '50'
+    'HTTP_HOST' => 'jmfurnishers.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.6.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => 'efab46b82efe76c908c7c0ac7e12ef9a'
+    'HTTP_POSTMAN_TOKEN' => 'f343ee5a-8db3-4027-b0e3-76a07fdfab91'
+    'REDIRECT_UNIQUE_ID' => 'XXjicUhnsskgVEk7zdtaoQAAAMo'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://jmfurnishers.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XXjicUhnsskgVEk7zdtaoQAAAMo'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://jmfurnishers.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'jmfurnishers.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '49.36.12.22'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/jmfurnishers.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/jmfurnishers.com'
+    'SERVER_ADMIN' => 'webmaster@jmfurnishers.com.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/jmfurnishers.com/api/web/index.php'
+    'REMOTE_PORT' => '13876'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1568203377.2501
+    'REQUEST_TIME' => 1568203377
+]
+2019-09-11 12:03:03 [49.36.12.22][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/jmfurnishers.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/jmfurnishers.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/jmfurnishers.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-09-11 12:03:03 [49.36.12.22][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '50'
+    'HTTP_HOST' => 'jmfurnishers.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.6.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => 'efab46b82efe76c908c7c0ac7e12ef9a'
+    'HTTP_POSTMAN_TOKEN' => 'c245ffe1-7270-4542-8f1c-3b9df85b3698'
+    'REDIRECT_UNIQUE_ID' => 'XXjid5pvMj6Dp7Ly741O@gAAAAU'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://jmfurnishers.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XXjid5pvMj6Dp7Ly741O@gAAAAU'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://jmfurnishers.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'jmfurnishers.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '49.36.12.22'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/jmfurnishers.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/jmfurnishers.com'
+    'SERVER_ADMIN' => 'webmaster@jmfurnishers.com.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/jmfurnishers.com/api/web/index.php'
+    'REMOTE_PORT' => '34205'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1568203383.2062
+    'REQUEST_TIME' => 1568203383
+]
+2019-11-01 14:34:12 [203.88.131.18][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>' in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+The SQL being executed was: SELECT * FROM `reservations` WHERE date = '2019-11-01'
+                                AND status = '1' AND (
+                                        (booking_start_time >= '08:15 PM'
+                                            AND booking_end_time <= '00:00:00')
+                                        OR (('08:15 PM' > booking_start_time) AND ('08:15 PM' < booking_end_time))
+                                        OR (('00:00:00' > booking_start_time) AND ('00:00:00' < booking_end_time))) in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1267
+    [2] => Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+)
+
+2019-11-01 14:34:11 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-IN;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '201'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 13.1.3) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => '122149803b6e7fbbba2fa6667d30565f'
+    'REDIRECT_UNIQUE_ID' => 'XbxCYy0U3Ed-8Y@wOGuNIAAAAE8'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XbxCYy0U3Ed-8Y@wOGuNIAAAAE8'
+    'SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '24393'
+    'REDIRECT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1572618851.7718
+    'REQUEST_TIME' => 1572618851
+]
+2019-11-01 14:37:04 [203.88.131.18][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>' in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+The SQL being executed was: SELECT * FROM `reservations` WHERE date = '2019-11-01'
+                                AND status = '1' AND (
+                                        (booking_start_time >= '08:15 PM'
+                                            AND booking_end_time <= '00:00:00')
+                                        OR (('08:15 PM' > booking_start_time) AND ('08:15 PM' < booking_end_time))
+                                        OR (('00:00:00' > booking_start_time) AND ('00:00:00' < booking_end_time))) in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1267
+    [2] => Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+)
+
+2019-11-01 14:37:04 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,gu;q=0.8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '201'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '122149803b6e7fbbba2fa6667d30565f'
+    'HTTP_ORIGIN' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'
+    'HTTP_POSTMAN_TOKEN' => '4a28b35a-402e-1eb4-a94c-eba219abfbef'
+    'REDIRECT_UNIQUE_ID' => 'XbxDEO1O6cT@EopmEbiVlgAAAAA'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XbxDEO1O6cT@EopmEbiVlgAAAAA'
+    'SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '26460'
+    'REDIRECT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1572619024.6279
+    'REQUEST_TIME' => 1572619024
+]
+2019-11-12 12:04:12 [203.88.131.18][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>' in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+The SQL being executed was: SELECT * FROM `reservations` WHERE date = '2019-11-12'
+                                AND status = '1' AND (
+                                        (booking_start_time >= '05:45 PM'
+                                            AND booking_end_time <= '00:00:00')
+                                        OR (('05:45 PM' > booking_start_time) AND ('05:45 PM' < booking_end_time))
+                                        OR (('00:00:00' > booking_start_time) AND ('00:00:00' < booking_end_time))) in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1267
+    [2] => Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+)
+
+2019-11-12 12:04:12 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-IN;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '190'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 13.1.3) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => '5ebebfe14b684c4cc2f2fc86d2694706'
+    'REDIRECT_UNIQUE_ID' => 'XcqfvIkNVXwnzxxVtuvrZQAAAUY'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcqfvIkNVXwnzxxVtuvrZQAAAUY'
+    'SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '35067'
+    'REDIRECT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573560252.0274
+    'REQUEST_TIME' => 1573560252
+]
+2019-11-12 12:06:38 [203.88.131.18][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>' in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+The SQL being executed was: SELECT * FROM `reservations` WHERE date = '2019-11-12'
+                                AND status = '1' AND (
+                                        (booking_start_time >= '08:15 PM'
+                                            AND booking_end_time <= '00:00:00')
+                                        OR (('08:15 PM' > booking_start_time) AND ('08:15 PM' < booking_end_time))
+                                        OR (('00:00:00' > booking_start_time) AND ('00:00:00' < booking_end_time))) in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1267
+    [2] => Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+)
+
+2019-11-12 12:06:38 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,gu;q=0.8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '201'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '5ebebfe14b684c4cc2f2fc86d2694706'
+    'HTTP_ORIGIN' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'
+    'HTTP_POSTMAN_TOKEN' => '294d5537-5b92-c8be-ebbc-6a95fdc7b7c9'
+    'REDIRECT_UNIQUE_ID' => 'XcqgTo5MalzqznlH2K3b4QAAAJA'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcqgTo5MalzqznlH2K3b4QAAAJA'
+    'SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '50804'
+    'REDIRECT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573560398.4716
+    'REQUEST_TIME' => 1573560398
+]
+2019-11-12 12:09:15 [203.88.131.18][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>' in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+The SQL being executed was: SELECT * FROM `reservations` WHERE date = '2019-11-12'
+                                AND status = '1' AND (
+                                        (booking_start_time >= '08:15 PM'
+                                            AND booking_end_time <= '00:00:00')
+                                        OR (('08:15 PM' > booking_start_time) AND ('08:15 PM' < booking_end_time))
+                                        OR (('00:00:00' > booking_start_time) AND ('00:00:00' < booking_end_time))) in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1267
+    [2] => Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+)
+
+2019-11-12 12:09:15 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '201'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.19.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '5ebebfe14b684c4cc2f2fc86d2694706'
+    'HTTP_POSTMAN_TOKEN' => 'cc5d8bf0-9606-43d3-b9d8-9e3e099e43e0'
+    'REDIRECT_UNIQUE_ID' => 'Xcqg63T0pyoR-G772SSI8wAAAkw'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'Xcqg63T0pyoR-G772SSI8wAAAkw'
+    'SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '41341'
+    'REDIRECT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573560555.3925
+    'REQUEST_TIME' => 1573560555
+]
+2019-11-12 12:26:45 [203.88.131.18][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>' in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+The SQL being executed was: SELECT * FROM `reservations` WHERE date = '2019-11-12'
+                                AND status = '1' AND (
+                                        (booking_start_time >= '06:00 PM'
+                                            AND booking_end_time <= '00:00:00')
+                                        OR (('06:00 PM' > booking_start_time) AND ('06:00 PM' < booking_end_time))
+                                        OR (('00:00:00' > booking_start_time) AND ('00:00:00' < booking_end_time))) in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(330): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTableForGuest()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table-for-...', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1267
+    [2] => Illegal mix of collations (utf8_general_ci,COERCIBLE) and (latin1_swedish_ci,NUMERIC) for operation '>'
+)
+
+2019-11-12 12:26:44 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-IN;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '200'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 13.1.3) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => '5ebebfe14b684c4cc2f2fc86d2694706'
+    'REDIRECT_UNIQUE_ID' => 'XcqlBI5MalzqznlH2K3klQAAAIE'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcqlBI5MalzqznlH2K3klQAAAIE'
+    'SCRIPT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table-for-guest'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '41142'
+    'REDIRECT_URL' => '/api/web/reservations/book-table-for-guest'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/book-table-for-guest'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573561604.6012
+    'REQUEST_TIME' => 1573561604
+]
+2019-11-13 08:55:40 [203.88.131.18][-][-][error][yii\base\InvalidArgumentException] yii\base\InvalidArgumentException: Syntax error. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/helpers/BaseJson.php:133
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/helpers/BaseJson.php(107): yii\helpers\BaseJson::handleJsonError(4)
+#1 /home/jnesdqm19kp5/chiefsrs.com/common/components/Common.php(1543): yii\helpers\BaseJson::decode('{\xE2\x80\x9Cuser_id\xE2\x80\x9D:...', true)
+#2 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(122): common\components\Common::checkRequestType()
+#3 [internal function]: api\controllers\ReservationsController->actionBookTable()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table', Array)
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#10 {main}
+2019-11-13 08:55:40 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '94'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.19.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'HTTP_POSTMAN_TOKEN' => '3f0e270c-8cf8-4001-8827-69728a5e83ce'
+    'REDIRECT_UNIQUE_ID' => 'XcvFDKdGr221MVR4BGd9sAAAAVc'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/book-table'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcvFDKdGr221MVR4BGd9sAAAAVc'
+    'SCRIPT_URL' => '/api/web/reservations/book-table'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '53194'
+    'REDIRECT_URL' => '/api/web/reservations/book-table'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/book-table'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573635340.4375
+    'REQUEST_TIME' => 1573635340
+]
+2019-11-13 09:05:41 [203.88.131.18][-][-][error][yii\db\Exception] PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'table_xid' in 'where clause' in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php:1290
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1290): PDOStatement->execute()
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(163): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTable()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+
+Next yii\db\Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'table_xid' in 'where clause'
+The SQL being executed was: SELECT * FROM `book_reservations` WHERE reservation_id = 2 AND floor_id = 40 AND table_xid IN (156) in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Schema.php:664
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(1158): yii\db\Command->internalExecute('SELECT * FROM `...')
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/Query.php(237): yii\db\Command->queryAll()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/db/ActiveQuery.php(133): yii\db\Query->all(NULL)
+#5 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(163): yii\db\ActiveQuery->all()
+#6 [internal function]: api\controllers\ReservationsController->actionBookTable()
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table', Array)
+#10 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#11 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#13 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'table_xid' in 'where clause'
+)
+
+2019-11-13 09:05:41 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '70'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.19.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'HTTP_POSTMAN_TOKEN' => '8d55d5f6-d67b-495f-87c9-fa27fc655341'
+    'REDIRECT_UNIQUE_ID' => 'XcvHZY-MbgUNgfkQC6vbtQAAAs4'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/book-table'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcvHZY-MbgUNgfkQC6vbtQAAAs4'
+    'SCRIPT_URL' => '/api/web/reservations/book-table'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '42626'
+    'REDIRECT_URL' => '/api/web/reservations/book-table'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/book-table'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573635941.5889
+    'REQUEST_TIME' => 1573635941
+]
+2019-11-13 14:07:46 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-13 14:07:46 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-IN;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '50'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 13.1.3) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'REDIRECT_UNIQUE_ID' => 'XcwOMlnj7qILQl@wzO5A4wAAAVI'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcwOMlnj7qILQl@wzO5A4wAAAVI'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '6491'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573654066.7017
+    'REQUEST_TIME' => 1573654066
+]
+2019-11-13 14:07:55 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-13 14:07:55 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-IN;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '50'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 13.1.3) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'REDIRECT_UNIQUE_ID' => 'XcwOO1a9OW0E-VyvKAxvaQAAAdM'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcwOO1a9OW0E-VyvKAxvaQAAAdM'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '39611'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573654075.7646
+    'REQUEST_TIME' => 1573654075
+]
+2019-11-13 14:08:04 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-13 14:08:04 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-IN;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '50'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 13.1.3) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'REDIRECT_UNIQUE_ID' => 'XcwORFa9OW0E-VyvKAxvfQAAAdg'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcwORFa9OW0E-VyvKAxvfQAAAdg'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '48360'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573654084.1063
+    'REQUEST_TIME' => 1573654084
+]
+2019-11-13 14:10:40 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-13 14:10:40 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-IN;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '50'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 13.1.3) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'REDIRECT_UNIQUE_ID' => 'XcwO4LH1FmW0nz9DYQzjhwAAAAY'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcwO4LH1FmW0nz9DYQzjhwAAAAY'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '1456'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573654240.2737
+    'REQUEST_TIME' => 1573654240
+]
+2019-11-13 14:11:50 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-13 14:11:50 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-IN;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '50'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 13.1.3) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'REDIRECT_UNIQUE_ID' => 'XcwPJpUfsf04thj9GSQlfgAAAhY'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcwPJpUfsf04thj9GSQlfgAAAhY'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '26946'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573654310.421
+    'REQUEST_TIME' => 1573654310
+]
+2019-11-13 14:58:57 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-13 14:58:57 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-IN;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '50'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 13.1.3) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'REDIRECT_UNIQUE_ID' => 'XcwaMZUfsf04thj9GSQ97QAAAgg'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcwaMZUfsf04thj9GSQ97QAAAgg'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '51290'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573657137.1492
+    'REQUEST_TIME' => 1573657137
+]
+2019-11-13 14:59:50 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "eservations/update-reservation-status". in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('eservations/upd...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-13 14:59:50 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,gu;q=0.8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '50'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'HTTP_ORIGIN' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop'
+    'HTTP_POSTMAN_TOKEN' => 'ff2f0ab2-2daa-53e6-1f9d-7e229c066985'
+    'REDIRECT_UNIQUE_ID' => 'XcwaZpUfsf04thj9GSQ@vQAAAgY'
+    'REDIRECT_SCRIPT_URL' => '/api/web/eservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/eservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcwaZpUfsf04thj9GSQ@vQAAAgY'
+    'SCRIPT_URL' => '/api/web/eservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/eservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '59789'
+    'REDIRECT_URL' => '/api/web/eservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/eservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573657190.9112
+    'REQUEST_TIME' => 1573657190
+]
+2019-11-13 15:00:44 [54.236.20.156][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "eservations/update-reservation-status". in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('eservations/upd...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-13 15:00:44 [54.236.20.156][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '0'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'Slackbot-LinkExpanding 1.0 (+https://api.slack.com/robots)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'HTTP_RANGE' => 'bytes=0-32768'
+    'REDIRECT_UNIQUE_ID' => 'XcwanOxYY5yH7o4WAZZoVwAAAQg'
+    'REDIRECT_SCRIPT_URL' => '/api/web/eservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/eservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcwanOxYY5yH7o4WAZZoVwAAAQg'
+    'SCRIPT_URL' => '/api/web/eservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/eservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '54.236.20.156'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '14886'
+    'REDIRECT_URL' => '/api/web/eservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/eservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573657244.3223
+    'REQUEST_TIME' => 1573657244
+]
+2019-11-14 05:09:17 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "eservations/update-reservation-status". in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('eservations/upd...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-14 05:09:17 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{“user_id”:“23\",“status”:“5\",“reservation_id”:“2\"}' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '68'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.19.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'HTTP_POSTMAN_TOKEN' => 'f8570477-f878-4afa-80c8-9257f3ca37e7'
+    'REDIRECT_UNIQUE_ID' => 'XczhfZxzP9KKGI2NVjPlXAAABA0'
+    'REDIRECT_SCRIPT_URL' => '/api/web/eservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/eservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XczhfZxzP9KKGI2NVjPlXAAABA0'
+    'SCRIPT_URL' => '/api/web/eservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/eservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '28756'
+    'REDIRECT_URL' => '/api/web/eservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/eservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573708157.1451
+    'REQUEST_TIME' => 1573708157
+]
+2019-11-14 05:09:33 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-14 05:09:33 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{“user_id”:“23\",“status”:“5\",“reservation_id”:“2\"}' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '68'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.19.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'HTTP_POSTMAN_TOKEN' => '5206996e-1704-4908-bfa7-489ffaee1bdc'
+    'REDIRECT_UNIQUE_ID' => 'XczhjSC2S7cPFdsQkZf80wAAA9Y'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XczhjSC2S7cPFdsQkZf80wAAA9Y'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '2846'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573708173.2067
+    'REQUEST_TIME' => 1573708173
+]
+2019-11-14 05:10:31 [203.88.131.18][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: reservations/update-reservation-status in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#1 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#2 {main}
+2019-11-14 05:10:31 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{“user_id”:“23\",“status”:“5\",“reservation_id”:“2\"}' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '68'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.19.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'HTTP_POSTMAN_TOKEN' => '65c5d068-e579-4a0d-8899-9ad101c7d705'
+    'REDIRECT_UNIQUE_ID' => 'XczhxyC2S7cPFdsQkZf9IwAAA9U'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XczhxyC2S7cPFdsQkZf9IwAAA9U'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '10861'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573708231.0146
+    'REQUEST_TIME' => 1573708231
+]
+2019-11-14 05:12:59 [203.88.131.18][-][-][error][yii\base\InvalidArgumentException] yii\base\InvalidArgumentException: Syntax error. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/helpers/BaseJson.php:133
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/helpers/BaseJson.php(107): yii\helpers\BaseJson::handleJsonError(4)
+#1 /home/jnesdqm19kp5/chiefsrs.com/common/components/Common.php(1543): yii\helpers\BaseJson::decode('{\xE2\x80\x9Cuser_id\xE2\x80\x9D:...', true)
+#2 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(822): common\components\Common::checkRequestType()
+#3 [internal function]: api\controllers\ReservationsController->actionUpdateReservationStatus()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('update-reservat...', Array)
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/up...', Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#10 {main}
+2019-11-14 05:12:59 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{“user_id”:“23\",“status”:“5\",“reservation_id”:“2\"}' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '68'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.19.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'HTTP_POSTMAN_TOKEN' => '349b487a-d9a9-4607-b835-0da4b93217e9'
+    'REDIRECT_UNIQUE_ID' => 'XcziW5xzP9KKGI2NVjPnAAAABAg'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XcziW5xzP9KKGI2NVjPnAAAABAg'
+    'SCRIPT_URL' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/update-reservation-status'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '3354'
+    'REDIRECT_URL' => '/api/web/reservations/update-reservation-status'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/update-reservation-status'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573708379.483
+    'REQUEST_TIME' => 1573708379
+]
+2019-11-14 07:15:54 [203.88.131.18][-][-][error][yii\base\InvalidArgumentException] yii\base\InvalidArgumentException: Syntax error. in /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/helpers/BaseJson.php:133
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/helpers/BaseJson.php(107): yii\helpers\BaseJson::handleJsonError(4)
+#1 /home/jnesdqm19kp5/chiefsrs.com/common/components/Common.php(1543): yii\helpers\BaseJson::decode('{\xE2\x80\x9Cuser_id\xE2\x80\x9D:...', true)
+#2 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/ReservationsController.php(132): common\components\Common::checkRequestType()
+#3 [internal function]: api\controllers\ReservationsController->actionBookTable()
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('book-table', Array)
+#7 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('reservations/bo...', Array)
+#8 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#10 {main}
+2019-11-14 07:15:54 [203.88.131.18][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{“user_id”:“23\",“floor_id”:“40\",“reservation_id”:“8\",“table_id”:“158\"}
+' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '95'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.19.0'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_AUTH_TOKEN' => '3766133392d2b2d0a808c63ce5255f06'
+    'HTTP_POSTMAN_TOKEN' => 'cf27f098-8b70-49a8-adfc-cd30eddf5c4d'
+    'REDIRECT_UNIQUE_ID' => 'Xcz-KkOJLI6H6NJn2tdzxwAAAAQ'
+    'REDIRECT_SCRIPT_URL' => '/api/web/reservations/book-table'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'Xcz-KkOJLI6H6NJn2tdzxwAAAAQ'
+    'SCRIPT_URL' => '/api/web/reservations/book-table'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/reservations/book-table'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '203.88.131.18'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '14560'
+    'REDIRECT_URL' => '/api/web/reservations/book-table'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/reservations/book-table'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1573715754.7975
+    'REQUEST_TIME' => 1573715754
+]
+2019-11-20 09:52:36 [101.99.146.86][-][-][error][yii\base\ErrorException:8192] yii\base\ErrorException: Non-static method common\models\Users::generatePasswordResetToken() should not be called statically in /home/jnesdqm19kp5/chiefsrs.com/api/controllers/UsersController.php:413
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/UsersController.php(413): yii\base\ErrorHandler->handleError(8192, 'Non-static meth...', '/home/jnesdqm19...', 413, Array)
+#1 [internal function]: api\controllers\UsersController->actionForgotPassword()
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('forgot-password', Array)
+#5 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/forgot-pa...', Array)
+#6 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#8 {main}
+2019-11-20 09:52:36 [101.99.146.86][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '45'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 12.4.1) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => ''
+    'REDIRECT_UNIQUE_ID' => 'XdUM5JywB2dRRZJLeVR5DQAAAc4'
+    'REDIRECT_SCRIPT_URL' => '/api/web/users/forgot-password'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/users/forgot-password'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XdUM5JywB2dRRZJLeVR5DQAAAc4'
+    'SCRIPT_URL' => '/api/web/users/forgot-password'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/users/forgot-password'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '101.99.146.86'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '51273'
+    'REDIRECT_URL' => '/api/web/users/forgot-password'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/users/forgot-password'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1574243556.6592
+    'REQUEST_TIME' => 1574243556
+]
+2019-11-20 09:53:16 [101.99.146.86][-][-][error][yii\base\ErrorException:8192] yii\base\ErrorException: Non-static method common\models\Users::generatePasswordResetToken() should not be called statically in /home/jnesdqm19kp5/chiefsrs.com/api/controllers/UsersController.php:413
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/UsersController.php(413): yii\base\ErrorHandler->handleError(8192, 'Non-static meth...', '/home/jnesdqm19...', 413, Array)
+#1 [internal function]: api\controllers\UsersController->actionForgotPassword()
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('forgot-password', Array)
+#5 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/forgot-pa...', Array)
+#6 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#8 {main}
+2019-11-20 09:53:16 [101.99.146.86][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '45'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 12.4.1) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => ''
+    'REDIRECT_UNIQUE_ID' => 'XdUNDPtZicGmyYKnmkSDYwAAABA'
+    'REDIRECT_SCRIPT_URL' => '/api/web/users/forgot-password'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/users/forgot-password'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XdUNDPtZicGmyYKnmkSDYwAAABA'
+    'SCRIPT_URL' => '/api/web/users/forgot-password'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/users/forgot-password'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '101.99.146.86'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '51278'
+    'REDIRECT_URL' => '/api/web/users/forgot-password'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/users/forgot-password'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1574243596.1002
+    'REQUEST_TIME' => 1574243596
+]
+2019-11-20 09:53:43 [101.99.146.86][-][-][error][yii\base\ErrorException:8192] yii\base\ErrorException: Non-static method common\models\Users::generatePasswordResetToken() should not be called statically in /home/jnesdqm19kp5/chiefsrs.com/api/controllers/UsersController.php:413
+Stack trace:
+#0 /home/jnesdqm19kp5/chiefsrs.com/api/controllers/UsersController.php(413): yii\base\ErrorHandler->handleError(8192, 'Non-static meth...', '/home/jnesdqm19...', 413, Array)
+#1 [internal function]: api\controllers\UsersController->actionForgotPassword()
+#2 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('forgot-password', Array)
+#5 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('users/forgot-pa...', Array)
+#6 /home/jnesdqm19kp5/chiefsrs.com/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /home/jnesdqm19kp5/chiefsrs.com/api/web/index.php(32): yii\base\Application->run()
+#8 {main}
+2019-11-20 09:53:43 [101.99.146.86][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin'
+    'TEMP' => '/tmp'
+    'TMP' => '/tmp'
+    'TMPDIR' => '/tmp'
+    'PWD' => '/'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip;q=1.0, compress;q=0.5'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US;q=1.0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/json'
+    'CONTENT_LENGTH' => '51'
+    'HTTP_HOST' => 'chiefsrs.com'
+    'HTTP_USER_AGENT' => 'ChiefRS/1.0 (com.hibbertgroup.chiefsRS; build:1; iOS 12.4.1) Alamofire/4.8.2'
+    'HTTP_AUTH_TOKEN' => ''
+    'REDIRECT_UNIQUE_ID' => 'XdUNJ7MPzFmWuxuP3HXcnQAAAMQ'
+    'REDIRECT_SCRIPT_URL' => '/api/web/users/forgot-password'
+    'REDIRECT_SCRIPT_URI' => 'http://chiefsrs.com/api/web/users/forgot-password'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XdUNJ7MPzFmWuxuP3HXcnQAAAMQ'
+    'SCRIPT_URL' => '/api/web/users/forgot-password'
+    'SCRIPT_URI' => 'http://chiefsrs.com/api/web/users/forgot-password'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'chiefsrs.com'
+    'SERVER_ADDR' => '107.180.26.69'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '101.99.146.86'
+    'DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/jnesdqm19kp5/chiefsrs.com'
+    'SERVER_ADMIN' => 'webmaster@chiefsrs.jeffspiratescove.com'
+    'SCRIPT_FILENAME' => '/home/jnesdqm19kp5/chiefsrs.com/api/web/index.php'
+    'REMOTE_PORT' => '51283'
+    'REDIRECT_URL' => '/api/web/users/forgot-password'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/web/users/forgot-password'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1574243623.1152
+    'REQUEST_TIME' => 1574243623
+]

@@ -1,0 +1,572 @@
+/** Home Page **/
+body {
+    padding-top: 0;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+
+@media (min-width: 979px){
+    body {
+        padding-top: 60px;
+    }
+}
+
+
+/** Login Page **/
+#login {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#login .form-signin {
+    max-width: 300px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+#login .form-signin .form-signin-heading,
+#login .form-signin .checkbox {
+    margin-bottom: 10px;
+}
+#login .form-signin input[type="text"],
+#login .form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
+
+/** 2 level sub menu **/
+.dropdown-menu-with-subs .sub-menu {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    margin-top: -1px;
+}
+
+.dropdown-menu-with-subs li:hover .sub-menu {
+    visibility: visible;
+    display: block;
+}
+
+.navbar .sub-menu:before {
+    border-bottom: 7px solid transparent;
+    border-left: none;
+    border-right: 7px solid rgba(0, 0, 0, 0.2);
+    border-top: 7px solid transparent;
+    left: -7px;
+    top: 10px;
+}
+.navbar .sub-menu:after {
+    border-top: 6px solid transparent;
+    border-left: none;
+    border-right: 6px solid #fff;
+    border-bottom: 6px solid transparent;
+    left: 10px;
+    top: 11px;
+    left: -6px;
+}
+
+/** Global **/
+#content {
+    margin-left:0px;
+}
+.hide-sidebar, .show-sidebar {
+    cursor: pointer;
+}
+.padd-bottom {
+    margin-bottom: 5px;
+}
+.breadcrumb {
+    margin: 0 0 0px;
+    padding: 10px 0px;
+    background-color: transparent;
+}
+
+.block {
+    border: 1px solid #ccc;
+    background: white;
+    margin: 1em 0em;
+    border-top: none;
+}
+
+.block-content {
+    margin: 1em;
+    min-height: .25em;
+}
+
+.block-header {
+    margin-bottom: 0px;
+    border-right: none;
+    border-left: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.block-header div {
+    /*padding-top: 10px;*/
+}
+
+.easyPieChart {
+    margin: 0px auto;
+}
+
+.chart-bottom-heading {
+    margin-top: 5px;
+    text-align: center;
+}
+
+/** Side Bar **/
+.bs-docs-sidenav {
+    max-width: 228px;
+    padding: 0;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+.bs-docs-sidenav > li > a {
+    display: block;
+    width: 190px \9;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+    border: 1px solid #e5e5e5;
+}
+.bs-docs-sidenav > li:first-child > a {
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+.bs-docs-sidenav > li:last-child > a {
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+}
+.bs-docs-sidenav > .active > a {
+    position: relative;
+    z-index: 2;
+    padding: 9px 15px;
+    border: 0;
+    text-shadow: 0 1px 0 rgba(0,0,0,.15);
+    -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+    -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+    box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+}
+/* Chevrons */
+.bs-docs-sidenav .icon-chevron-right {
+    float: right;
+    margin-top: 2px;
+    margin-right: -6px;
+    opacity: .25;
+}
+.bs-docs-sidenav > li > a:hover {
+    background-color: #f5f5f5;
+}
+.bs-docs-sidenav a:hover .icon-chevron-right {
+    opacity: .5;
+}
+.bs-docs-sidenav .active .icon-chevron-right,
+.bs-docs-sidenav .active a:hover .icon-chevron-right {
+    opacity: 1;
+}
+.bs-docs-sidenav.affix {
+    top: 40px;
+}
+.bs-docs-sidenav.affix-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 270px;
+}
+
+/* Icons
+------------------------- */
+.the-icons {
+    margin-left: 0;
+    list-style: none;
+}
+.the-icons li {
+    float: left;
+    width: 25%;
+    line-height: 25px;
+}
+.the-icons i:hover {
+    background-color: rgba(255,0,0,.25);
+}
+
+
+.control-label .required {
+    color: #e02222;
+    font-size: 12px;
+    padding-left: 2px;
+}
+
+
+.table-scrollable select {
+    width: 90%;
+}
+
+.table-scrollable input, textarea, .uneditable-input{
+    width: 90%;
+}
+
+.table-scrollable td a{
+    margin-right: 5px;
+}
+.pull-left { 
+    padding-top: 10px;
+}
+
+.help-block, .help-block-error {
+    color: red;
+}
+.timesheet-search{
+    display: none;
+}
+
+/**** Edit Permission design start ****/
+.row_user .left {
+ width: 12%;
+}
+.row_user .userFieldsDiv, .row_user .userfieldsShow  {   
+   float: left;
+   width: 84%;
+}
+.row_user .userFieldsDiv .form-group, .row_user .userfieldsShow .form-group {
+   float: left;
+   width: 25%;
+     padding-top: 5px;
+       padding-bottom: 5px;
+}
+.userFieldsDiv .form-group .my_inputsectoin, .userfieldsShow .form-group .my_inputsectoin {
+   width: 100%;
+}
+.form-group .my_inputsectoin .my_lbl {
+     width: 100%;
+}
+.form-group .my_inputsectoin .my_input {
+  width: 100%;
+}
+.form-group .my_inputsectoin .my_errormsg {
+   width: 100%;
+  clear: both;
+  font-size: 12px;
+  padding-left: 5px;
+}
+.form-group .my_inputsectoin .my_errormsg p {
+   margin: 0;
+}
+.form-group .my_inputsectoin .my_lbl label {
+    width: 100%;
+    float: none;
+    margin: 0px;
+}
+.form-group .my_inputsectoin .my_input input {
+    width: 80%;
+    float: none;
+    margin: 0px;
+}
+.scoreCard-search{
+   display: none;
+ }
+ .userProjectsSearch{
+   display: none;
+ }
+ .technicalSkillsSearch{
+    display: none;
+ }
+
+/**** Edit Permission design end ****/
+
+.custom-2part .form-group {
+    float: left;
+    width: 42%;
+    padding-right: 3%;
+}
+/*.custom-2part .form-group:first-child {
+    float: none;
+    width: 100%;
+}*/
+.custom-2part .delete_field {
+    display: block;
+    float: left;
+    width: 10%;
+    clear: none;
+    margin-top: 28px;
+}
+.custom-2part select {
+    width: 100%;
+}
+.custom-2part .field-userstechnicalskills-id {
+    display: none;
+}
+.custom-2part .add_field_button {
+    margin-bottom: 10px;
+}
+.btn-area {
+    clear: both;
+    width: 100%;
+
+}
+.custom-2part .remove_field {
+    display: block;
+    float: left;
+    width: 10%;
+    clear: none;
+    margin-top: 6px;
+}
+.unique_error_msg{
+    color: red;
+}
+.u_skills_msg{
+    width: 100%;
+    color: red;
+}
+.required_ratings_msg{
+    width: 100%;
+    color: red;
+}
+.skills_msg_req{
+    width: 100%;
+    color: red;
+}
+.pink td{
+    background: pink !important;
+}
+.lightyellow td{
+    background:lightyellow !important;
+}
+.lightgreen td{
+    background:lightgreen !important;
+}
+/*.pink_td{
+    background: pink !important;
+}*/
+#csv_form{
+    display: inline-block;
+}
+
+.table_ui   { border-radius:8px; overflow: hidden; height:400px; overflow-y:scroll; height:600px; overflow-x:scroll;  }
+.table_class tr.first_tr td { background: #08c; color: #fff; border-right:solid 1px #fff; }
+.table_class tr, .table_class td { border: none;}
+.table_class tr td  { border-right:solid 1px #08c; border-bottom:solid 1px #08c;  padding-left: 5px; padding-right: 5px;}
+table.table_class { border:solid 2px #08c; }  
+table.table_class tbody {  }
+.row-fluid{
+    padding-top: 15px;
+}
+.restaurants-form textarea input{
+    width: 21%;
+}
+.users-form tr td{
+      padding-right: 10px;
+
+}
+.tags-form tr td{
+    padding-right: 10px;
+}
+.restaurants-form tr td{
+    padding-right: 10px;
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////
+                                Chiefs RS Responsive Backend
+///////////////////////////////////////////////////////////////////////////////////////////// */
+
+@media (max-width: 767px){
+    .row-fluid .leftsidebar {
+    width: 100% !important;
+}
+}
+/*@media (max-width: 320px){
+    .form-group select, {
+    width: 100% !important;
+}
+}*/
+@media (max-width: 320px){
+.form-group input[type="text"]{
+     width: 90% !important;
+}
+.form-group select{
+     width: 98% !important;
+}
+}
+@media (min-width: 1200px){
+.common_search{
+    padding-left:2rem;
+}
+}
+.hours_form{
+    padding-left:2rem;
+}
+.form-group input[type="file"]{
+    width: 100% !important;
+}
+
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************
+/*******************************************************************/
+
+/************? changes done by krutin trivedi **********/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    div.span3.style_input_width {
+        width: 25% !important;
+        margin: 0 5% 0 0 !important;
+    }
+    
+    #w0 input,
+    #users-role_id,
+    #users-email,
+    #users-password,
+    #users-first_name,
+    #users-last_name,
+    #users-address,
+    #users-status,
+    #userssearch-fullname,
+    #userssearch-email,
+    #userssearch-role_id,
+    #userssearch-status {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #w0 > div:nth-child(1),
+    #w0 > div:nth-child(2),
+    #w0 > div:nth-child(4),
+    #w0 > div:nth-child(3) {
+        margin: 0 !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    div.span3.style_input_width {
+        width: 25% !important;
+        margin: 0 5% 0 0 !important;
+    }
+    
+    #w0 input,
+    #users-role_id,
+    #users-email,
+    #users-password,
+    #users-first_name,
+    #users-last_name,
+    #users-address,
+    #users-status,
+    #userssearch-fullname,
+    #userssearch-email,
+    #userssearch-role_id,
+    #userssearch-status {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #w0 > div:nth-child(1),
+    #w0 > div:nth-child(2),
+    #w0 > div:nth-child(4),
+    #w0 > div:nth-child(3) {
+        margin: 0 !important;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #sidebar > ul {
+        margin: 0;
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #content {
+        width: 100% !important;
+        max-width: 100%;
+    }
+    
+    #content > div:nth-child(1) {
+        max-width: 100%;
+        width: 100%;   
+    }
+    #content > div:nth-child(1) > div.navbar {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    #sidebar > ul {
+        margin: 0;
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #content {
+        width: 100% !important;
+        max-width: 100%;
+    }
+    
+    #content > div:nth-child(1) {
+        max-width: 100%;
+        width: 100%;   
+    }
+    #content > div:nth-child(1) > div.navbar {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 360px) {
+    #content > div:nth-child(2) > div > div > div.navbar.navbar-inner.block-header {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+        padding-bottom: 2%;
+    }
+}
+/* 
+#cboxWrapper,
+#cboxContent,
+#cboxMiddleLeft {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+#cboxLoadedContent {
+    width: 100% !important;
+    height: 70vh !important;
+    border: none !important;
+    background-color: #fff !important;
+}
+
+#cboxClose {
+    top: 0 !important;
+} */
+.restaurants-form input, textarea, .uneditable-input {
+    width: 91%;
+}

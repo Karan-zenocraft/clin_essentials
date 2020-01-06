@@ -1,0 +1,17 @@
+Options -Indexes
+Options -Multiviews
+Options +FollowSymLinks
+RewriteEngine on
+
+#order deny,allow
+#deny from all
+#allow from 119.160.193.114
+
+
+# if a directory or a file exists, use it directly
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index.php

@@ -1,0 +1,186 @@
+///////////////////////////////////////////////////////////////
+							LOGIN
+//////////////////////////////////////////////////////////////
+
+URL : http://121.55.237.213:8012/chiefsRS/api/web/users/login
+
+Headers : 
+1) Content-Type : application/json
+
+Sample Request Params :
+
+{"user_email":"jay.varan@zenocraft.com","password":"jay","device_id":"APA91bH5NJVttJXKC04OA36UDykn8RUIwtbciU6Y9t0Yg5GikL7RLz1aUIagVb9d8kPJJxqVOcCe8o9Ai67xrrXRDonlHl_R7id-p-uKbl8Gkr6NsehbqE8"}
+
+Response Params :
+
+{"success":1,"message":"successfully login.","data":{"user_email":"jay.varan@zenocraft.com","user_id":3,"first_name":"jay","last_name":"varan","address":"jayvaran@zenocraft","device_token":"APA91bH5NJVttJXKC04OA36UDykn8RUIwtbciU6Y9t0Yg5GikL7RLz1aUIagVb9d8kPJJxqVOcCe8o9Ai67xrrXRDonlHl_R7id-p-uKbl8Gkr6NsehbqE8","gcm_registration_id":"","auth_token":"74de7262d7d9d00a907647d4b8a5891f"}}
+
+//////////////////////////////////////////////////////////////////////////////////
+								CHANGE PASSWORD
+//////////////////////////////////////////////////////////////////////////////////
+
+URL : http://121.55.237.213:8012/chiefsRS/api/web/users/change-password
+
+Request Params :
+
+{"old_password":"admin","new_password":"admin123","user_id":"16"}
+
+Response Params :
+
+{"success":1,"message":"Your password has been changed successfully.","data":{"user_id":3,"user_email":"jay.varan@zenocraft.com"}}
+
+//////////////////////////////////////////////////////////////////////////////////
+								FORGOT PASSWORD
+//////////////////////////////////////////////////////////////////////////////////
+
+URL : http://121.55.237.213:8012/chiefsRS/api/web/users/forgot-password
+
+Request Params :
+
+{"user_email":"jay.varan@zenocraft.com"}
+
+Response Params :
+
+{"success":1,"message":"Email has been sent successfully please check your email. ","data":{"user_email":"jay.varan@zenocraft.com"}}
+
+//////////////////////////////////////////////////////
+				EDIT USER PROFILE
+//////////////////////////////////////////////////////
+
+URL : http://121.55.237.213:8012/chiefsRS/api/web/users/edit-profile
+
+Headers : 
+1) Content-Type : application/json
+2) auth_token   : b4ceb860cb64401ac7f44b946515f485
+
+Request Params :
+
+{"user_id":"3","first_name":"jay","last_name":"varan","email":"jay.varan@zenocraft.com","address":"jayvaran@zenocraft","contact_no":"8787878789"}
+
+Response Params : 
+
+{"success":1,"message":"Your profile has been updated successfully.","data":{"user_email":"jay.varan@zenocraft.com","user_id":3,"first_name":"jay","last_name":"varan","address":"jayvaran@zenocraft","contact_no":"8787878789","auth_token":"b4ceb860cb64401ac7f44b946515f485"}}
+
+/////////////////////////////////////////////////////////////////////////////////
+				Get Reservation List by manager(user_id)
+/////////////////////////////////////////////////////////////////////////////////
+
+URL : http://121.55.237.213:8012/chiefsRS/api/web/users/get-reservation-list
+
+Headers:
+1) Content-Type : application/json
+2) auth_token   : b4ceb860cb64401ac7f44b946515f485
+
+Request Params :
+
+{"user_id":"3"}
+
+
+Response Params :
+
+{"success":1,"message":"User Reservations Details.","data":$data}
+
+
+//////////////////////////////////////////////
+Add Guest
+////////////////////////////////////////////////
+Request Params : 
+{"user_id":"3","first_name":"Zankruti","last_name":"Trivedi","email":"z@gmail.com","contact_no":"8989898989","reservation_id":""}
+
+/////////////////////////////////////////////////////////////
+Add Floor and it's tables
+///////////////////////////////////////////////////////////////
+
+URL : http://localhost/chiefsRS/api/web/floor/add-floor
+
+Request Params : 
+
+{"user_id":"3","floor_data":{"name":"3rd Floor","status":"1"},"table_data":[{"name":"first_table","width":"60","height":"60","min_cap":"4","max_cap":"8","x_cordinate":"50","y_cordinate":"60","shape":"circle","status":"1"},{"name":"second_table","width":"40","height":"70","min_cap":"2","max_cap":"6","x_cordinate":"50","y_cordinate":"40","shape":"shquare","status":"1"},{"name":"third_table","width":"20","height":"80","min_cap":"4","max_cap":"8","x_cordinate":"30","y_cordinate":"90","shape":"rectangle","status":"1"},{"name":"fourth_table","width":"60","height":"60","min_cap":"4","max_cap":"8","x_cordinate":"50","y_cordinate":"60","shape":"square","status":"1"}]}
+
+
+Response params :
+
+{"success":"200","message":"Floor is successfully created.","data":{"floor_data":{"restaurant_id":"8","name":"3rd Floor","status":"1","created_by":"3","created_at":"2019-07-10 09:45:57","id":"64"},"table_data":{"table_data":[{"restaurant_id":"8","floor_id":"64","name":"first_table","width":"60","height":"60","x_cordinate":"50","y_cordinate":"60","shape":"circle","min_capacity":"4","max_capacity":"8","status":"1","created_by":"3","created_at":"2019-07-10 09:45:57","id":"205"},{"restaurant_id":"8","floor_id":"64","name":"second_table","width":"40","height":"70","x_cordinate":"50","y_cordinate":"40","shape":"shquare","min_capacity":"2","max_capacity":"6","status":"1","created_by":"3","created_at":"2019-07-10 09:45:57","id":"206"},{"restaurant_id":"8","floor_id":"64","name":"third_table","width":"20","height":"80","x_cordinate":"30","y_cordinate":"90","shape":"rectangle","min_capacity":"4","max_capacity":"8","status":"1","created_by":"3","created_at":"2019-07-10 09:45:57","id":"207"},{"restaurant_id":"8","floor_id":"64","name":"fourth_table","width":"60","height":"60","x_cordinate":"50","y_cordinate":"60","shape":"square","min_capacity":"4","max_capacity":"8","status":"1","created_by":"3","created_at":"2019-07-10 09:45:57","id":"208"}]}}}
+
+
+/////////////////////////////////////////////////////////////
+Update  Floor and it's tables
+///////////////////////////////////////////////////////////////
+
+URL : http://localhost/chiefsRS/api/web/floor/update-floor
+
+Request Params : 
+
+{"user_id":"3","floor_data":{"name":"4rd Floor","status":"0","id":"63"},"table_data":[{"name":"1sttable","width":"60","height":"60","min_cap":"4","max_cap":"8","x_cordinate":"50","y_cordinate":"60","shape":"circle","status":"1","id":"201"},{"name":"second_table","width":"40","height":"70","min_cap":"2","max_cap":"6","x_cordinate":"50","y_cordinate":"40","shape":"shquare","status":"1","id":"202"},{"name":"third_table","width":"20","height":"80","min_cap":"4","max_cap":"8","x_cordinate":"30","y_cordinate":"90","shape":"rectangle","status":"1","id":"203"},{"name":"fourth_table","width":"60","height":"60","min_cap":"4","max_cap":"8","x_cordinate":"50","y_cordinate":"60","shape":"square","status":"1","id":"204"}]}
+
+
+Response params :
+
+{"success":"200","message":"Floor is successfully Updated.","data":{"floor_data":{"id":"63","restaurant_id":"8","name":"4rd Floor","created_by":"3","updated_by":"3","status":"0","created_at":"2019-07-09 12:46:07","updated_at":"2019-07-10 09:49:41"},"table_data":[{"id":"201","restaurant_id":"8","floor_id":"63","name":"1sttable","width":"60","height":"60","x_cordinate":"50","y_cordinate":"60","shape":"circle","min_capacity":"4","max_capacity":"8","created_by":"3","updated_by":"3","status":"1","created_at":"2019-07-09 12:46:07","updated_at":"2019-07-10 09:49:41"},{"id":"202","restaurant_id":"8","floor_id":"63","name":"second_table","width":"40","height":"70","x_cordinate":"50","y_cordinate":"40","shape":"shquare","min_capacity":"2","max_capacity":"6","created_by":"3","updated_by":"3","status":"1","created_at":"2019-07-09 12:46:07","updated_at":"2019-07-10 09:49:41"},{"id":"203","restaurant_id":"8","floor_id":"63","name":"third_table","width":"20","height":"80","x_cordinate":"30","y_cordinate":"90","shape":"rectangle","min_capacity":"4","max_capacity":"8","created_by":"3","updated_by":"3","status":"1","created_at":"2019-07-09 12:46:07","updated_at":"2019-07-10 09:49:41"},{"id":"204","restaurant_id":"8","floor_id":"63","name":"fourth_table","width":"60","height":"60","x_cordinate":"50","y_cordinate":"60","shape":"square","min_capacity":"4","max_capacity":"8","created_by":"3","updated_by":"3","status":"1","created_at":"2019-07-09 12:46:07","updated_at":"2019-07-10 09:49:41"}]}}
+
+
+/////////////////////////////////////////////////////////////
+Get Floors
+///////////////////////////////////////////////////////////////
+
+URL : localhost/chiefsRS/api/web/floor/get-floors
+
+Request Params : 
+
+{"user_id":"3"}
+
+Response params :
+
+{"success":"200","message":"User Floors Details.","data":{"floor_data":[{"id":"38","restaurant_id":"8","name":"1st Floor","status":"1","table_data":[{"id":"125","restaurant_id":"8","floor_id":"38","width":"60","height":"60","x_cordinate":"50","y_cordinate":"60","max_capacity":"8","min_capacity":"4","shape":"circle","status":"1"},{"id":"126","restaurant_id":"8","floor_id":"38","width":"40","height":"70","x_cordinate":"50","y_cordinate":"40","max_capacity":"6","min_capacity":"2","shape":"shquare","status":"1"},{"id":"127","restaurant_id":"8","floor_id":"38","width":"20","height":"80","x_cordinate":"30","y_cordinate":"90","max_capacity":"8","min_capacity":"4","shape":"rectangle","status":"1"}]},{"id":"64","restaurant_id":"8","name":"3rd Floor","status":"1","table_data":[{"id":"205","restaurant_id":"8","floor_id":"64","width":"60","height":"60","x_cordinate":"50","y_cordinate":"60","max_capacity":"8","min_capacity":"4","shape":"circle","status":"1"},{"id":"206","restaurant_id":"8","floor_id":"64","width":"40","height":"70","x_cordinate":"50","y_cordinate":"40","max_capacity":"6","min_capacity":"2","shape":"shquare","status":"1"},{"id":"207","restaurant_id":"8","floor_id":"64","width":"20","height":"80","x_cordinate":"30","y_cordinate":"90","max_capacity":"8","min_capacity":"4","shape":"rectangle","status":"1"},{"id":"208","restaurant_id":"8","floor_id":"64","width":"60","height":"60","x_cordinate":"50","y_cordinate":"60","max_capacity":"8","min_capacity":"4","shape":"square","status":"1"}]}]}}
+
+
+/////////////////////////////////////////////////////////////
+Delete Floor
+///////////////////////////////////////////////////////////////
+
+URL : http://localhost/chiefsRS/api/web/floor/delete-floor
+
+Request Params : 
+
+{"user_id":"3","floor_id":"64"}
+
+Response params :
+
+{"success":"200","message":"Floor is deleted successfully.","data":[]}
+
+/////////////////////////////////////////////////////////////
+Delete table
+///////////////////////////////////////////////////////////////
+
+URL : http://localhost/chiefsRS/api/web/floor/delete-table
+
+Request Params : 
+
+{"user_id":"3","floor_id":"126"}
+
+Response params :
+
+{"success":"200","message":"Table is deleted successfully.","data":[]}
+
+/////////////////////////////////////////////////////////////
+Add Guest
+///////////////////////////////////////////////////////////////
+
+URL : localhost/chiefsRS/api/web/guest/add-guest
+
+Request Params : 
+
+{"user_id":"3","first_name":"test","last_name":"user","email":"testing12@gmail.com","contact_no":"9987458989","reservation_id":""}
+Response params :
+
+{"success":"200","message":"Guest is successfully created.","data":{"GuestDetails":{"id":"30","first_name":"test","last_name":"user","email":"testisng12@gmail.com","contact_no":"9987458389","guest_note":"null","birthday":"null","anniversary":"null"}}}
+
+
+
+
+
+
+
+
+
+
