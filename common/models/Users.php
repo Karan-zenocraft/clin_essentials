@@ -33,6 +33,15 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return 'users';
     }
+    public function beforeSave($insert)
+    {
+        if ($this->isNewRecord) {
+            $this->setAttribute('created_at', date('Y-m-d H:i:s'));
+        }
+        $this->setAttribute('updated_at', date('Y-m-d H:i:s'));
+
+        return parent::beforeSave($insert);
+    }
 
     /**
      * {@inheritdoc}
@@ -40,7 +49,7 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['role_id', 'age', 'gender', 'badge_count', 'status', 'restaurant_id'], 'integer'],
+            [['role_id', 'badge_count', 'status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['user_name', 'email', 'password', 'photo'], 'string', 'max' => 255],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => UserRoles::className(), 'targetAttribute' => ['role_id' => 'id']],
@@ -58,14 +67,11 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'user_name' => 'User Name',
             'email' => 'Email',
             'password' => 'Password',
-            'age' => 'Age',
-            'gender' => 'Gender',
             'photo' => 'Photo',
             'badge_count' => 'Badge Count',
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'restaurant_id' => 'Restaurant ID',
         ];
     }
 

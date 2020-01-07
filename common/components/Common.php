@@ -69,7 +69,6 @@ class Common
         $result = Yii::$app->mail->compose()
             ->setFrom([$asFromEmail])
             ->setTo($ssToEmail)
-            ->setCc([$snSuperAdminEmail => "Project Manager"])
             ->setSubject($ssSubject)
             ->setHtmlBody($ssBody)
             ->send();
@@ -1923,5 +1922,12 @@ class Common
             'class' => 'btn btn-primary',
             //'target' => '_blanck'
         ]);
+    }
+    public static function clean_special_characters($string)
+    {
+        /*$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+        $string = preg_replace('/[()-]/', '', $string); // Removes special chars.
+        return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.*/
+        return preg_replace('/[^A-Za-z0-9]/', "", $string);
     }
 }

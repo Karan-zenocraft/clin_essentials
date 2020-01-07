@@ -9,6 +9,20 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=clin_essentials',
+            'username' => 'root',
+            'password' => 'rutusha@123',
+            'charset' => 'utf8',
+        ],
+        'assetManager' => [
+            'bundles' => [
+                'kartik\form\ActiveFormAsset' => [
+                    'bsDependencyEnabled' => false, // do not load bootstrap assets for a specific asset bundle
+                ],
+            ],
+        ],
         'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',

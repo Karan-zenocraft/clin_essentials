@@ -1,25 +1,32 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\LoginForm;
+use common\models\Users;
+use frontend\models\ContactForm;
+use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResendVerificationEmailForm;
+use frontend\models\ResetPasswordForm;
+use frontend\models\SignupForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+    public function beforeAction($action)
+    {
+
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
     /**
      * {@inheritdoc}
      */
@@ -197,12 +204,12 @@ class SiteController extends Controller
     {
         try {
             $model = new ResetPasswordForm($token);
-        } catch (InvalidArgumentException $e) {
+        } catch (InvalidParamException $e) {
             throw new BadRequestHttpException($e->getMessage());
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password saved.');
+            Yii::$app->getSession()->setFlash('success', 'New password was saved.');
 
             return $this->goHome();
         }
@@ -237,6 +244,25 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
+    public function actionEmailVerify($verify, $e)
+    {
+        $email = base64_decode($e);
+        $verificationcode = base64_decode($verify);
+        $user = Users::findOne(['email' => $email, 'verification_code' => $verificationcode]);
+        if (!empty($user) && ($user->is_code_verified == "0")) {
+            $user->is_code_verified = "1";
+            $user->save(false);
+            Yii::$app->getSession()->setFlash('success', Yii::getAlias('Your Email is successfully verified.Please login in website.'));
+            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/index']));
+        } else if (!empty($user) && ($user->is_code_verified == "1")) {
+            Yii::$app->getSession()->setFlash('fail', 'Your Email is already verified.');
+            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/index']));
+        } else {
+            Yii::$app->getSession()->setFlash('fail', 'Something went wrong please check your link');
+            return $this->redirect(\Yii::$app->urlManager->createUrl(['site/index']));
+        }
+    }
+
     /**
      * Resend verification email
      *
@@ -254,7 +280,7 @@ class SiteController extends Controller
         }
 
         return $this->render('resendVerificationEmail', [
-            'model' => $model
+            'model' => $model,
         ]);
     }
 }

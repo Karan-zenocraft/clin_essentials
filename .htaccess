@@ -1,6 +1,7 @@
 RewriteEngine On
 
 RewriteRule ^(common)/ - [L]
+RewriteRule ^(uploads)/ - [L]
 
 # End the processing, if a rewrite already occurred
 RewriteRule ^(frontend|backend)/web/ - [L]
