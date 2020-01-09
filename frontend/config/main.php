@@ -38,13 +38,13 @@ return [
         ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            'baseUrl' => ($_SERVER['HTTP_HOST'] == "localhost") ? '/clin_essentials' : '',
+            'baseUrl' => (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "10.160.7.150")) ? '/clin_essentials' : '',
         ],
 
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'scriptUrl' => ($_SERVER['HTTP_HOST'] == "localhost") ? '/clin_essentials' : '',
+            'scriptUrl' => (($_SERVER['HTTP_HOST'] == "localhost") || ($_SERVER['HTTP_HOST'] == "10.160.7.150")) ? '/clin_essentials' : '',
             'rules' => [
             ],
         ],

@@ -399,13 +399,13 @@ class UsersController extends \yii\base\Controller
                     return false;
                 }
             }
-            $resetLink = Yii::$app->params['root_url_live'] . "site/reset-password?token=" . $omUsers->password_reset_token;
+            $resetLink = Yii::$app->params['root_url'] . "/site/reset-password?token=" . $omUsers->password_reset_token;
 
             $emailformatemodel = EmailFormat::findOne(["title" => 'reset_password', "status" => '1']);
             if ($emailformatemodel) {
 
                 //create template file
-                $AreplaceString = array('{resetLink}' => $resetLink, '{username}' => $omUsers->first_name);
+                $AreplaceString = array('{resetLink}' => $resetLink, '{username}' => $omUsers->user_name);
                 $body = Common::MailTemplate($AreplaceString, $emailformatemodel->body);
 
                 //send email for new generated password

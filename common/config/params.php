@@ -1,6 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'admin@foodapp.com',
+    'adminEmail' => 'testingforproject0@gmail.com',
     'supportEmail' => 'support@example.com',
     'senderEmail' => 'noreply@example.com',
     'senderName' => 'Example.com mailer',
