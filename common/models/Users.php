@@ -49,10 +49,12 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['role_id', 'badge_count', 'status'], 'integer'],
+            [['role_id', 'user_name', 'email', 'password'], 'required'],
+            // [['role_id', 'badge_count', 'status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['user_name', 'email', 'password', 'photo'], 'string', 'max' => 255],
-            [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => UserRoles::className(), 'targetAttribute' => ['role_id' => 'id']],
+            [['photo'], 'image', 'extensions' => 'jpg, jpeg, gif, png'],
+            [['user_name', 'email', 'password'], 'string', 'max' => 255],
+            //  [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => UserRoles::className(), 'targetAttribute' => ['role_id' => 'id']],
         ];
     }
 
@@ -80,7 +82,7 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public function getRole()
     {
-        return $this->hasOne(UserRole::className(), ['id' => 'role_id']);
+        return $this->hasOne(UserRoles::className(), ['id' => 'role_id']);
     }
 
     /**

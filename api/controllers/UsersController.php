@@ -33,7 +33,7 @@ class UsersController extends \yii\base\Controller
         $amResponse = $amReponseParam = [];
 
         // Check required validation for request parameter.
-        $amRequiredParams = array('email', 'password', 'device_id');
+        $amRequiredParams = array('email', 'password', 'device_id', 'device_type');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
 
         // If any getting error in request paramter then set error message.
@@ -53,13 +53,13 @@ class UsersController extends \yii\base\Controller
                 $ssMessage = ' User has been deactivated. Please contact admin.';
                 $amResponse = Common::errorResponse($ssMessage);
             } else {
-                if (($device_model = DeviceDetails::findOne(['type' => "1", 'user_id' => $model->id])) === null) {
+                if (($device_model = DeviceDetails::findOne(['type' => $requestParam['device_type'], 'user_id' => $model->id])) === null) {
                     $device_model = new DeviceDetails();
                 }
 
                 $device_model->setAttributes($amData['request_param']);
                 $device_model->device_tocken = $requestParam['device_id'];
-                $device_model->type = "1";
+                $device_model->type = $requestParam['device_type'];
                 $device_model->user_id = $model->id;
                 //  $device_model->created_at    = date( 'Y-m-d H:i:s' );
                 $device_model->save(false);
@@ -104,7 +104,7 @@ class UsersController extends \yii\base\Controller
         $amResponse = $amReponseParam = [];
 
         // Check required validation for request parameter.
-        $amRequiredParams = array('user_name', 'email', 'password', 'device_id', 'phone');
+        $amRequiredParams = array('user_name', 'email', 'password', 'device_id', 'device_type');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
 
         // If any getting error in request paramter then set error message.
@@ -121,10 +121,10 @@ class UsersController extends \yii\base\Controller
                 $amResponse = Common::errorResponse("This Email id is already registered.");
                 Common::encodeResponseJSON($amResponse);
             }
-            if (!empty(Users::findOne(["phone" => $requestParam['phone']]))) {
-                $amResponse = Common::errorResponse("Phone you entered is already registered by other user.");
-                Common::encodeResponseJSON($amResponse);
-            }
+            /*  if (!empty(Users::findOne(["phone" => $requestParam['phone']]))) {
+            $amResponse = Common::errorResponse("Phone you entered is already registered by other user.");
+            Common::encodeResponseJSON($amResponse);
+            }*/
             $model = new Users();
         } else {
             $snUserId = $requestParam['user_id'];
@@ -136,11 +136,11 @@ class UsersController extends \yii\base\Controller
                     $amResponse = Common::errorResponse("Email you entered is already registred by other user.");
                     Common::encodeResponseJSON($amResponse);
                 }
-                $modelUserr = Users::find()->where("id != '" . $snUserId . "' AND phone = '" . $requestParam['phone'] . "'")->all();
-                if (!empty($modelUserr)) {
-                    $amResponse = Common::errorResponse("Phone you entered is already registered by other user.");
-                    Common::encodeResponseJSON($amResponse);
-                }
+                /*    $modelUserr = Users::find()->where("id != '" . $snUserId . "' AND phone = '" . $requestParam['phone'] . "'")->all();
+            if (!empty($modelUserr)) {
+            $amResponse = Common::errorResponse("Phone you entered is already registered by other user.");
+            Common::encodeResponseJSON($amResponse);
+            }*/
             }
         }
 
@@ -208,7 +208,7 @@ class UsersController extends \yii\base\Controller
             $amReponseParam['email'] = $model->email;
             $amReponseParam['id'] = $model->id;
             $amReponseParam['user_name'] = $model->user_name;
-            $amReponseParam['phone'] = $model->phone;
+            //$amReponseParam['phone'] = $model->phone;
             $amReponseParam['verification_code'] = $model->verification_code;
             $amReponseParam['is_code_verified'] = !empty($model->is_code_verified) && ($model->is_code_verified > 0) ? $model->is_code_verified : 0;
             $amReponseParam['photo'] = !empty($model->photo) && file_exists(Yii::getAlias('@root') . '/' . "uploads/profile_pictures/" . $model->photo) ? Yii::$app->params['root_url'] . '/' . "uploads/profile_pictures/" . $model->photo : Yii::$app->params['root_url'] . '/' . "uploads/no_image.png";
@@ -217,7 +217,7 @@ class UsersController extends \yii\base\Controller
             /*   $amReponseParam['gcm_registration_id'] = !empty($device_model->gcm_id) ? $device_model->gcm_id : "";*/
             $amReponseParam['auth_token'] = $ssAuthToken;
 
-            $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+            $amResponse = Common::successResponse($ssMessage, array_map('strval', $amReponseParam));
         }
         // FOR ENCODE RESPONSE INTO JSON //
         Common::encodeResponseJSON($amResponse);

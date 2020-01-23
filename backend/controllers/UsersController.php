@@ -81,7 +81,7 @@ class UsersController extends AdminCoreController
                 //p(trim($file_name));
                 $file_filter = str_replace(" ", "", $file_name);
                 $model->photo = $file_filter;
-                $file->saveAs(Yii::getAlias('@root') . '/uploads/' . $file_filter);
+                $file->saveAs(Yii::getAlias('@root') . '/uploads/profile_pictures/' . $file_filter);
             }
             $model->generateAuthKey();
             $email_verify_link = Yii::$app->params['root_url'] . '/site/email-verify?verify=' . base64_encode($model->verification_code) . '&e=' . base64_encode($model->email);
@@ -95,7 +95,7 @@ class UsersController extends AdminCoreController
                 $body = Common::MailTemplate($AreplaceString, $emailformatemodel->body);
                 $ssSubject = $emailformatemodel->subject;
                 //send email for new generated password
-                $ssResponse = Common::sendMail($model->email, Yii::$app->params['adminEmail'], $ssSubject, $body);
+                $ssResponse = Common::sendMailToUser($model->email, Yii::$app->params['adminEmail'], $ssSubject, $body);
 
             }
             return $this->redirect(['users/index']);
