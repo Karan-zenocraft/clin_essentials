@@ -41,5 +41,14 @@ return [
                 'encryption' => 'tls',
             ],
         ],
+        /*     'pdf' => [
+    'class' => Pdf::classname(),
+    'format' => Pdf::FORMAT_A4,
+    'orientation' => Pdf::ORIENT_PORTRAIT,
+    'destination' => Pdf::DEST_DOWNLOAD,
+    'mode' => MODE_UTF8,
+    'tempPath' => Yii::$app->getAlias('@app/runtime/mpdf'),
+    // refer settings section for all configuration options
+    ],*/
     ],
 ];

@@ -60,7 +60,7 @@ class AdminLoginForm extends Model
                 $this->addError($attribute, Yii::t('app', 'Incorrect username or password.'));
             } else if (!$user || $user->status != self::ACTIVE_STATUS) {
                 $this->addError($attribute, Yii::t('app', 'Your Acount has been in active so please contact to administrator.'));
-            } else if ($user->role_id == Yii::$app->params['userroles']['customer']) {
+            } else if ($user->role_id == Yii::$app->params['userroles']['patient']) {
                 $this->addError($attribute, Yii::t('app', 'You are not authourize to login.'));
             }
         }

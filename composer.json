@@ -25,7 +25,8 @@
         "kartik-v/yii2-icons": "@dev",
         "imanilchaudhari/yii2-social-share": "dev-master",
         "pubnub/pubnub": "~4.1.5",
-        "2amigos/yii2-ckeditor-widget" : "~2.1"
+        "2amigos/yii2-ckeditor-widget" : "~2.1",
+        "kartik-v/yii2-mpdf": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
