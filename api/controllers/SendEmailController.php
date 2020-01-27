@@ -29,13 +29,13 @@ class SendEmailController extends \yii\base\Controller
             Common::encodeResponseJSON($amResponse);
         }
         $requestParam = $amData['request_param'];
-        $notes = json_decode(json_encode($requestParam['notes']), true);
-        // p($notes[1]);
+        //$notes = json_decode(json_encode($requestParam['notes']), true);
+        $notes = $requestParam['notes'];
 
         $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description');
 
         foreach ($notes as $key => $note) {
-            $amParamsResultNotes = Common::checkRequestParameterKey((array) json_decode($note), $amRequiredParamsNotes);
+            $amParamsResultNotes = Common::checkRequestParameterKey($note, $amRequiredParamsNotes);
 
             if (!empty($amParamsResultNotes['error'])) {
                 $amResponse = Common::errorResponse($amParamsResultNotes['error']);
@@ -52,8 +52,6 @@ class SendEmailController extends \yii\base\Controller
         if (!empty($userModel)) {
             $fromEmail = $userModel->email;
             foreach ($notes as $key => $note) {
-                # code...
-                $noteArr = json_decode($note);
                 $html = '<!DOCTYPE html>
                         <html>
 
@@ -65,11 +63,11 @@ class SendEmailController extends \yii\base\Controller
 
                         <body>
 
-                            <header style="background:' . $noteArr->color_code . '">
+                            <header style="background:' . $note['color_code'] . '">
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-12 p-0">
-                                            <h1>' . $noteArr->title . '...</h1>
+                                            <h1>' . $note['title'] . '...</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -78,8 +76,8 @@ class SendEmailController extends \yii\base\Controller
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="p_id" style="font-family:' . $noteArr->font_name . ';font-size:' . $noteArr->font_size . 'px;">Patient ID :<span>' . $noteArr->patient_id . '</span></p>
-                                            <p style="font-family:' . $noteArr->font_name . ';font-size: ' . $noteArr->font_size . 'px">Comments : ' . $noteArr->description . '</p>
+                                            <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">Patient ID :<span>' . $note['patient_id'] . '</span></p>
+                                            <p style="font-family:' . $note['font_name'] . ';font-size: ' . $note['font_size'] . 'px">Comments : ' . $note['description'] . '</p>
                                         </div>
                                     </div>
 
@@ -104,7 +102,7 @@ class SendEmailController extends \yii\base\Controller
                     // any css to be embedded if required
                     'cssFile' => '@api/web/css/notes.css',
                     // set mPDF properties on the fly
-                    'options' => ['title' => $noteArr->title],
+                    'options' => ['title' => $note['title']],
                     // call mPDF methods on the fly
                     'methods' => [
                         'SetHeader' => [''],
@@ -122,19 +120,19 @@ class SendEmailController extends \yii\base\Controller
                     $ssSubject = $emailformatemodel->subject;
                     //send email for new generated password
                     $attach = !empty($file_name) && file_exists(Yii::getAlias('@root') . '/' . "uploads/pdf_files/" . $file_name) ? Yii::$app->params['root_url'] . '/' . "uploads/pdf_files/" . $file_name : "";
-                    $ssResponse = Common::sendMailToUserWithAttachment($noteArr->patient_email, $fromEmail, $ssSubject, $body, $attach);
+                    $ssResponse = Common::sendMailToUserWithAttachment($note['patient_email'], $fromEmail, $ssSubject, $body, $attach);
                     if ($ssResponse) {
                         $sentNotesModel = new SentNotes();
-                        $sentNotesModel->note_id = $noteArr->note_id;
-                        $sentNotesModel->color_code = $noteArr->color_code;
-                        $sentNotesModel->title = $noteArr->title;
-                        $sentNotesModel->description = $noteArr->description;
+                        $sentNotesModel->note_id = $note['note_id'];
+                        $sentNotesModel->color_code = $note['color_code'];
+                        $sentNotesModel->title = $note['title'];
+                        $sentNotesModel->description = $note['description'];
                         $sentNotesModel->from_user_id = $requestParam['user_id'];
                         $sentNotesModel->to_patient_id = !empty($requestParam['to_patient_id']) ? $requestParam['to_patient_id'] : "";
-                        $sentNotesModel->to_patient_id = $noteArr->patient_id;
-                        $sentNotesModel->to_email_id = $noteArr->patient_email;
-                        $sentNotesModel->font_size = $noteArr->font_size;
-                        $sentNotesModel->font_name = $noteArr->font_name;
+                        $sentNotesModel->to_patient_id = $note['patient_id'];
+                        $sentNotesModel->to_email_id = $note['patient_email'];
+                        $sentNotesModel->font_size = $note['font_size'];
+                        $sentNotesModel->font_name = $note['font_name'];
                         $sentNotesModel->pdf_filename = Yii::$app->params['root_url'] . "/uploads/pdf_files/" . $file_name;
                         $sentNotesModel->save(false);
                         $sentNotes[] = $sentNotesModel;
