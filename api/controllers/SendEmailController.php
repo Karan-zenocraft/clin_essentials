@@ -78,15 +78,14 @@ class SendEmailController extends \yii\base\Controller
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="p_id" style="font-family:' . $noteArr->font_name . ';font-size:"' . $noteArr->font_size . 'px""> Patient ID :<span>' . $noteArr->patient_id . '</span></p>
-                                            <p style="font-family:' . $noteArr->font_name . ';font-size: ' . $noteArr->font_size . 'px">' . $noteArr->description . '</p>
+                                            <p class="p_id" style="font-family:' . $noteArr->font_name . ';font-size:' . $noteArr->font_size . 'px;">Patient ID :<span>' . $noteArr->patient_id . '</span></p>
+                                            <p style="font-family:' . $noteArr->font_name . ';font-size: ' . $noteArr->font_size . 'px">Comments : ' . $noteArr->description . '</p>
                                         </div>
                                     </div>
 
                                 </div>
                             </section>
                         </body>
-
                         </html>';
 //            $content = $this->renderPartial('_reportView');
 
@@ -109,7 +108,7 @@ class SendEmailController extends \yii\base\Controller
                     // call mPDF methods on the fly
                     'methods' => [
                         'SetHeader' => [''],
-                        'SetFooter' => ['{PAGENO}'],
+                        'SetFooter' => [''],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -138,12 +137,14 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->font_name = $noteArr->font_name;
                         $sentNotesModel->pdf_filename = $file_name;
                         $sentNotesModel->save(false);
+                        $sentNotes[] = $sentNotesModel;
                     }
 
                 }
             }
+            $amReponseParam = $sentNotes;
             $ssMessage = 'Your Email is successfully sent.';
-            $amResponse = Common::errorResponse($ssMessage);
+            $amResponse = Common::successResponse($ssMessage, $amReponseParam);
         } else {
             $ssMessage = 'Invalid user_id';
             $amResponse = Common::errorResponse($ssMessage);
