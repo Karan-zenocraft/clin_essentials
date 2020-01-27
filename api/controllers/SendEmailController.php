@@ -143,7 +143,7 @@ class SendEmailController extends \yii\base\Controller
                 }
             }
             $amReponseParam = $sentNotes;
-            $ssMessage = 'Your Email is successfully sent.';
+            $ssMessage = 'PDF is successfully sent through email.';
             $amResponse = Common::successResponse($ssMessage, $amReponseParam);
         } else {
             $ssMessage = 'Invalid user_id';
