@@ -1,0 +1,86 @@
+        @font-face {
+            font-family: FrutingerBQBold;
+            src: url(../../common/web/fonts/FRUTBB_.ttf);
+        }
+
+        @font-face {
+            font-family: FrutingerBQLight;
+            src: url(../../common/web/fonts/FRUTBL_.ttf);
+        }
+
+        @font-face {
+            font-family: FrutingerBQRoman;
+            src: url(../../common/web/fonts/FRUTBR_.ttf);
+        }
+
+        @font-face {
+            font-family: FrutingerCondensedBQLight;
+            src: url(../../common/web/fonts/FRUTCBL.ttf);
+        }
+
+        @font-face {
+            font-family: Helvetica;
+            src: url(../../common/web/fonts/Helvetica.ttf);
+        }
+
+        @font-face {
+            font-family: Impact;
+            src: url(../../common/web/fonts/Impact.ttf);
+        }
+
+        @font-face {
+            font-family: leaguegothic-regular-webfont;
+            src: url(../../common/web/fonts/leaguegothic-regular-webfont.ttf);
+        }
+
+        @font-face {
+            font-family: Playlist Script;
+            src: url(../../common/web/fonts/Playlist Script.otf);
+        }
+
+        html {
+            height: 100%;
+            background: #fff;
+            border-radius: 0px 0px 30px 30px;
+            border: 1px solid #a5a5a5;
+        }
+
+        header {
+            padding: 20px 0px;
+            border-radius: 30px 30px 0px 0px;
+            border: 1px solid #a5a5a5;
+        }
+
+        header h1 {
+            color: #fff;
+            font-family: "FrutingerBQRoman";
+            font-weight: 400;
+            letter-spacing: 0px;
+            text-transform: capitalize;
+            font-size: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: 0;
+        }
+
+        section {
+            background: #fff;
+        }
+
+        section p {
+            color: #333;
+            font-weight: 400;
+            letter-spacing: 0px;
+            text-transform: capitalize;
+            line-height: 20px;
+            margin: 15px 0px;
+        }
+
+        section .p_id {
+            color: #333;
+            font-weight: 400;
+            letter-spacing: 0px;
+            text-transform: capitalize;
+            line-height: 20px;
+            margin: 15px 0px;
+        }

@@ -32,7 +32,7 @@ class SendEmailController extends \yii\base\Controller
         $notes = json_decode(json_encode($requestParam['notes']), true);
         // p($notes[1]);
 
-        $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'description');
+        $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description');
 
         foreach ($notes as $key => $note) {
             $amParamsResultNotes = Common::checkRequestParameterKey((array) json_decode($note), $amRequiredParamsNotes);
@@ -55,50 +55,39 @@ class SendEmailController extends \yii\base\Controller
                 # code...
                 $noteArr = json_decode($note);
                 $html = '<!DOCTYPE html>
-                <html>
-                    <head>
-                        <title>Enroot</title>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-                        <style>
-                            html{height: 100%;background: #fff;}
-                            header{background: #5f5f9c;padding: 30px 0px;border-radius: 50px 50px 0px 0px;border: 0.5px solid #ddd;}
-                            header h1{color: #fff;font-family: ' . !empty($noteArr->font_name) ? $noteArr->font_name : "Poppins" . ', sans-serif;font-weight: 400;letter-spacing: 0px;text-transform: capitalize;font-size: ' . !empty($noteArr->font_size) ? $noteArr->font_size : "40" . ';line-height: ' . !empty($noteArr->font_size) ? $noteArr->font_size : "40px" . ';text-align: center;}
-                             section{background: #fff;}
-                            section p{color: #333;font-family: "Poppins", sans-serif;font-weight: 400;letter-spacing: 0px;text-transform: capitalize;font-size: 14px;line-height: 20px;margin: 10px 0px;}
-                        </style>
-                    </head>
-                <body>
-​
-                    <header>
-                        <div class="container-fluid">
-                        <div class="row">
-                        <div class="col-md-12 p-0">
-                        <h1>Adverse Event...</h1>
-                        </div>
-                        </div>
-                        </div>
-                        </header>
-                        <section>
-                            <div class="container-fluid">
-                            <div class="row">
-                            <div class="col-md-12">
-                            <p> This is the operating system that powers many Apple-based devices ranging from
-                            iPhone, iPad, etc. offering multiple innovative features enhancing user experience. The
-                            benefits it provides are endless, given the integration of dynamic Apple features on their
-                            devices making it the second most popular OS.</p>
-                                <p>This is the operating system that powers many Apple-based devices ranging from
-                            iPhone, iPad, etc. offering multiple innovative features enhancing user experience. The
-                            benefits it provides are endless, given the integration of dynamic Apple features on their
-                            devices making it the second most popular OS.</p>
-                            </div>
-                            </div>
-                            </div>
-                        </section>
-                </body>
-            </html>';
+                        <html>
+
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+                        </head>
+
+                        <body>
+
+                            <header style="background:' . $noteArr->color_code . '">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12 p-0">
+                                            <h1>' . $noteArr->title . '...</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                            <section>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="p_id" style="font-family:' . $noteArr->font_name . ';font-size:"' . $noteArr->font_size . 'px""> Patient ID :<span>' . $noteArr->patient_id . '</span></p>
+                                            <p style="font-family:' . $noteArr->font_name . ';font-size: ' . $noteArr->font_size . 'px">' . $noteArr->description . '</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                        </body>
+
+                        </html>';
 //            $content = $this->renderPartial('_reportView');
 
                 // setup kartik\mpdf\Pdf component
@@ -113,16 +102,13 @@ class SendEmailController extends \yii\base\Controller
                     'destination' => Pdf::DEST_FILE,
                     // your html content input
                     'content' => $html,
-                    // format content from your own css file if needed or use the
-                    // enhanced bootstrap css built by Krajee for mPDF formatting
-                    //  'cssFile' => '@vendor/kartik-v/yii2-mpdf/assets/kv-mpdf-bootstrap.min.css',
                     // any css to be embedded if required
-                    'cssInline' => '.kv-heading-1{font-size:18px}',
+                    'cssFile' => '@api/web/css/notes.css',
                     // set mPDF properties on the fly
                     'options' => ['title' => $noteArr->title],
                     // call mPDF methods on the fly
                     'methods' => [
-                        'SetHeader' => ['Clin Essentials Note'],
+                        'SetHeader' => [''],
                         'SetFooter' => ['{PAGENO}'],
                     ],
                 ]);
@@ -133,15 +119,11 @@ class SendEmailController extends \yii\base\Controller
                 $emailformatemodel = EmailFormat::findOne(["title" => 'note_email', "status" => '1']);
                 if ($emailformatemodel) {
 
-                    //create template file
-                    /*   $AreplaceString = array('{password}' => $requestParam['password'], '{username}' => $model->user_name, '{email}' => $model->email, '{email_verify_link}' => $email_verify_link);
-
-                    $body = Common::MailTemplate($AreplaceString, $emailformatemodel->body);*/
                     $body = $emailformatemodel->body;
                     $ssSubject = $emailformatemodel->subject;
                     //send email for new generated password
                     $attach = !empty($file_name) && file_exists(Yii::getAlias('@root') . '/' . "uploads/pdf_files/" . $file_name) ? Yii::$app->params['root_url'] . '/' . "uploads/pdf_files/" . $file_name : "";
-                    $ssResponse = Common::sendMailToUserWithAttachment($noteArr->patient_id, $fromEmail, $ssSubject, $body, $attach);
+                    $ssResponse = Common::sendMailToUserWithAttachment($noteArr->patient_email, $fromEmail, $ssSubject, $body, $attach);
                     if ($ssResponse) {
                         $sentNotesModel = new SentNotes();
                         $sentNotesModel->note_id = $noteArr->note_id;
@@ -150,7 +132,8 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->description = $noteArr->description;
                         $sentNotesModel->from_user_id = $requestParam['user_id'];
                         $sentNotesModel->to_patient_id = !empty($requestParam['to_patient_id']) ? $requestParam['to_patient_id'] : "";
-                        $sentNotesModel->to_email_id = $noteArr->patient_id;
+                        $sentNotesModel->to_patient_id = $noteArr->patient_id;
+                        $sentNotesModel->to_email_id = $noteArr->patient_email;
                         $sentNotesModel->font_size = $noteArr->font_size;
                         $sentNotesModel->font_name = $noteArr->font_name;
                         $sentNotesModel->pdf_filename = $file_name;

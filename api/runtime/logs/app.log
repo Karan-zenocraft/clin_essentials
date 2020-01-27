@@ -7384,3 +7384,524 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1579875664.519
     'REQUEST_TIME' => 1579875664
 ]
+2020-01-27 05:31:27 [10.160.7.150][-][-][error][Error] Error: Class 'api\controllers\EmailFormat' not found in /var/www/html/clin_essentials/api/controllers/SendEmailController.php:96
+Stack trace:
+#0 [internal function]: api\controllers\SendEmailController->actionSendPdf()
+#1 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf', Array)
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#7 {main}
+2020-01-27 05:31:27 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_id' => '3'
+    'notes' => [
+        1 => '{\"id\": \"16\", \"color_code\": \"#d17341\",\"title\" : \"Temperature Excursion\",\"font_name\": \"\",\"font_size\":\"\",\"patient_id\":\"rutusha1212joshi.com\",\"description\":\"test description test description\"}'
+        2 => '{\"id\": \"1\", \"color_code\": \"#5f5f9c\",\"title\" : \"Adverse Event\",\"font_name\": \"Arial\",\"font_size\":\"12\",\"patient_id\":\"testingforproject0.com\",\"description\":\"test description test description test description\"}'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------861694763859787068273629'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '8009a375-84d7-4c11-b7df-806ceaf05e84'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '770'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '56898'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580103087.353
+    'REQUEST_TIME' => 1580103087
+]
+2020-01-27 05:35:16 [10.160.7.150][-][-][error][Swift_RfcComplianceException] Swift_RfcComplianceException: Address in mailbox given [rutusha1212joshi.com] does not comply with RFC 2822, 3.6.2. in /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php:355
+Stack trace:
+#0 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(272): Swift_Mime_Headers_MailboxHeader->assertValidAddress('rutusha1212josh...')
+#1 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(117): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(74): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderFactory.php(61): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderSet.php(71): Swift_Mime_SimpleHeaderFactory->createMailboxHeader('To', Array)
+#5 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMessage.php(323): Swift_Mime_SimpleHeaderSet->addMailboxHeader('To', Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2-swiftmailer/src/Message.php(139): Swift_Mime_SimpleMessage->setTo('rutusha1212josh...')
+#7 /var/www/html/clin_essentials/common/components/Common.php(93): yii\swiftmailer\Message->setTo('rutusha1212josh...')
+#8 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(108): common\components\Common::sendMailToUserWithAttachment('rutusha1212josh...', 'rutusha.joshi@z...', 'Clin Essentials...', '<table cellpadd...', 'http://10.160.7...')
+#9 [internal function]: api\controllers\SendEmailController->actionSendPdf()
+#10 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#11 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#12 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf', Array)
+#13 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#14 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#16 {main}
+2020-01-27 05:35:15 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_id' => '3'
+    'notes' => [
+        1 => '{\"id\": \"16\", \"color_code\": \"#d17341\",\"title\" : \"Temperature Excursion\",\"font_name\": \"\",\"font_size\":\"\",\"patient_id\":\"rutusha1212joshi.com\",\"description\":\"test description test description\"}'
+        2 => '{\"id\": \"1\", \"color_code\": \"#5f5f9c\",\"title\" : \"Adverse Event\",\"font_name\": \"Arial\",\"font_size\":\"12\",\"patient_id\":\"testingforproject0.com\",\"description\":\"test description test description test description\"}'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------904118850666508731155556'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => 'e6e693b2-9cc8-471b-ad7f-c1452fe493eb'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '770'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '56904'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580103315.543
+    'REQUEST_TIME' => 1580103315
+]
+2020-01-27 05:58:15 [10.160.7.150][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined property: stdClass::$note_id in /var/www/html/clin_essentials/api/controllers/SendEmailController.php:110
+Stack trace:
+#0 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(110): yii\base\ErrorHandler->handleError(8, 'Undefined prope...', '/var/www/html/c...', 110, Array)
+#1 [internal function]: api\controllers\SendEmailController->actionSendPdf()
+#2 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf', Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#8 {main}
+2020-01-27 05:58:10 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_id' => '3'
+    'notes' => [
+        1 => '{\"id\": \"16\", \"color_code\": \"#d17341\",\"title\" : \"Temperature Excursion\",\"font_name\": \"\",\"font_size\":\"\",\"patient_id\":\"rutusha1212joshi@gmail.com\",\"description\":\"test description test description\"}'
+        2 => '{\"id\": \"1\", \"color_code\": \"#5f5f9c\",\"title\" : \"Adverse Event\",\"font_name\": \"Arial\",\"font_size\":\"12\",\"patient_id\":\"testingforproject0@gmail.com\",\"description\":\"test description test description test description\"}'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------219439484664166707715992'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '26649550-00ef-4d89-8162-e1ce4a031a28'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '782'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '58088'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580104690.613
+    'REQUEST_TIME' => 1580104690
+]
+2020-01-27 06:09:31 [10.160.7.150][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: json_decode() expects parameter 1 to be string, array given in /var/www/html/clin_essentials/api/controllers/SendEmailController.php:32
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'json_decode() e...', '/var/www/html/c...', 32, Array)
+#1 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(32): json_decode(Array)
+#2 [internal function]: api\controllers\SendEmailController->actionSendPdf()
+#3 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf', Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#7 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#9 {main}
+2020-01-27 06:09:31 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_id' => '3'
+    'notes' => [
+        1 => '{\"note_id\": \"16\", \"color_code\": \"#d17341\",\"title\" : \"Temperature Excursion\",\"font_name\": \"\",\"font_size\":\"\",\"patient_id\":\"rutusha1212joshi@gmail.com\",\"description\":\"test description1 test description1\"}'
+        2 => '{\"note_id\": \"1\", \"color_code\": \"#5f5f9c\",\"title\" : \"Adverse Event\",\"font_name\": \"Arial\",\"font_size\":\"12\",\"patient_id\":\"testingforproject0@gmail.com\",\"description\":\"test description2 test description test description2\"}'
+        3 => '{\"note_id\": \"2\", \"color_code\": \"#5f5f9c\",\"title\" : \"Adverse Event\",\"font_name\": \"Arial\",\"font_size\":\"12\",\"patient_id\":\"jay.varan@zenocraft.com\",\"description\":\"test description3 test description test description3\"}'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------417816579818139210377368'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '95293c20-3f3a-47d1-8c2f-33643f0d1d28'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '1116'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '58246'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580105371.978
+    'REQUEST_TIME' => 1580105371
+]
+2020-01-27 07:39:55 [10.160.7.150][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: CSS File not found: '/css/notes.css'. in /var/www/html/clin_essentials/vendor/kartik-v/yii2-mpdf/src/Pdf.php:316
+Stack trace:
+#0 /var/www/html/clin_essentials/vendor/kartik-v/yii2-mpdf/src/Pdf.php(378): kartik\mpdf\Pdf->getCss()
+#1 /var/www/html/clin_essentials/vendor/kartik-v/yii2-mpdf/src/Pdf.php(261): kartik\mpdf\Pdf->output('<!DOCTYPE html>...', '../../uploads/p...', 'F')
+#2 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(215): kartik\mpdf\Pdf->render()
+#3 [internal function]: api\controllers\SendEmailController->actionSendPdf()
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf', Array)
+#7 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#8 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#10 {main}
+2020-01-27 07:39:55 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_id' => '3'
+    'notes' => [
+        1 => '{\"note_id\": \"16\", \"color_code\": \"#d17341\",\"title\" : \"Temperature Excursion\",\"font_name\": \"FrutingerBQRoman\",\"font_size\":\"14\",\"patient_id\":\"rutusha1212joshi@gmail.com\",\"description\":\"test description1 test description1\"}'
+        2 => '{\"note_id\": \"1\", \"color_code\": \"#5f5f9c\",\"title\" : \"Adverse Event\",\"font_name\": \"Playlist Script\",\"font_size\":\"11\",\"patient_id\":\"testingforproject0@gmail.com\",\"description\":\"test description2 test description test description2\"}'
+        3 => '{\"note_id\": \"2\", \"color_code\": \"#76777a\",\"title\" : \"Black Note\",\"font_name\": \"Impact\",\"font_size\":\"19\",\"patient_id\":\"jay.varan@zenocraft.com\",\"description\":\"test description3 test description test description3\"}'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------367334591904643516708565'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '06902fb9-6cd9-40cd-b010-fe7d547a2871'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '1142'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '33872'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580110795.577
+    'REQUEST_TIME' => 1580110795
+]
+2020-01-27 07:40:55 [10.160.7.150][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: CSS File not found: '/var/www/html/clin_essentials/api/css/notes.css'. in /var/www/html/clin_essentials/vendor/kartik-v/yii2-mpdf/src/Pdf.php:316
+Stack trace:
+#0 /var/www/html/clin_essentials/vendor/kartik-v/yii2-mpdf/src/Pdf.php(378): kartik\mpdf\Pdf->getCss()
+#1 /var/www/html/clin_essentials/vendor/kartik-v/yii2-mpdf/src/Pdf.php(261): kartik\mpdf\Pdf->output('<!DOCTYPE html>...', '../../uploads/p...', 'F')
+#2 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(215): kartik\mpdf\Pdf->render()
+#3 [internal function]: api\controllers\SendEmailController->actionSendPdf()
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf', Array)
+#7 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#8 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#10 {main}
+2020-01-27 07:40:55 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_id' => '3'
+    'notes' => [
+        1 => '{\"note_id\": \"16\", \"color_code\": \"#d17341\",\"title\" : \"Temperature Excursion\",\"font_name\": \"FrutingerBQRoman\",\"font_size\":\"14\",\"patient_id\":\"rutusha1212joshi@gmail.com\",\"description\":\"test description1 test description1\"}'
+        2 => '{\"note_id\": \"1\", \"color_code\": \"#5f5f9c\",\"title\" : \"Adverse Event\",\"font_name\": \"Playlist Script\",\"font_size\":\"11\",\"patient_id\":\"testingforproject0@gmail.com\",\"description\":\"test description2 test description test description2\"}'
+        3 => '{\"note_id\": \"2\", \"color_code\": \"#76777a\",\"title\" : \"Black Note\",\"font_name\": \"Impact\",\"font_size\":\"19\",\"patient_id\":\"jay.varan@zenocraft.com\",\"description\":\"test description3 test description test description3\"}'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------958323120129380374182387'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '4db5c93c-d254-429f-b2c9-c4c53c512f22'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '1142'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '33882'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580110855.857
+    'REQUEST_TIME' => 1580110855
+]
+2020-01-27 07:41:12 [10.160.7.150][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: ssResponse in /var/www/html/clin_essentials/api/controllers/SendEmailController.php:228
+Stack trace:
+#0 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(228): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/c...', 228, Array)
+#1 [internal function]: api\controllers\SendEmailController->actionSendPdf()
+#2 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf', Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#8 {main}
+2020-01-27 07:41:12 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_id' => '3'
+    'notes' => [
+        1 => '{\"note_id\": \"16\", \"color_code\": \"#d17341\",\"title\" : \"Temperature Excursion\",\"font_name\": \"FrutingerBQRoman\",\"font_size\":\"14\",\"patient_id\":\"rutusha1212joshi@gmail.com\",\"description\":\"test description1 test description1\"}'
+        2 => '{\"note_id\": \"1\", \"color_code\": \"#5f5f9c\",\"title\" : \"Adverse Event\",\"font_name\": \"Playlist Script\",\"font_size\":\"11\",\"patient_id\":\"testingforproject0@gmail.com\",\"description\":\"test description2 test description test description2\"}'
+        3 => '{\"note_id\": \"2\", \"color_code\": \"#76777a\",\"title\" : \"Black Note\",\"font_name\": \"Impact\",\"font_size\":\"19\",\"patient_id\":\"jay.varan@zenocraft.com\",\"description\":\"test description3 test description test description3\"}'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------596614874480634593243321'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '997042db-faf6-436b-a8b1-fc7588b05a3c'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '1142'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '33886'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580110872.267
+    'REQUEST_TIME' => 1580110872
+]
+2020-01-27 08:00:19 [10.160.7.150][-][-][error][Swift_RfcComplianceException] Swift_RfcComplianceException: Address in mailbox given [1222] does not comply with RFC 2822, 3.6.2. in /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php:355
+Stack trace:
+#0 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(272): Swift_Mime_Headers_MailboxHeader->assertValidAddress('1222')
+#1 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(117): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php(74): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderFactory.php(61): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleHeaderSet.php(71): Swift_Mime_SimpleHeaderFactory->createMailboxHeader('To', Array)
+#5 /var/www/html/clin_essentials/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMessage.php(323): Swift_Mime_SimpleHeaderSet->addMailboxHeader('To', Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2-swiftmailer/src/Message.php(139): Swift_Mime_SimpleMessage->setTo('1222')
+#7 /var/www/html/clin_essentials/common/components/Common.php(93): yii\swiftmailer\Message->setTo('1222')
+#8 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(133): common\components\Common::sendMailToUserWithAttachment('1222', 'rutusha.joshi@z...', 'Clin Essentials...', '<table cellpadd...', 'http://10.160.7...')
+#9 [internal function]: api\controllers\SendEmailController->actionSendPdf()
+#10 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#11 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#12 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf', Array)
+#13 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#14 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#16 {main}
+2020-01-27 08:00:19 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    'user_id' => '3'
+    'notes' => [
+        1 => '{\"note_id\": \"16\", \"color_code\": \"#d17341\",\"title\" : \"Temperature Excursion\",\"font_name\": \"FrutingerBQRoman\",\"font_size\":\"14\",\"patient_id\":\"1222\",\"patient_email\":\"rutusha1212joshi@gmail.com\",\"description\":\"test description1 test description1\"}'
+        2 => '{\"note_id\": \"1\", \"color_code\": \"#5f5f9c\",\"title\" : \"Adverse Event\",\"font_name\": \"Playlist Script\",\"font_size\":\"11\",\"patient_id\":\"2222\",\"patient_email\":\"testingforproject0@gmail.com\",\"description\":\"test description2 test description test description2\"}'
+        3 => '{\"note_id\": \"2\", \"color_code\": \"#76777a\",\"title\" : \"Black Note\",\"font_name\": \"Impact\",\"font_size\":\"19\",\"patient_id\":\"33333\",\"patient_email\":\"jay.varan@zenocraft.com\",\"description\":\"test description3 test description test description3\"}'
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=--------------------------342285840553538980939289'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '565686ea-7802-4829-97d7-cbdd5a024248'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '1212'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '34096'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580112019.295
+    'REQUEST_TIME' => 1580112019
+]
