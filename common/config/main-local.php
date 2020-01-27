@@ -20,8 +20,8 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-                'username' => 'chiefsrsmail@gmail.com',
-                'password' => 'chiefsrs@123',
+                'username' => 'clinessentialsapp@gmail.com',
+                'password' => 'Zenocraft@123',
                 'port' => '587',
                 'encryption' => 'tls',
             ],
