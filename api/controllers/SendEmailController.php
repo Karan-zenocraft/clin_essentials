@@ -135,7 +135,7 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->to_email_id = $noteArr->patient_email;
                         $sentNotesModel->font_size = $noteArr->font_size;
                         $sentNotesModel->font_name = $noteArr->font_name;
-                        $sentNotesModel->pdf_filename = $file_name;
+                        $sentNotesModel->pdf_filename = Yii::$app->params['root_url'] . "/uploads/pdf_files/" . $file_name;
                         $sentNotesModel->save(false);
                         $sentNotes[] = $sentNotesModel;
                     }
