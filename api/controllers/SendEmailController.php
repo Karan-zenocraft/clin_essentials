@@ -46,7 +46,12 @@ class SendEmailController extends \yii\base\Controller
         Common::matchUserStatus($requestParam['user_id']);
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header('auth_token');
-        Common::checkAuthentication($authToken);
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
 
         $userModel = Users::findOne(['id' => $requestParam['user_id']]);
         if (!empty($userModel)) {

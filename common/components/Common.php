@@ -1614,17 +1614,13 @@ class Common
         return $amResponse;
     }
 
-    public static function checkAuthentication($authToken)
+    public static function checkAuthentication($authToken, $user_id)
     {
         $valid = 0;
 
-        $chkAuthentication = Users::findAll(["auth_token" => $authToken]);
+        $chkAuthentication = Users::find()->where(["auth_token" => $authToken, "id" => $user_id])->one();
         if (!empty($chkAuthentication)) {
-            foreach ($chkAuthentication as $value) {
-                if ($value->auth_token == $authToken) {
-                    $valid = 1;
-                }
-            }
+            $valid = 1;
         } else {
             $valid = 0;
         }
@@ -1650,6 +1646,8 @@ class Common
         $test = getallheaders();
         if (array_key_exists($pHeaderKey, $test)) {
             $headerValue = $test[$pHeaderKey];
+        } else {
+            $headerValue = "error";
         }
         return $headerValue;
     }
