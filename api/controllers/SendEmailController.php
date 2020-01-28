@@ -57,6 +57,7 @@ class SendEmailController extends \yii\base\Controller
         if (!empty($userModel)) {
             $fromEmail = $userModel->email;
             foreach ($notes as $key => $note) {
+                $note_color = (!empty($note['note_id'] && ($note['note_id'] == "3"))) ? "#76777A" : "#FFFFFF";
                 $html = '<!DOCTYPE html>
                         <html>
 
@@ -72,7 +73,7 @@ class SendEmailController extends \yii\base\Controller
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-12 p-0">
-                                            <h1>' . $note['title'] . '...</h1>
+                                            <h1 style="color:' . $note_color . '">' . $note['title'] . '...</h1>
                                         </div>
                                     </div>
                                 </div>
