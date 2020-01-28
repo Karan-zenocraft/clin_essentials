@@ -26,4 +26,5 @@ return [
     'bsDependencyEnabled' => false,
     'super_admin_role_id' => '1',
     'administrator_role_id' => '2',
+    'action' => ["1" => "delete", "2" => "archive"],
 ];
