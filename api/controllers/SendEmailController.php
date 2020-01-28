@@ -82,8 +82,8 @@ class SendEmailController extends \yii\base\Controller
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">Patient ID :<span>' . $note['patient_id'] . '</span></p>
-                                            <p style="font-family:' . $note['font_name'] . ';font-size: ' . $note['font_size'] . 'px">Comments : ' . $note['description'] . '</p>
+                                            <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">Patient <span style="text-transform:uppercase">id:</span><span>' . ' ' . $note['patient_id'] . '</span></p>
+                                            <p style="font-family:' . $note['font_name'] . ';font-size: ' . $note['font_size'] . 'px">Notes : ' . $note['description'] . '</p>
                                         </div>
                                     </div>
 
