@@ -154,4 +154,50 @@ class SendEmailController extends \yii\base\Controller
         }
         Common::encodeResponseJSON($amResponse);
     }
+
+    public function actionGetSentMailList()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+        $amRequiredParams = array('user_id');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        // Check User Status
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+
+        $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+        if (!empty($userModel)) {
+            $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+            if (!empty($usersSentMailDateList)) {
+                foreach ($usersSentMailDateList as $key => $value) {
+                    $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly']])->asArray()->all();
+                    $amReponseParam[$value['dateOnly']] = $getDataDateWise;
+                }
+                $ssMessage = 'List of sent emails';
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+
+            } else {
+                $ssMessage = 'Sent Emails not found.';
+                $amResponse = Common::errorResponse($ssMessage);
+            }
+        } else {
+            $ssMessage = 'Invalid user_id';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
+    }
 }
