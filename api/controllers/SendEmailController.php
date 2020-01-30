@@ -241,6 +241,10 @@ class SendEmailController extends \yii\base\Controller
                     $note->is_archive = "1";
                     $note->save(false);
                     $ssMessage = 'Note archived successfully.';
+                } else if (Yii::$app->params['action'][$requestParam['action']] == "un_archive") {
+                    $note->is_archive = "0";
+                    $note->save(false);
+                    $ssMessage = 'Note un archived successfully.';
                 }
                 $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
                 if (!empty($usersSentMailDateList)) {
