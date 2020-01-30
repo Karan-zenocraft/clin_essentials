@@ -193,8 +193,9 @@ class SendEmailController extends \yii\base\Controller
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
             } else {
+                $amReponseParam = [];
                 $ssMessage = 'Sent Emails not found.';
-                $amResponse = Common::errorResponse($ssMessage);
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             }
         } else {
             $ssMessage = 'Invalid user_id';
