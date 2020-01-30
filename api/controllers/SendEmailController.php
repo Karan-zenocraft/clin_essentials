@@ -241,6 +241,21 @@ class SendEmailController extends \yii\base\Controller
                     $note->save(false);
                     $ssMessage = 'Note archived successfully.';
                 }
+                $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+                if (!empty($usersSentMailDateList)) {
+                    foreach ($usersSentMailDateList as $key => $value) {
+                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly']])->asArray()->all();
+                        $amReponseParam[$key]['date'] = $value['dateOnly'];
+                        $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
+                    }
+                    $ssMessage = 'List of sent emails';
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+
+                } else {
+                    $ssMessage = 'Sent Emails not found.';
+                    $amResponse = Common::errorResponse($ssMessage);
+                }
+
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
             } else {
