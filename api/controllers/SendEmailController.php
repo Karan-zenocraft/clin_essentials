@@ -185,7 +185,7 @@ class SendEmailController extends \yii\base\Controller
             $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
             if (!empty($usersSentMailDateList)) {
                 foreach ($usersSentMailDateList as $key => $value) {
-                    $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly']])->asArray()->all();
+                    $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'from_user_id' => $requestParam['user_id']])->asArray()->all();
                     $amReponseParam[$key]['date'] = $value['dateOnly'];
                     $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
                 }
@@ -244,7 +244,7 @@ class SendEmailController extends \yii\base\Controller
                 $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
                 if (!empty($usersSentMailDateList)) {
                     foreach ($usersSentMailDateList as $key => $value) {
-                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly']])->asArray()->all();
+                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'from_user_id' => $requestParam['user_id']])->asArray()->all();
                         $amReponseParam[$key]['date'] = $value['dateOnly'];
                         $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
                     }
