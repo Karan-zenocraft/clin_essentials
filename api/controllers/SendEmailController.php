@@ -248,11 +248,7 @@ class SendEmailController extends \yii\base\Controller
                         $amReponseParam[$key]['date'] = $value['dateOnly'];
                         $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
                     }
-                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
-                } else {
-                    $ssMessage = 'Sent Emails not found.';
-                    $amResponse = Common::errorResponse($ssMessage);
                 }
 
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
