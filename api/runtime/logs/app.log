@@ -11357,3 +11357,305 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1580465716.237
     'REQUEST_TIME' => 1580465716
 ]
+2020-01-31 11:01:32 [10.160.7.150][-][-][error][ParseError] ParseError: syntax error, unexpected 'if' (T_IF) in /var/www/html/clin_essentials/api/controllers/SendEmailController.php:319
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('api\\controllers...')
+#1 [internal function]: spl_autoload_call('api\\controllers...')
+#2 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(637): class_exists('api\\controllers...')
+#3 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(596): yii\base\Module->createControllerByID('send-email')
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Module->createController('send-pdf-to-do-...')
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#8 {main}
+2020-01-31 11:01:32 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{\"user_id\":\"3\",\"protocol\":\"abc\",\"investigator\":\"test\",\"\":\"date\":\"2020-01-31\",\"list\":' => [
+        '{\"text\":\"test1\",\"is_cheked\":\"0\"},{\"text\":\"test2\",\"is_cheked\":\"0\"},{\"text\":\"test3\",\"is_cheked\":\"0\"}' => ''
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '54428983-cee1-44d6-bc4b-970f3c41f24a'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '235'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '55954'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580468492.343
+    'REQUEST_TIME' => 1580468492
+]
+2020-01-31 11:01:50 [10.160.7.150][-][-][error][yii\base\InvalidArgumentException] yii\base\InvalidArgumentException: Syntax error. in /var/www/html/clin_essentials/vendor/yiisoft/yii2/helpers/BaseJson.php:133
+Stack trace:
+#0 /var/www/html/clin_essentials/vendor/yiisoft/yii2/helpers/BaseJson.php(107): yii\helpers\BaseJson::handleJsonError(4)
+#1 /var/www/html/clin_essentials/common/components/Common.php(1543): yii\helpers\BaseJson::decode('{"user_id":"3",...', true)
+#2 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(275): common\components\Common::checkRequestType()
+#3 [internal function]: api\controllers\SendEmailController->actionSendPdfToDoList()
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf-to-do-...', Array)
+#7 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#8 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#10 {main}
+2020-01-31 11:01:50 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{\"user_id\":\"3\",\"protocol\":\"abc\",\"investigator\":\"test\",\"\":\"date\":\"2020-01-31\",\"list\":' => [
+        '{\"text\":\"test1\",\"is_cheked\":\"0\"},{\"text\":\"test2\",\"is_cheked\":\"0\"},{\"text\":\"test3\",\"is_cheked\":\"0\"}' => ''
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => 'd7826a5a-ea4d-482c-aaba-3de06ab9c2b2'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '235'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '55956'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580468510.116
+    'REQUEST_TIME' => 1580468510
+]
+2020-01-31 11:17:32 [10.160.7.150][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property 'is_cheked' of non-object in /var/www/html/clin_essentials/api/controllers/SendEmailController.php:291
+Stack trace:
+#0 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(291): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/c...', 291, Array)
+#1 [internal function]: api\controllers\SendEmailController->actionSendPdfToDoList()
+#2 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf-to-do-...', Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#8 {main}
+2020-01-31 11:17:32 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{\"user_id\":\"3\",\"protocol\":\"abc\",\"investigator\":\"test\",\"date\":\"2020-01-31\",\"list\":' => [
+        '{\"text\":\"test1\",\"is_cheked\":\"0\"},{\"text\":\"test2\",\"is_cheked\":\"0\"},{\"text\":\"test3\",\"is_cheked\":\"0\"}' => ''
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => 'ba443f8d-0653-427b-993c-5caae03e0b5f'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '232'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '56438'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580469452.436
+    'REQUEST_TIME' => 1580469452
+]
+2020-01-31 11:20:55 [10.160.7.150][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: text in /var/www/html/clin_essentials/api/controllers/SendEmailController.php:292
+Stack trace:
+#0 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(292): yii\base\ErrorHandler->handleError(8, 'Undefined index...', '/var/www/html/c...', 292, Array)
+#1 [internal function]: api\controllers\SendEmailController->actionSendPdfToDoList()
+#2 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf-to-do-...', Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#8 {main}
+2020-01-31 11:20:55 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{\"user_id\":\"3\",\"protocol\":\"abc\",\"investigator\":\"test\",\"date\":\"2020-01-31\",\"list\":' => [
+        '{\"stext\":\"test1\",\"is_cheked\":\"0\"},{\"text\":\"test2\",\"is_cheked\":\"0\"},{\"text\":\"test3\",\"is_cheked\":\"0\"}' => ''
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => '7b696dad-94f5-4b98-9e38-cbc6e18586f4'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '233'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '56576'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580469655.241
+    'REQUEST_TIME' => 1580469655
+]
+2020-01-31 11:23:20 [10.160.7.150][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: list in /var/www/html/clin_essentials/api/controllers/SendEmailController.php:286
+Stack trace:
+#0 /var/www/html/clin_essentials/api/controllers/SendEmailController.php(286): yii\base\ErrorHandler->handleError(8, 'Undefined index...', '/var/www/html/c...', 286, Array)
+#1 [internal function]: api\controllers\SendEmailController->actionSendPdfToDoList()
+#2 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('send-pdf-to-do-...', Array)
+#5 /var/www/html/clin_essentials/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('send-email/send...', Array)
+#6 /var/www/html/clin_essentials/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/clin_essentials/api/web/index.php(33): yii\base\Application->run()
+#8 {main}
+2020-01-31 11:23:20 [10.160.7.150][-][-][info][application] $_GET = []
+
+$_POST = [
+    '{\"user_id\":\"3\",\"protocol\":\"abc\",\"investigator\":\"test\",\"date\":\"2020-01-31\",\"lisst\":' => [
+        '{\"text\":\"test1\",\"is_cheked\":\"0\"},{\"text\":\"test2\",\"is_cheked\":\"0\"},{\"text\":\"test3\",\"is_cheked\":\"0\"}' => ''
+    ]
+]
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'PostmanRuntime/7.20.1'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_POSTMAN_TOKEN' => 'c7e387af-09c1-4118-b189-22c94e1d0f54'
+    'HTTP_HOST' => '10.160.7.150'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_LENGTH' => '233'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at 10.160.7.150 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => '10.160.7.150'
+    'SERVER_ADDR' => '10.160.7.150'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.160.7.150'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/clin_essentials/api/web/index.php'
+    'REMOTE_PORT' => '56628'
+    'REDIRECT_URL' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/clin_essentials/api/web/send-email/send-pdf-to-do-list'
+    'SCRIPT_NAME' => '/clin_essentials/api/web/index.php'
+    'PHP_SELF' => '/clin_essentials/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1580469800.881
+    'REQUEST_TIME' => 1580469800
+]

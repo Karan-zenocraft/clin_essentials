@@ -1,4 +1,4 @@
-        @font-face {
+@font-face {
             font-family: FrutingerBQBold;
             src: url(./fonts/FRUTBB_.ttf);
         }
@@ -55,6 +55,10 @@
             border-radius: 30px 30px 0px 0px;
             border: 1px solid #a5a5a5;
 */
+        }
+
+        .col-md-4.col-sm-4 {
+            width: 33.33% !important;
         }
 
         header h1 {
@@ -198,7 +202,7 @@
             left: 0;
             width: 100%;
             background: #fff;
-    z-index: 9999;
+            z-index: 9999;
         }
 
         footer .Logo img {
@@ -228,4 +232,106 @@
             position: relative;
             width: 100%;
         }
-        footer .BottomText{position: absolute;right: 0;top: 5px; font-size: 11px;line-height: 14px;font-weight: bold;letter-spacing: 1px;color: #333333b8;font-family: 'FrutingerBQRoman';}
+
+        footer .BottomText {
+            position: absolute;
+            right: 0;
+            top: 5px;
+            font-size: 11px;
+            line-height: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #333333b8;
+            font-family: 'FrutingerBQRoman';
+        }
+
+        @media (max-width : 576px) and (min-width : 320px) {
+            section p {
+                font-size: 8px;
+            }
+
+            .col-md-4.col-sm-4 {
+                padding: 0px 10px;
+            }
+
+            .SectionList nav ul label:before {
+                padding: 5px;
+            }
+
+            .SectionList nav ul label span {
+                font-size: 8px;
+            }
+
+            section .p_id {
+                min-height: 27px;
+                margin-bottom: 0;
+            }
+
+            .SectionList nav ul .Checked:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 2px;
+                left: 5px;
+                width: 4px;
+                height: 8px;
+                border: solid #ff6a0c;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                transition: 0.8s all;
+            }
+
+            header h1 {
+                font-size: 40px;
+                line-height: 40px;
+            }
+        }
+
+        @media (max-width : 767px) and (min-width : 577px) {
+            header h1 {
+                font-size: 40px;
+                line-height: 40px;
+            }
+
+            section p {
+                font-size: 10px;
+            }
+
+            .col-md-4.col-sm-4 {
+                padding: 0px 10px;
+            }
+
+            .SectionList nav ul label:before {
+                padding: 5px;
+            }
+
+            .SectionList nav ul label span {
+                font-size: 10px;
+            }
+
+            section .p_id {
+                min-height: 27px;
+                margin-bottom: 0
+            }
+
+            .SectionList nav ul .Checked:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 2px;
+                left: 5px;
+                width: 4px;
+                height: 8px;
+                border: solid #ff6a0c;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                transition: 0.8s all;
+            }
+
+        }
