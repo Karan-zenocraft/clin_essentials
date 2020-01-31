@@ -324,7 +324,6 @@ class SendEmailController extends \yii\base\Controller
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-                          <link rel="stylesheet" href="' . Yii::$app->params["root_url"] . '/api/web/css/todolist.css">
                     </head>
                     <body>
                         <header>
@@ -396,7 +395,7 @@ class SendEmailController extends \yii\base\Controller
                     // your html content input
                     'content' => $html,
                     // any css to be embedded if required
-                    'cssFile' => '@api/web/css/todolist.css',
+                    //   'cssFile' => '@api/web/css/todolist.css',
                     // set mPDF properties on the fly
                     'options' => ['title' => "VISIT TO DO LIST"],
                     // call mPDF methods on the fly
