@@ -1,0 +1,231 @@
+        @font-face {
+            font-family: FrutingerBQBold;
+            src: url(./fonts/FRUTBB_.ttf);
+        }
+
+        @font-face {
+            font-family: FrutingerBQLight;
+            src: url(./fonts/FRUTBL_.ttf);
+        }
+
+        @font-face {
+            font-family: FrutingerBQRoman;
+            src: url(./fonts/FRUTBR_.ttf);
+        }
+
+        @font-face {
+            font-family: FrutingerCondensedBQLight;
+            src: url(./fonts/FRUTCBL.ttf);
+        }
+
+        @font-face {
+            font-family: Helvetica;
+            src: url(./fonts/Helvetica.ttc);
+        }
+
+        @font-face {
+            font-family: Impact;
+            src: url(./fonts/Impact.ttf);
+        }
+
+        @font-face {
+            font-family: leaguegothic-regular-webfont;
+            src: url(./fonts/leaguegothic-regular-webfont.ttf);
+        }
+
+        @font-face {
+            font-family: Playlist Script;
+            src: url(./fonts/Playlist Script.otf);
+        }
+
+        html {
+            height: 100%;
+            background: #fff;
+            padding: 15px 15px;
+            /*
+            border-radius: 0px 0px 30px 30px;
+            border: 1px solid #a5a5a5;
+*/
+        }
+
+        header {
+            background: #ff6a0c;
+            /*            padding: 20px 0px;*/
+            /*
+            border-radius: 30px 30px 0px 0px;
+            border: 1px solid #a5a5a5;
+*/
+        }
+
+        header h1 {
+            color: #fff;
+            font-family: 'FrutingerBQRoman';
+            font-weight: 600;
+            padding-top: 25px;
+            text-transform: capitalize;
+            font-size: 50px;
+            line-height: 48px;
+            text-align: center;
+            margin: 0;
+            margin-bottom: -7px;
+            letter-spacing: 2px;
+        }
+
+        section {
+            background: #fff;
+        }
+
+        section p {
+            color: #76767a;
+            font-family: 'Helvetica';
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            font-size: 15px;
+            line-height: 26px;
+            margin: 0px 0px;
+            text-align: center;
+        }
+
+        section .col-md-4 {
+
+            margin-top: 30px;
+        }
+
+        section .p_id {
+            min-height: 31px;
+            color: #333;
+            font-family: 'FRUTBL_';
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            margin-bottom: 3px;
+            border-bottom: 1px solid #76767a;
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        section .Box {
+            margin-top: 15px;
+        }
+
+        .SectionList nav ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        .SectionList nav ul li {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+
+
+
+        .SectionList nav ul input {
+            padding: 0;
+            height: initial;
+            width: initial;
+            margin-bottom: 0;
+            display: none;
+            cursor: pointer;
+        }
+
+        .SectionList nav ul label {
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        .SectionList nav ul label:before {
+            content: '';
+            -webkit-appearance: none;
+            background-color: transparent;
+            border: 2px solid #ff6a0c;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+            padding: 10px;
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .SectionList nav {
+            margin-top: 50px;
+        }
+
+        .SectionList nav ul .Checked:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 2px;
+            left: 9px;
+            width: 6px;
+            height: 14px;
+            border: solid #ff6a0c;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transition: 0.8s all;
+        }
+
+        .SectionList nav ul label span {
+            border-bottom: 1px solid #d1d3d5;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: 1px;
+            font-weight: lighter;
+            font-family: 'FrutingerBQRoman';
+            color: #333;
+            width: 100%;
+            margin-left: 10px;
+            min-height: 21px;
+            display: block;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+    z-index: 9999;
+        }
+
+        footer .Logo img {
+            max-height: 80px;
+            float: right;
+        }
+
+        footer .Logo,
+        footer .Left {
+            padding: 0px 15px;
+        }
+
+        footer .Left:after {
+            position: absolute;
+            left: auto;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            content: '';
+            width: 98.7%;
+            height: 1px;
+            background: #d1d3d5;
+        }
+
+        footer .Left {
+            position: relative;
+            width: 100%;
+        }
+        footer .BottomText{position: absolute;right: 0;top: 5px; font-size: 11px;line-height: 14px;font-weight: bold;letter-spacing: 1px;color: #333333b8;font-family: 'FrutingerBQRoman';}
