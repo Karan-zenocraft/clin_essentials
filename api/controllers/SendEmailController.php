@@ -324,6 +324,7 @@ class SendEmailController extends \yii\base\Controller
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+                          <link rel="stylesheet" href="' . Yii::$app->params["root_url"] . '/api/web/css/todolist.css">
                     </head>
                     <body>
                         <header>
@@ -363,12 +364,17 @@ class SendEmailController extends \yii\base\Controller
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-12 d-flex align-items-center justify-content-between">
-                                        <div class="Left">
-                                            <p class="BottomText">Resources and Tools for Clinical Research Professionals</p>
+                                        <div class="Left" style="position: relative;width: 100%;">
+                                            <p style="position: absolute;right: 0;top: 5px;font-size: 11px;line-height: 14px;font-weight: bold;letter-spacing: 1px;color: #333333b8;font-family:FrutingerBQRoman; "class="BottomText">Resources and Tools for Clinical Research Professionals</p>
                                         </div>
-                                        <div class="Logo">
-                                            <img src="' . $logo . '" alt="" class="img-fluid">
+
+
+                                        <div class="Logo" style="display:flex;align-items:center;justify-content:center">
+                                      <hr style="display: block;margin-top: 0.5em;margin-left: auto;margin-right: auto; border-style: inset;border-width: 1px;width:80%;position:absolute;left:auto;bottom:0;right:0">
+                                            <img src="' . $logo . '" width="auto" max-height="80" alt="" class="img-fluid" style="float:right;">
                                         </div>
+
+
                                     </div>
                                 </div>
                             </div>
