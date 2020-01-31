@@ -1,41 +1,41 @@
 @font-face {
             font-family: FrutingerBQBold;
-            src: url(./fonts/FRUTBB_.ttf);
+            src: url(.../../common/web/.../../common/web/common/web/fonts/FRUTBB_.ttf);
         }
 
         @font-face {
             font-family: FrutingerBQLight;
-            src: url(./fonts/FRUTBL_.ttf);
+            src: url(../../common/web/fonts/FRUTBL_.ttf);
         }
 
         @font-face {
             font-family: FrutingerBQRoman;
-            src: url(./fonts/FRUTBR_.ttf);
+            src: url(../../common/web/fonts/FRUTBR_.ttf);
         }
 
         @font-face {
             font-family: FrutingerCondensedBQLight;
-            src: url(./fonts/FRUTCBL.ttf);
+            src: url(../../common/web/fonts/FRUTCBL.ttf);
         }
 
         @font-face {
             font-family: Helvetica;
-            src: url(./fonts/Helvetica.ttc);
+            src: url(../../common/web/fonts/Helvetica.ttc);
         }
 
         @font-face {
             font-family: Impact;
-            src: url(./fonts/Impact.ttf);
+            src: url(../../common/web/fonts/Impact.ttf);
         }
 
         @font-face {
             font-family: leaguegothic-regular-webfont;
-            src: url(./fonts/leaguegothic-regular-webfont.ttf);
+            src: url(../../common/web/fonts/leaguegothic-regular-webfont.ttf);
         }
 
         @font-face {
             font-family: Playlist Script;
-            src: url(./fonts/Playlist Script.otf);
+            src: url(../../common/web/fonts/Playlist Script.otf);
         }
 
         html {
