@@ -656,12 +656,19 @@ class SendEmailController extends \yii\base\Controller
                     Common::encodeResponseJSON($amResponse);
                 }
             }
-            $list_arr = "";
+            /*   $list_arr = "";
+            foreach ($protocol_array as $key => $single_item) {
+            $checked = ($single_item['is_checked'] == 1) ? "checked" : "unchecked";
+            $list_arr .= "<div class='row'><div class='col-md-6'>'" . $single_item['is_checked'] . "'<span>'" . $single_item['text'] . "'</span></div>";
+
+            }*/
+            $list_arr = '<div class="row"><div class="col-md-12 SectionList"><nav><ul>';
+
             foreach ($protocol_array as $key => $single_item) {
                 $checked = ($single_item['is_checked'] == 1) ? "checked" : "unchecked";
-                $list_arr .= "<div class='row'><div class='col-md-6'>'" . $single_item['is_checked'] . "'<span>'" . $single_item['text'] . "'</span></div>";
-
+                $list_arr .= '<li><input type="checkbox" name="' . $key . "_checkbox" . '" checked="' . $checked . '"><span style="padding-left:20px;">' . $single_item['text'] . '</span></li>';
             }
+            $list_arr = $list_arr . "</ul></nav></div></div>";
             // $list = $requestParam['list'];
 
             $userModel = Users::findOne(['id' => $requestParam['user_id']]);
@@ -686,9 +693,12 @@ class SendEmailController extends \yii\base\Controller
                             </div>
                         </header>
                         <section>
-                        ' . $list_arr . '
+                            <div class="container-fluid">
+                             ' . $list_arr . '
+                            </div>
                         </section>
                         <footer>
+                        <h2>MY NOTES</h2>' . $requestParam['my_notes'] . '
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-12 d-flex align-items-center justify-content-between">
@@ -701,8 +711,6 @@ class SendEmailController extends \yii\base\Controller
                                       <hr style="display: block;margin-top: 0.5em;margin-left: auto;margin-right: auto; border-style: inset;border-width: 1px;width:80%;position:absolute;left:auto;bottom:0;right:0">
                                             <img src="' . $logo . '" width="auto" max-height="80" alt="" class="img-fluid" style="float:right;">
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -724,7 +732,7 @@ class SendEmailController extends \yii\base\Controller
                     // your html content input
                     'content' => $html,
                     // any css to be embedded if required
-                    'cssFile' => '@api/web/css/clinical_study.css',
+                    'cssFile' => '@api/web/css/todolist.css',
                     // set mPDF properties on the fly
                     'options' => ['title' => "Reviewing a Clinical Study Protocol"],
                     // call mPDF methods on the fly
