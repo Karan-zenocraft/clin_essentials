@@ -37,6 +37,39 @@
             font-family: Playlist Script;
             src: url(../../common/web/fonts/Playlist Script.otf);
         }
+        @font-face {
+            font-family: Arial-BoldMT;
+            src: url(../../common/web/fonts/arialbd.ttf);
+        }
+        @font-face {
+            font-family: Arial-BoldItalicMT;
+            src: url(../../common/web/fonts/arialbd.ttf);
+        }
+         @font-face {
+            font-family: Arial-ItalicMT;
+            src: url(../../common/web/fonts/ariali.ttf);
+        }
+          @font-face {
+            font-family: ArialMT;
+            src: url(../../common/web/fonts/arial.ttf);
+        }
+         @font-face {
+            font-family: TimesNewRomanPS-ItalicMT;
+            src: url(../../common/web/fonts/times_italic.ttf);
+        }
+        @font-face {
+            font-family: TimesNewRomanPS-BoldItalicMT;
+            src: url(../../common/web/fonts/times_bold_italic.ttf);
+        }
+        @font-face {
+            font-family: TimesNewRomanPS-BoldMT;
+            src: url(../../common/web/fonts/times_bold.ttf);
+        }
+        @font-face {
+            font-family: TimesNewRomanPSMT;
+            src: url(../../common/web/fonts/times_light.ttf);
+        }
+        
 
         html {
             height: 100%;
