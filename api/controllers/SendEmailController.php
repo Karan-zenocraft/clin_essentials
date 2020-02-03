@@ -5,6 +5,7 @@ namespace api\controllers;
 /* USE COMMON MODELS */
 use common\components\Common;
 use common\models\ActionItems;
+use common\models\ClinicalStudyProtocol;
 use common\models\EmailFormat;
 use common\models\SentNotes;
 use common\models\TodoList;
@@ -506,7 +507,7 @@ class SendEmailController extends \yii\base\Controller
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-12 p-0">
-                                        <h1>VISIT TO DO LIST</h1>
+                                        <h1>Action Items</h1>
                                     </div>
                                 </div>
                             </div>
@@ -548,8 +549,6 @@ class SendEmailController extends \yii\base\Controller
                                       <hr style="display: block;margin-top: 0.5em;margin-left: auto;margin-right: auto; border-style: inset;border-width: 1px;width:80%;position:absolute;left:auto;bottom:0;right:0">
                                             <img src="' . $logo . '" width="auto" max-height="80" alt="" class="img-fluid" style="float:right;">
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -617,6 +616,158 @@ class SendEmailController extends \yii\base\Controller
             }
         } else {
             $ssMessage = 'Action Items can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
+
+    }
+
+    public function actionSendPdfClinicalStudyProtocol()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+        $amRequiredParams = array('user_id', 'my_notes', 'to_patient_email');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+        $amRequiredParamsList = array('text', 'is_checked');
+
+        if (!empty($requestParam['protocol_array'])) {
+            $protocol_array = $requestParam['protocol_array'];
+            foreach ($protocol_array as $key => $single_item) {
+                $amParamsResultList = Common::checkRequestParameterKey($single_item, $amRequiredParamsList);
+
+                if (!empty($amParamsResultList['error'])) {
+                    $amResponse = Common::errorResponse($amParamsResultList['error']);
+                    Common::encodeResponseJSON($amResponse);
+                }
+            }
+            $list_arr = "";
+            foreach ($protocol_array as $key => $single_item) {
+                $checked = ($single_item['is_checked'] == 1) ? "checked" : "unchecked";
+                $list_arr .= "<div class='row'><div class='col-md-6'>'" . $single_item['is_checked'] . "'<span>'" . $single_item['text'] . "'</span></div>";
+
+            }
+            // $list = $requestParam['list'];
+
+            $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+            $logo = Yii::$app->params['root_url'] . "/uploads/images/logo-orange.png";
+            if (!empty($userModel)) {
+                $fromEmail = $userModel->email;
+                $html = '<!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+                    </head>
+                    <body>
+                        <header>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12 p-0">
+                                        <h1>Reviewing a Clinical Study Protocol</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                        <section>
+                        ' . $list_arr . '
+                        </section>
+                        <footer>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12 d-flex align-items-center justify-content-between">
+                                        <div class="Left" style="position: relative;width: 100%;">
+                                            <p style="position: absolute;right: 0;top: 5px;font-size: 11px;line-height: 14px;font-weight: bold;letter-spacing: 1px;color: #333333b8;font-family:FrutingerBQRoman; "class="BottomText">Resources and Tools for Clinical Research Professionals</p>
+                                        </div>
+
+
+                                        <div class="Logo" style="display:flex;align-items:center;justify-content:center">
+                                      <hr style="display: block;margin-top: 0.5em;margin-left: auto;margin-right: auto; border-style: inset;border-width: 1px;width:80%;position:absolute;left:auto;bottom:0;right:0">
+                                            <img src="' . $logo . '" width="auto" max-height="80" alt="" class="img-fluid" style="float:right;">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </body>
+                    </html>';
+//            $content = $this->renderPartial('_reportView');
+
+                // setup kartik\mpdf\Pdf component
+                $pdf = new Pdf([
+                    // set to use core fonts only
+                    'mode' => Pdf::MODE_CORE,
+                    // A4 paper format
+                    'format' => Pdf::FORMAT_A4,
+                    // portrait orientation
+                    'orientation' => Pdf::ORIENT_PORTRAIT,
+                    // stream to browser inline
+                    'destination' => Pdf::DEST_FILE,
+                    // your html content input
+                    'content' => $html,
+                    // any css to be embedded if required
+                    'cssFile' => '@api/web/css/clinical_study.css',
+                    // set mPDF properties on the fly
+                    'options' => ['title' => "Reviewing a Clinical Study Protocol"],
+                    // call mPDF methods on the fly
+                    'methods' => [
+                        'SetHeader' => [''],
+                        'SetFooter' => [''],
+                    ],
+                ]);
+                $pdf->content = $html;
+                $file_name = "note_" . rand(7, 100) . "_" . time() . ".pdf";
+                $pdf->filename = "../../uploads/pdf_clinical_study_protocol/" . $file_name;
+                echo $pdf->render();
+                $emailformatemodel = EmailFormat::findOne(["title" => 'critical_study_protocol', "status" => '1']);
+                if ($emailformatemodel) {
+
+                    $body = $emailformatemodel->body;
+                    $ssSubject = $emailformatemodel->subject;
+                    //send email for new generated password
+                    $attach = !empty($file_name) && file_exists(Yii::getAlias('@root') . '/' . "uploads/pdf_clinical_study_protocol/" . $file_name) ? Yii::$app->params['root_url'] . '/' . "uploads/pdf_clinical_study_protocol/" . $file_name : "";
+                    $ssResponse = Common::sendMailToUserWithAttachment($requestParam['to_patient_email'], $fromEmail, $ssSubject, $body, $attach);
+                    if ($ssResponse) {
+                        $clinicalStudyModel = new ClinicalStudyProtocol();
+                        $clinicalStudyModel->user_id = $requestParam['user_id'];
+                        $clinicalStudyModel->my_notes = $requestParam['my_notes'];
+                        $clinicalStudyModel->protocol_array = $requestParam['protocol_array'];
+                        $clinicalStudyModel->patient_id = !empty($requestParam['patient_id']) ? $requestParam['patient_id'] : "";
+                        $clinicalStudyModel->to_patient_email = $requestParam['to_patient_email'];
+                        $clinicalStudyModel->pdf_file_name = Yii::$app->params['root_url'] . "/uploads/pdf_clinical_study_protocol/" . $file_name;
+                        $clinicalStudyModel->save(false);
+                        $clinicalStudyProtocolArr[] = $clinicalStudyModel;
+                    }
+
+                }
+
+                $amReponseParam = $clinicalStudyProtocolArr;
+                $ssMessage = 'Clinical Study Protocol PDF is successfully sent through email.';
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+            } else {
+                $ssMessage = 'Invalid user_id';
+                $amResponse = Common::errorResponse($ssMessage);
+            }
+        } else {
+            $ssMessage = 'protocol_array can not be blank';
             $amResponse = Common::errorResponse($ssMessage);
         }
         Common::encodeResponseJSON($amResponse);
