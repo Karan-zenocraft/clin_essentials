@@ -164,7 +164,7 @@ class SendEmailController extends \yii\base\Controller
         $amData = Common::checkRequestType();
         $amResponse = array();
         $ssMessage = '';
-        $amRequiredParams = array('user_id');
+        $amRequiredParams = array('user_id', 'note_type');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
         // If any getting error in request paramter then set error message.
         if (!empty($amParamsResult['error'])) {
@@ -185,19 +185,28 @@ class SendEmailController extends \yii\base\Controller
 
         $userModel = Users::findOne(['id' => $requestParam['user_id']]);
         if (!empty($userModel)) {
-            $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+            if ($requestParam['note_type'] == "save_note") {
+                $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id'], 'mail_sent' => '0'])->asArray()->groupBy('dateOnly')->all();
+            } else {
+                $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+            }
             if (!empty($usersSentMailDateList)) {
                 foreach ($usersSentMailDateList as $key => $value) {
-                    $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'from_user_id' => $requestParam['user_id']])->asArray()->all();
+                    if ($requestParam['note_type'] == "save_note") {
+                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'from_user_id' => $requestParam['user_id'], 'mail_sent' => '0'])->asArray()->all();
+                    } else {
+                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'from_user_id' => $requestParam['user_id']])->asArray()->all();
+                    }
                     $amReponseParam[$key]['date'] = $value['dateOnly'];
                     $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
                 }
                 $ssMessage = 'List of sent emails';
+                $ssMessage = ($requestParam['note_type'] == "save_note") ? 'List of Save Notes.' : 'List of sent emails.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
             } else {
                 $amReponseParam = [];
-                $ssMessage = 'Sent Emails not found.';
+                $ssMessage = ($requestParam['note_type'] == "save_note") ? 'Save Notes not found.' : 'Sent Emails not found.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             }
         } else {
@@ -840,7 +849,7 @@ class SendEmailController extends \yii\base\Controller
 
             }
             $amReponseParam = $sentNotes;
-            $ssMessage = 'Your note is successfully sent';
+            $ssMessage = 'Your note is successfully saved.';
             $amResponse = Common::successResponse($ssMessage, $amReponseParam);
         } else {
             $ssMessage = 'Invalid user_id';
