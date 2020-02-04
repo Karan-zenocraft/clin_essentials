@@ -27,4 +27,5 @@ return [
     'super_admin_role_id' => '1',
     'administrator_role_id' => '2',
     'action' => ["1" => "delete", "2" => "archive", "3" => "un_archive"],
+    'mail_sent' => ["false" => "0", "true" => "1"],
 ];

@@ -665,8 +665,8 @@ class SendEmailController extends \yii\base\Controller
             $list_arr = '<div class="row"><div class="col-md-12 SectionList"><nav><ul>';
 
             foreach ($protocol_array as $key => $single_item) {
-                $checked = ($single_item['is_checked'] == 1) ? "checked" : "unchecked";
-                $list_arr .= '<li><input type="checkbox" name="' . $key . "_checkbox" . '" checked="' . $checked . '"><span style="padding-left:20px;">' . $single_item['text'] . '</span></li>';
+                $checked = ($single_item['is_checked'] == 1) ? true : false;
+                $list_arr .= '<li><input type="checkbox" style="color:#ff6a0c" name="list" value="' . $key . '" checked=' . $checked . '><span style="padding-left:60;">' . $single_item['text'] . '</span></li>';
             }
             $list_arr = $list_arr . "</ul></nav></div></div>";
             // $list = $requestParam['list'];
@@ -780,5 +780,72 @@ class SendEmailController extends \yii\base\Controller
         }
         Common::encodeResponseJSON($amResponse);
 
+    }
+    public function actionSaveNote()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+        $amRequiredParams = array('user_id');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        //$notes = json_decode(json_encode($requestParam['notes']), true);
+        $notes = $requestParam['notes'];
+
+        $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description');
+
+        foreach ($notes as $key => $note) {
+            $amParamsResultNotes = Common::checkRequestParameterKey($note, $amRequiredParamsNotes);
+
+            if (!empty($amParamsResultNotes['error'])) {
+                $amResponse = Common::errorResponse($amParamsResultNotes['error']);
+                Common::encodeResponseJSON($amResponse);
+            }
+        }
+        // Check User Status
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+
+        $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+        if (!empty($userModel)) {
+            $fromEmail = $userModel->email;
+            foreach ($notes as $key => $note) {
+
+                $sentNotesModel = new SentNotes();
+                $sentNotesModel->note_id = $note['note_id'];
+                $sentNotesModel->color_code = $note['color_code'];
+                $sentNotesModel->title = $note['title'];
+                $sentNotesModel->description = $note['description'];
+                $sentNotesModel->from_user_id = $requestParam['user_id'];
+                $sentNotesModel->to_patient_id = !empty($requestParam['to_patient_id']) ? $requestParam['to_patient_id'] : "";
+                $sentNotesModel->to_patient_id = $note['patient_id'];
+                $sentNotesModel->to_email_id = $note['patient_email'];
+                $sentNotesModel->font_size = $note['font_size'];
+                $sentNotesModel->font_name = $note['font_name'];
+                $sentNotesModel->mail_sent = Yii::$app->params['mail_sent']['false'];
+                $sentNotesModel->save(false);
+                $sentNotes[] = $sentNotesModel;
+
+            }
+            $amReponseParam = $sentNotes;
+            $ssMessage = 'Your note is successfully sent';
+            $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+        } else {
+            $ssMessage = 'Invalid user_id';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
     }
 }

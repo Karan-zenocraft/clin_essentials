@@ -46,7 +46,7 @@ class SentNotesBase extends \yii\db\ActiveRecord
             [['note_id', 'color_code', 'title', 'description', 'from_user_id', 'to_email_id', 'pdf_filename'], 'required'],
             [['note_id', 'font_size', 'from_user_id', 'to_patient_id'], 'integer'],
             [['description'], 'string'],
-            [['created_at', 'updated_at', 'is_archive'], 'safe'],
+            [['created_at', 'updated_at', 'is_archive', 'mail_sent'], 'safe'],
             [['color_code', 'font_name', 'title', 'to_email_id', 'pdf_filename'], 'string', 'max' => 255],
             [['from_user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['from_user_id' => 'id']],
             [['note_id'], 'exist', 'skipOnError' => true, 'targetClass' => Notes::className(), 'targetAttribute' => ['note_id' => 'id']],
@@ -73,6 +73,7 @@ class SentNotesBase extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'is_archive' => "Is Archive",
+            'mail_sent' => "Is Mail Sent",
         ];
     }
 
