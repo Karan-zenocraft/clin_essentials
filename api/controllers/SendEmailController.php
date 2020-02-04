@@ -877,6 +877,7 @@ class SendEmailController extends \yii\base\Controller
             if (!empty($usersSentMailDateList)) {
                 array_walk($usersSentMailDateList, function ($arr) use (&$amResponseData) {
                     $ttt = $arr;
+                    $ttt['font_size'] = (int) $ttt['font_size'];
                     unset($ttt['pdf_filename']);
                     unset($ttt['is_archive']);
                     unset($ttt['created_at']);
@@ -890,11 +891,82 @@ class SendEmailController extends \yii\base\Controller
 
             } else {
                 $amReponseParam = [];
-                $ssMessage = 'Sent Emails not found.';
+                $ssMessage = 'Save Notes not found.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             }
         } else {
             $ssMessage = 'Invalid user_id';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
+    }
+    public function actionDeleteSavedNote()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+        $amRequiredParams = array('user_id');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        // Check User Status
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+        if (!empty($requestParam['id'])) {
+            $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+            if (!empty($userModel)) {
+                $idArr = $requestParam['id'];
+                $success = "";
+                foreach ($idArr as $key => $single_id) {
+                    $note = SentNotes::find()->where(['id' => $single_id, "user_id" => $requestParam['user_id'], "mail_sent" => '0'])->one();
+                    if (empty($note)) {
+                        $ssMessage = 'Invalid id';
+                        $success = "0";
+                        $amResponse = Common::errorResponse($ssMessage);
+                        Common::encodeResponseJSON($amResponse);
+                    } else {
+                        $note->delete();
+                        $success = "1";
+                    }
+                }
+                if ($success != "0") {
+                    $notesArr = SentNotes::find()->where(["user_id" => $requestParam['user_id'], "mail_sent" => '0'])->asArray()->all();
+
+                    if (!empty($notesArr)) {
+                        array_walk($notesArr, function ($arr) use (&$amResponseData) {
+                            $ttt = $arr;
+                            $ttt['font_size'] = (int) $ttt['font_size'];
+                            unset($ttt['pdf_filename']);
+                            unset($ttt['is_archive']);
+                            unset($ttt['created_at']);
+                            unset($ttt['updated_at']);
+                            $amResponseData[] = $ttt;
+                            return $amResponseData;
+                        });
+                        $amReponseParam = $amResponseData;
+                    } else {
+                        $amReponseParam = [];
+                    }
+                    $ssMessage = 'Note deleted successfully.';
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                }
+            } else {
+                $ssMessage = 'Invalid user_id';
+                $amResponse = Common::errorResponse($ssMessage);
+            }
+        } else {
+            $ssMessage = 'id can not be blank';
             $amResponse = Common::errorResponse($ssMessage);
         }
         Common::encodeResponseJSON($amResponse);
