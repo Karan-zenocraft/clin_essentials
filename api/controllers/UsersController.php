@@ -341,7 +341,7 @@ class UsersController extends \yii\base\Controller
         Common::matchUserStatus($requestParam['user_id']);
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header('auth_token');
-        Common::checkAuthentication($authToken);
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
 
         if (($model = Users::findOne(['id' => $requestParam['user_id'], 'password' => md5($requestParam['old_password']), 'status' => '1'])) !== null) {
 
@@ -453,7 +453,7 @@ class UsersController extends \yii\base\Controller
         Common::matchUserStatus($requestParam['user_id']);
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header('auth_token');
-        Common::checkAuthentication($authToken);
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
 
         $userModel = Users::findOne(['id' => $requestParam['user_id']]);
         if (!empty($userModel)) {
@@ -503,7 +503,7 @@ class UsersController extends \yii\base\Controller
         Common::matchUserStatus($requestParam['user_id']);
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header('auth_token');
-        Common::checkAuthentication($authToken);
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
         if (!empty($requestParam['user_id'])) {
 
             if (!empty(Users::find()->where("email = '" . $requestParam['email'] . "' AND id != '" . $requestParam['user_id'] . "'")->one())) {
@@ -576,7 +576,7 @@ class UsersController extends \yii\base\Controller
         Common::matchUserStatus($requestParam['user_id']);
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header('auth_token');
-        Common::checkAuthentication($authToken);
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
         $snUserId = $requestParam['user_id'];
         $model = Users::findOne(["id" => $snUserId]);
         if (!empty($model)) {
@@ -628,7 +628,7 @@ class UsersController extends \yii\base\Controller
         Common::matchUserStatus($requestParam['user_id']);
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header('auth_token');
-        Common::checkAuthentication($authToken);
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
         $oModelUser = Users::findOne($requestParam['user_id']);
         if (!empty($oModelUser)) {
 

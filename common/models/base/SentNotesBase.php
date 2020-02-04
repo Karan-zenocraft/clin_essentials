@@ -19,7 +19,7 @@ use Yii;
  * @property string $description
  * @property integer $from_user_id
  * @property integer $to_patient_id
- * @property string $to_email_id
+ * @property string $patient_email
  * @property string $pdf_filename
  * @property string $created_at
  * @property string $updated_at
@@ -43,12 +43,12 @@ class SentNotesBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['note_id', 'color_code', 'title', 'description', 'from_user_id', 'to_email_id', 'pdf_filename'], 'required'],
-            [['note_id', 'font_size', 'from_user_id', 'to_patient_id'], 'integer'],
+            [['note_id', 'color_code', 'title', 'description', 'user_id', 'patient_email', 'pdf_filename'], 'required'],
+            [['note_id', 'font_size', 'user_id', 'patient_id'], 'integer'],
             [['description'], 'string'],
             [['created_at', 'updated_at', 'is_archive', 'mail_sent'], 'safe'],
-            [['color_code', 'font_name', 'title', 'to_email_id', 'pdf_filename'], 'string', 'max' => 255],
-            [['from_user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['from_user_id' => 'id']],
+            [['color_code', 'font_name', 'title', 'patient_email', 'pdf_filename'], 'string', 'max' => 255],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
             [['note_id'], 'exist', 'skipOnError' => true, 'targetClass' => Notes::className(), 'targetAttribute' => ['note_id' => 'id']],
         ];
     }
@@ -66,9 +66,9 @@ class SentNotesBase extends \yii\db\ActiveRecord
             'font_size' => 'Font Size',
             'title' => 'Title',
             'description' => 'Description',
-            'from_user_id' => 'From User ID',
-            'to_patient_id' => 'To Patient ID',
-            'to_email_id' => 'To Email ID',
+            'user_id' => 'From User ID',
+            'patient_id' => 'To Patient ID',
+            'patient_email' => 'Patient Email',
             'pdf_filename' => 'Pdf Filename',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',

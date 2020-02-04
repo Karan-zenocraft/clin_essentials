@@ -136,10 +136,9 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->color_code = $note['color_code'];
                         $sentNotesModel->title = $note['title'];
                         $sentNotesModel->description = $note['description'];
-                        $sentNotesModel->from_user_id = $requestParam['user_id'];
-                        $sentNotesModel->to_patient_id = !empty($requestParam['to_patient_id']) ? $requestParam['to_patient_id'] : "";
-                        $sentNotesModel->to_patient_id = $note['patient_id'];
-                        $sentNotesModel->to_email_id = $note['patient_email'];
+                        $sentNotesModel->user_id = $requestParam['user_id'];
+                        $sentNotesModel->patient_id = $note['patient_id'];
+                        $sentNotesModel->patient_email = $note['patient_email'];
                         $sentNotesModel->font_size = $note['font_size'];
                         $sentNotesModel->font_name = $note['font_name'];
                         $sentNotesModel->pdf_filename = Yii::$app->params['root_url'] . "/uploads/pdf_files/" . $file_name;
@@ -164,7 +163,7 @@ class SendEmailController extends \yii\base\Controller
         $amData = Common::checkRequestType();
         $amResponse = array();
         $ssMessage = '';
-        $amRequiredParams = array('user_id', 'note_type');
+        $amRequiredParams = array('user_id');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
         // If any getting error in request paramter then set error message.
         if (!empty($amParamsResult['error'])) {
@@ -185,28 +184,20 @@ class SendEmailController extends \yii\base\Controller
 
         $userModel = Users::findOne(['id' => $requestParam['user_id']]);
         if (!empty($userModel)) {
-            if ($requestParam['note_type'] == "save_note") {
-                $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id'], 'mail_sent' => '0'])->asArray()->groupBy('dateOnly')->all();
-            } else {
-                $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
-            }
+            $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+
             if (!empty($usersSentMailDateList)) {
                 foreach ($usersSentMailDateList as $key => $value) {
-                    if ($requestParam['note_type'] == "save_note") {
-                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'from_user_id' => $requestParam['user_id'], 'mail_sent' => '0'])->asArray()->all();
-                    } else {
-                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'from_user_id' => $requestParam['user_id']])->asArray()->all();
-                    }
+                    $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
                     $amReponseParam[$key]['date'] = $value['dateOnly'];
                     $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
                 }
-                $ssMessage = 'List of sent emails';
-                $ssMessage = ($requestParam['note_type'] == "save_note") ? 'List of Save Notes.' : 'List of sent emails.';
+                $ssMessage = 'List of sent emails.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
             } else {
                 $amReponseParam = [];
-                $ssMessage = ($requestParam['note_type'] == "save_note") ? 'Save Notes not found.' : 'Sent Emails not found.';
+                $ssMessage = 'Sent Emails not found.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             }
         } else {
@@ -258,10 +249,10 @@ class SendEmailController extends \yii\base\Controller
                     $note->save(false);
                     $ssMessage = 'Note un archived successfully.';
                 }
-                $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['from_user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+                $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
                 if (!empty($usersSentMailDateList)) {
                     foreach ($usersSentMailDateList as $key => $value) {
-                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'from_user_id' => $requestParam['user_id']])->asArray()->all();
+                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
                         $amReponseParam[$key]['date'] = $value['dateOnly'];
                         $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
                     }
@@ -837,10 +828,9 @@ class SendEmailController extends \yii\base\Controller
                 $sentNotesModel->color_code = $note['color_code'];
                 $sentNotesModel->title = $note['title'];
                 $sentNotesModel->description = $note['description'];
-                $sentNotesModel->from_user_id = $requestParam['user_id'];
-                $sentNotesModel->to_patient_id = !empty($requestParam['to_patient_id']) ? $requestParam['to_patient_id'] : "";
-                $sentNotesModel->to_patient_id = $note['patient_id'];
-                $sentNotesModel->to_email_id = $note['patient_email'];
+                $sentNotesModel->user_id = $requestParam['user_id'];
+                $sentNotesModel->patient_id = $note['patient_id'];
+                $sentNotesModel->patient_email = $note['patient_email'];
                 $sentNotesModel->font_size = $note['font_size'];
                 $sentNotesModel->font_name = $note['font_name'];
                 $sentNotesModel->mail_sent = Yii::$app->params['mail_sent']['false'];
@@ -851,6 +841,58 @@ class SendEmailController extends \yii\base\Controller
             $amReponseParam = $sentNotes;
             $ssMessage = 'Your note is successfully saved.';
             $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+        } else {
+            $ssMessage = 'Invalid user_id';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
+    }
+    public function actionGetSaveNotesList()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+        $amRequiredParams = array('user_id');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        // Check User Status
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+
+        $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+        if (!empty($userModel)) {
+            $usersSentMailDateList = SentNotes::find()->where(['user_id' => $requestParam['user_id'], "mail_sent" => "0"])->asArray()->all();
+            if (!empty($usersSentMailDateList)) {
+                array_walk($usersSentMailDateList, function ($arr) use (&$amResponseData) {
+                    $ttt = $arr;
+                    unset($ttt['pdf_filename']);
+                    unset($ttt['is_archive']);
+                    unset($ttt['created_at']);
+                    unset($ttt['updated_at']);
+                    $amResponseData[] = $ttt;
+                    return $amResponseData;
+                });
+                $amReponseParam = $amResponseData;
+                $ssMessage = 'List of save notes';
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+
+            } else {
+                $amReponseParam = [];
+                $ssMessage = 'Sent Emails not found.';
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+            }
         } else {
             $ssMessage = 'Invalid user_id';
             $amResponse = Common::errorResponse($ssMessage);
