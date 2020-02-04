@@ -381,8 +381,6 @@ class SendEmailController extends \yii\base\Controller
                         </footer>
                     </body>
                     </html>';
-//            $content = $this->renderPartial('_reportView');
-
                 // setup kartik\mpdf\Pdf component
                 $pdf = new Pdf([
                     // set to use core fonts only
