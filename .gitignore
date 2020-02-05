@@ -31,4 +31,5 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
-
+/uploads
+/uploads/ttfontdata
