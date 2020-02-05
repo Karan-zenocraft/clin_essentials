@@ -304,27 +304,36 @@ class SendEmailController extends \yii\base\Controller
                     Common::encodeResponseJSON($amResponse);
                 }
             }
+            
+           
+            
             $list_arr = '<table width="100%" cellpadding="2px" cellspacing="2px" border="0" align="center">';
             foreach ($list as $key => $single_list) {
                 $checked = ($single_list['is_cheked'] == 1) ? "checked" : "unchecked";
                 $list_arr .= '<tr>
-                        <td valign="middle">
-                        <table  width="100%" cellpadding="0" cellspacing="0" border="0" align="center" height="24px">
+                        <td valign="middle" width="24px">
+                        <table  style="float:left;" width="24px"  cellpadding="0" cellspacing="0" border="0" align="center" height="24px">
                             <tr>
-                            <td valign="middle" align="center" style="border: 2px solid #ff6a0c;width:20px;height:20px;"></td>
+                            <td valign="middle" align="left" style="height:20px;width:20px;border: 2px solid #ff6a0c;"></td>
                             </tr>
                         </table>
                         </td>
-                        <td>
-                        <table  width="100%" cellpadding="0" cellspacing="0" border="0" align="center" height="24px">
-                            <tr>
-                            <td ></td>
-                            </tr>
+                        
+                        <td width="15px">
+                        <table style="float:left;"  width="15px" cellpadding="0" cellspacing="0" border="0" align="center" height="24px">
+                        <tr>
+                        <td></td>
+                        </tr>
                         </table>
                         </td>
-                        <td valign="middle" align="left" style="border-bottom: 1px solid #d1d3d5;font-size: 13px;line-height: 20px;
-    letter-spacing: 1px;font-weight: lighter;font-family: "FrutingerBQRoman";color: #333;width: 100%;word-break: break-all;">' . $single_list['text'] . '</td>
+                        
+                        <td valign="middle" align="left" style="border-bottom: 1px solid #d1d3d5;font-size: 13px;line-height: 20px;word-break:break-all;
+                        letter-spacing: 1px;font-weight: lighter;font-family: "FrutingerBQRoman";color: #333;width: 100%;">' . $single_list['text'] . '
+                        </td>
+                        
                     </tr>
+
+                    
                     <tr>
                     <td valign="middle" align="left" height="10px">
                     </td>
