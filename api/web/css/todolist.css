@@ -1,76 +1,39 @@
+.Footer{width: 100%; color: #333333b8!important;font-size: 11px!important;line-height: 14px!important;font-weight: bold!important;letter-spacing: 1px!important;font-style:normal!important;font-family: "FrutingerBQRoman"!important;margin-top: -13px;display: flex;align-items: center;justify-content: center;z-index: 9999; }
+.BorderBottom{font-weight: 900;font-family: "FRUTBL_";}
+html, body, table{height: 100%!important}
+html{background: #000!important}
 @font-face {
             font-family: FrutingerBQBold;
             src: url(.../../common/web/.../../common/web/common/web/fonts/FRUTBB_.ttf);
         }
-
         @font-face {
             font-family: FrutingerBQLight;
             src: url(../../common/web/fonts/FRUTBL_.ttf);
         }
-
         @font-face {
             font-family: FrutingerBQRoman;
             src: url(../../common/web/fonts/FRUTBR_.ttf);
         }
-
         @font-face {
             font-family: FrutingerCondensedBQLight;
             src: url(../../common/web/fonts/FRUTCBL.ttf);
         }
-
         @font-face {
             font-family: Helvetica;
             src: url(../../common/web/fonts/Helvetica.ttc);
         }
-
         @font-face {
             font-family: Impact;
             src: url(../../common/web/fonts/Impact.ttf);
         }
-
         @font-face {
             font-family: leaguegothic-regular-webfont;
             src: url(../../common/web/fonts/leaguegothic-regular-webfont.ttf);
         }
-
         @font-face {
             font-family: Playlist Script;
             src: url(../../common/web/fonts/Playlist Script.otf);
         }
-        @font-face {
-            font-family: Arial-BoldMT;
-            src: url(../../common/web/fonts/arialbd.ttf);
-        }
-        @font-face {
-            font-family: Arial-BoldItalicMT;
-            src: url(../../common/web/fonts/ArialCEBoldItalic.ttf);
-        }
-         @font-face {
-            font-family: Arial-ItalicMT;
-            src: url(../../common/web/fonts/ariali.ttf);
-        }
-          @font-face {
-            font-family: ArialMT;
-            src: url(../../common/web/fonts/arial.ttf);
-        }
-         @font-face {
-            font-family: TimesNewRomanPS-ItalicMT;
-            src: url(../../common/web/fonts/times_italic.ttf);
-        }
-        @font-face {
-            font-family: TimesNewRomanPS-BoldItalicMT;
-            src: url(../../common/web/fonts/times_bold_italic.ttf);
-        }
-        @font-face {
-            font-family: TimesNewRomanPS-BoldMT;
-            src: url(../../common/web/fonts/times_bold.ttf);
-        }
-        @font-face {
-            font-family: TimesNewRomanPSMT;
-            src: url(../../common/web/fonts/times_light.ttf);
-        }
-        
-
         html {
             height: 100%;
             background: #fff;
@@ -80,7 +43,6 @@
             border: 1px solid #a5a5a5;
 */
         }
-
         header {
             background: #ff6a0c;
             /*            padding: 20px 0px;*/
@@ -89,11 +51,9 @@
             border: 1px solid #a5a5a5;
 */
         }
-
         .col-md-4.col-sm-4 {
             width: 33.33% !important;
         }
-
         header h1 {
             color: #fff;
             font-family: 'FrutingerBQRoman';
@@ -107,11 +67,9 @@
             margin-bottom: -7px;
             letter-spacing: 2px;
         }
-
         section {
             background: #fff;
         }
-
         section p {
             color: #76767a;
             font-family: 'Helvetica';
@@ -123,12 +81,9 @@
             margin: 0px 0px;
             text-align: center;
         }
-
         section .col-md-4 {
-
             margin-top: 30px;
         }
-
         section .p_id {
             min-height: 31px;
             color: #333;
@@ -141,26 +96,19 @@
             text-align: center;
             margin-top: 0px;
         }
-
         section .Box {
             margin-top: 15px;
         }
-
         .SectionList nav ul {
             padding: 0;
             margin: 0;
             list-style-type: none;
         }
-
         .SectionList nav ul li {
             display: flex;
             align-items: center;
             justify-content: flex-start;
         }
-
-
-
-
         .SectionList nav ul input {
             padding: 0;
             height: initial;
@@ -169,7 +117,6 @@
             display: none;
             cursor: pointer;
         }
-
         .SectionList nav ul label {
             position: relative;
             cursor: pointer;
@@ -179,7 +126,6 @@
             justify-content: flex-start;
             width: 100%;
         }
-
         .SectionList nav ul label:before {
             content: '';
             -webkit-appearance: none;
@@ -193,11 +139,9 @@
             cursor: pointer;
             margin-right: 5px;
         }
-
         .SectionList nav {
             margin-top: 50px;
         }
-
         .SectionList nav ul .Checked:after {
             content: '';
             display: block;
@@ -214,7 +158,6 @@
             margin: auto;
             transition: 0.8s all;
         }
-
         .SectionList nav ul label span {
             border-bottom: 1px solid #d1d3d5;
             font-size: 16px;
@@ -228,7 +171,6 @@
             min-height: 21px;
             display: block;
         }
-
         footer {
             position: fixed;
             bottom: 0;
@@ -237,17 +179,14 @@
             background: #fff;
             z-index: 9999;
         }
-
         footer .Logo img {
             max-height: 80px;
             float: right;
         }
-
         footer .Logo,
         footer .Left {
             padding: 0px 15px;
         }
-
         footer .Left:after {
             position: absolute;
             left: auto;
@@ -260,12 +199,10 @@
             height: 1px;
             background: #d1d3d5;
         }
-
         footer .Left {
             position: relative;
             width: 100%;
         }
-
         footer .BottomText {
             position: absolute;
             right: 0;
@@ -277,29 +214,23 @@
             color: #333333b8;
             font-family: 'FrutingerBQRoman';
         }
-
         @media (max-width : 576px) and (min-width : 320px) {
             section p {
                 font-size: 8px;
             }
-
             .col-md-4.col-sm-4 {
                 padding: 0px 10px;
             }
-
             .SectionList nav ul label:before {
                 padding: 5px;
             }
-
             .SectionList nav ul label span {
                 font-size: 8px;
             }
-
             section .p_id {
                 min-height: 27px;
                 margin-bottom: 0;
             }
-
             .SectionList nav ul .Checked:after {
                 content: '';
                 display: block;
@@ -316,40 +247,32 @@
                 margin: auto;
                 transition: 0.8s all;
             }
-
             header h1 {
                 font-size: 40px;
                 line-height: 40px;
             }
         }
-
         @media (max-width : 767px) and (min-width : 577px) {
             header h1 {
                 font-size: 40px;
                 line-height: 40px;
             }
-
             section p {
                 font-size: 10px;
             }
-
             .col-md-4.col-sm-4 {
                 padding: 0px 10px;
             }
-
             .SectionList nav ul label:before {
                 padding: 5px;
             }
-
             .SectionList nav ul label span {
                 font-size: 10px;
             }
-
             section .p_id {
                 min-height: 27px;
                 margin-bottom: 0
             }
-
             .SectionList nav ul .Checked:after {
                 content: '';
                 display: block;
@@ -366,5 +289,4 @@
                 margin: auto;
                 transition: 0.8s all;
             }
-
         }
