@@ -304,9 +304,7 @@ class SendEmailController extends \yii\base\Controller
                     Common::encodeResponseJSON($amResponse);
                 }
             }
-            
-           
-            
+
             $list_arr = '<table width="100%" cellpadding="2px" cellspacing="2px" border="0" align="center">';
             foreach ($list as $key => $single_list) {
                 $checked = ($single_list['is_cheked'] == 1) ? "checked" : "unchecked";
@@ -318,7 +316,7 @@ class SendEmailController extends \yii\base\Controller
                             </tr>
                         </table>
                         </td>
-                        
+
                         <td width="15px">
                         <table style="float:left;"  width="15px" cellpadding="0" cellspacing="0" border="0" align="center" height="24px">
                         <tr>
@@ -326,14 +324,14 @@ class SendEmailController extends \yii\base\Controller
                         </tr>
                         </table>
                         </td>
-                        
+
                         <td valign="middle" align="left" style="border-bottom: 1px solid #d1d3d5;font-size: 13px;line-height: 20px;word-break:break-all;
                         letter-spacing: 1px;font-weight: lighter;font-family: "FrutingerBQRoman";color: #333;width: 100%;">' . $single_list['text'] . '
                         </td>
-                        
+
                     </tr>
 
-                    
+
                     <tr>
                     <td valign="middle" align="left" height="10px">
                     </td>
@@ -513,7 +511,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -568,6 +566,9 @@ class SendEmailController extends \yii\base\Controller
             Common::encodeResponseJSON($amResponse);
         }
         $requestParam = $amData['request_param'];
+        $dateinformate = $requestParam["date"];
+        $date = date("d", strtotime($dateinformate));
+        $month = date("m", strtotime($dateinformate));
         Common::matchUserStatus($requestParam['user_id']);
         //VERIFY AUTH TOKEN
         $authToken = Common::get_header('auth_token');
@@ -576,6 +577,7 @@ class SendEmailController extends \yii\base\Controller
             $amResponse = Common::errorResponse($ssMessage);
             Common::encodeResponseJSON($amResponse);
         }
+
         Common::checkAuthentication($authToken, $requestParam['user_id']);
         $amRequiredParamsList = array('item', 'by_date', 'is_cheked');
 
@@ -589,13 +591,91 @@ class SendEmailController extends \yii\base\Controller
                     Common::encodeResponseJSON($amResponse);
                 }
             }
-            $list_arr = '<div class="row"><div class="col-md-12 SectionList"><nav><ul>';
-
+            $list_arr = '<table width="100%" cellpadding="0px" cellspacing="0px" border="0" align="center">';
+            $i = 1;
             foreach ($action_items as $key => $single_item) {
+
+                $index = $i++;
                 $checked = ($single_item['is_cheked'] == 1) ? "checked" : "unchecked";
-                $list_arr .= '<li><label for="list"><span>' . $single_item['item'] . '</span><span>' . $single_item['by_date'] . '</span></label><input type="checkbox" id="list" checked="' . $checked . '"></li>';
+                $list_arr .= '<tr>
+        <td width="86.13%" style="border-right: 2px solid #008997;">
+
+            <table width="100%" cellpadding="0px" cellspacing="0px" border="0" align="left" valign="top">
+                <tr>
+
+                    <td width="10px" valign="top">
+                        <table border="0" align="left" valign="top">
+                            <tr>
+
+
+                                <td valign="top" align="left" style="color: #008997;font-size: 14px;line-height: 20px;font-weight: 600;letter-spacing: 1px;font-family: FrutingerBQRoman;">' . $index . '.</td>
+                            </tr>
+                        </table>
+
+
+                    </td>
+
+
+
+                    <td valign="center" width="500px" align="left" style="font-size: 14px;line-height: 20px;font-weight: 400;letter-spacing: 1px;font-family: FrutingerBQRoman;">
+
+
+                        <table border="0" align="left" valign="bottom" width="100%">
+                            <tr>
+                                <td valign="bottom" style="font-size: 14px;border-bottom: 1px solid #5a5a5a;line-height: 20px;font-weight: 400;letter-spacing: 1px;font-family: FrutingerBQRoman;width: 100%;">' . $single_item['item'] . ' </td>
+
+                            </tr>
+                        </table>
+
+
+
+
+
+                    </td>
+
+
+
+
+
+                    <td valign="bottom" align="right" style="font-size: 14px;line-height: 20px;font-weight: 400;letter-spacing: 1px;font-family: FrutingerBQRoman;">
+
+                        <table border="0" align="left" valign="bottom">
+                            <tr>
+                                <td valign="bottom" style="font-size: 14px;border-bottom: 1px solid #5a5a5a;line-height: 20px;font-weight: 400;letter-spacing: 1px;font-family: FrutingerBQRoman;">' . $date . '</td>
+                                <td valign="bottom">/</td>
+                                <td valign="bottom" style="font-size: 14px;border-bottom: 1px solid #5a5a5a;line-height: 20px;font-weight: 400;letter-spacing: 1px;font-family: FrutingerBQRoman;">' . $month . '</td>
+                            </tr>
+                        </table>
+
+                    </td>
+
+
+
+
+                </tr>
+            </table>
+
+        </td>
+
+        <td align="center" valign="middle">
+
+            <table cellpadding="0px" cellspacing="0px" border="0" align="center">
+                <tr>
+
+                    <td height="20px" width="20px" valign="middle" align="center" style="border:2px solid #008997;"> </td>
+
+
+
+                </tr>
+
+
+
+            </table>
+        </td>
+
+    </tr>';
             }
-            $list_arr = $list_arr . "</ul></nav></div></div>";
+            $list_arr = $list_arr . " </table>";
             // $list = $requestParam['list'];
 
             $userModel = Users::findOne(['id' => $requestParam['user_id']]);
@@ -603,65 +683,203 @@ class SendEmailController extends \yii\base\Controller
             if (!empty($userModel)) {
                 $fromEmail = $userModel->email;
                 $html = '<!DOCTYPE html>
-                    <html>
+                    <html style="height:100%">
                     <head>
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
                     </head>
-                    <body>
-                        <header>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <h1>Action Items</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </header>
-                        <section>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-4">
-                                        <div class="Box">
-                                            <p class="p_id">' . $requestParam["protocol"] . '</p>
-                                            <p>PROTOCOL</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4">
-                                        <div class="Box">
-                                            <p class="p_id">' . $requestParam["investigator"] . '</p>
-                                            <p>INVESTIGATOR</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4">
-                                        <div class="Box">
-                                            <p class="p_id">' . $requestParam["date"] . '</p>
-                                            <p>DATE</p>
-                                        </div>
-                                    </div>
-                                </div>' . $list_arr . '
-                            </div>
-                        </section>
-                        <footer>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-12 d-flex align-items-center justify-content-between">
-                                        <div class="Left" style="position: relative;width: 100%;">
-                                            <p style="position: absolute;right: 0;top: 5px;font-size: 11px;line-height: 14px;font-weight: bold;letter-spacing: 1px;color: #333333b8;font-family:FrutingerBQRoman; "class="BottomText">Resources and Tools for Clinical Research Professionals</p>
-                                        </div>
+                    <body style="height:100%">
+<!--table 1-->
+    <table align="center" cellpadding="0px" cellspacing="0px" border="0" style="width: 100%;height: 100%;">
+        <tr>
+            <td valign="top">
+
+                <!--table 1.1-->
+    <table align="center" cellpadding="0px" cellspacing="0px" border="0" style="width: 100%;">
+        <tr>
+            <td>
+                <!--table 1.2-->
+             <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="background: #008997">
+                    <tr>
+                        <td>
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+                                <tr>
+                                    <td valign="middle" align="left" height="40"></td>
+                                </tr>
+                                <tr>
+                                    <td valign="bottom" align="center" style="font-size: 50px;letter-spacing: 2px;color: #fff;line-height: 35px;font-family: "FrutingerBQRoman";font-weight: 700;">
+                                     ACTION ITEMS
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!--/table 1.2-->
+
+                <!--table 1.3-->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="background: #fff">
+                    <tr>
+                        <td valign="middle" align="left" height="60"></td>
+                    </tr>
+                </table>
+                <!--/table 1.3-->
+
+                <!--table 1.4-->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="background: #fff">
+
+                    <tr>
+                    <td width="33.33%" valign="bottom">
+                      <table width="80%" cellpadding="0" cellspacing="0" border="0" align="left">
+                       <tr>
+                        <td valign="top" align="center" style="color: #333;letter-spacing: 2px;text-transform: capitalize;border-bottom: 1px solid #5a5a5a;height: 22px;word-break: break-all;">
 
 
-                                        <div class="Logo" style="display:flex;align-items:center;justify-content:center">
-                                      <hr style="display: block;margin-top: 0.5em;margin-left: auto;margin-right: auto; border-style: inset;border-width: 1px;width:80%;position:absolute;left:auto;bottom:0;right:0">
-                                            <img src="' . $logo . '" width="auto" max-height="80" alt="" class="img-fluid" style="float:right;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
-                    </body>
-                    </html>';
+                           <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tr align="center">
+                                <td>
+                            ' . $requestParam["protocol"] . '
+
+                                    </td>
+                               </tr>
+                               </table>
+                           </td>
+                        </tr>
+                        <tr>
+                        <td valign="bottom" align="center" style="color: #5a5a5a;font-family: "Helvetica";font-weight: 600;letter-spacing: 2px;text-transform: capitalize;font-size: 15px;line-height: 26px;height: 22px;word-break: break-all;">PROTOCOL</td>
+                        </tr>
+                    </table>
+                    </td>
+
+                        <td width="33.33%" valign="bottom">
+                      <table width="80%" cellpadding="0" cellspacing="0" border="0" align="center">
+                       <tr>
+
+                        <td valign="top" align="center" style="color: #333;letter-spacing: 2px;text-transform: capitalize;border-bottom: 1px solid #5a5a5a;height: 22px;word-break: break-all;">
+
+
+                           <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tr align="center">
+                                <td>
+                           ' . $requestParam["investigator"] . '
+
+                                    </td>
+                               </tr>
+                               </table>
+                           </td>
+                     </tr>
+                        <tr>
+                        <td valign="bottom" align="center" style="color: #5a5a5a;font-family: "Helvetica";font-weight: 600;letter-spacing: 2px;text-transform: capitalize;font-size: 15px;line-height: 26px;height: 22px;word-break: break-all;">INVESTIGATOR</td>
+                        </tr>
+                    </table>
+                    </td>
+
+
+                        <td width="33.33%" valign="bottom">
+                      <table width="80%" cellpadding="0" cellspacing="0" border="0" align="right">
+                       <tr>
+
+                        <td valign="top" align="center" style="color: #333;letter-spacing: 2px;text-transform: capitalize;border-bottom: 1px solid #5a5a5a;height: 22px;word-break: break-all;">
+
+
+                           <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tr align="center">
+                                <td>
+                           ' . $requestParam["date"] . '
+
+                                    </td>
+                               </tr>
+                               </table>
+                           </td>
+                        </tr>
+                        <tr>
+                        <td valign="bottom" align="center" style="color: #5a5a5a;font-family: "Helvetica";font-weight: 600;letter-spacing: 2px;text-transform: capitalize;font-size: 15px;line-height: 26px;height: 22px;word-break: break-all;">DATE</td>
+                        </tr>
+                    </table>
+                    </td>
+                    </tr>
+                </table>
+                <!--/table 1.4-->
+
+                <!--table 1.5-->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="background: #fff">
+                    <tr>
+                        <td valign="middle" align="left" height="40"></td>
+                    </tr>
+                </table>
+                <!--/table 1.5-->
+
+<!--table 1.5.1-->
+
+                            <table width="100%" cellpadding="5px" cellspacing="0px" border="0" align="center">
+                            <tr>
+                                <td  valign="middle" align="center" style="background: #008997;float: left;font-size: 14px;line-height: 20px;font-weight: 600;color: #fff;letter-spacing: 1px;font-family: FrutingerBQRoman;padding-right: 25px;padding-left: 25px;">Action Item : </td>
+                                <td width="400px" valign="middle" align="center"></td>
+
+                                <td  valign="middle" align="center" style="background: #008997;float: right;font-size: 14px;line-height: 20px;font-weight: 600;color: #fff;letter-spacing: 1px;font-family: FrutingerBQRoman;padding-right: 25px;padding-left: 25px;">Action Due : </td>
+                            </tr>
+
+                            <tr>
+                            <td height="20px" valign="middle" align="center"></td>
+                            <tr>
+
+                            </table>
+                            <!--/table 1.5.1-->
+
+
+                            <!--table 1.5.2-->
+
+
+                            <table width="100%" cellpadding="0px" cellspacing="0px" border="0" align="center">
+
+
+                                <tr>
+
+                                <td width="79.6%">
+
+
+                                </td>
+
+
+
+
+                            <td valign="middle" align="center" style="float: right;color: #008997;font-size: 14px;line-height: 20px;font-weight: 400;letter-spacing: 1px;font-family: FrutingerBQRoman;display: flex;align-items: center;justify-content: center;height: 40px;text-align:center">By <br> Date</td>
+
+                            <td valign="middle" align="center" style="float: right;color: #008997;font-size: 14px;line-height: 20px;font-weight: 400;letter-spacing: 1px;font-family: FrutingerBQRoman;height: 40px;
+                            border-left: 2px solid #008997;text-align:center">Prior to the <br> Next Visit</td>
+                                </tr>
+
+
+                            </table>
+
+
+                            <!--/table 1.5.2-->
+
+
+
+                            <!--table 1.5.3-->
+
+
+                            <!----here------->
+                             ' . $list_arr . '
+
+
+                            <!--/table 1.5.3-->
+
+                <!--table 1.6-->
+
+                <!--/table 1.6-->
+            </td>
+        </tr>
+    </table>
+     <!--/table 1.1-->
+            </td>
+        </tr>
+    </table>
+    <!--/table 1-->
+</body>
+</html>';
 //            $content = $this->renderPartial('_reportView');
 
                 // setup kartik\mpdf\Pdf component
@@ -677,13 +895,19 @@ class SendEmailController extends \yii\base\Controller
                     // your html content input
                     'content' => $html,
                     // any css to be embedded if required
-                    'cssFile' => '@api/web/css/todolist.css',
+                    'cssFile' => '@api/web/css/action_items.css',
                     // set mPDF properties on the fly
                     'options' => ['title' => "VISIT TO DO LIST"],
                     // call mPDF methods on the fly
                     'methods' => [
                         'SetHeader' => [''],
-                        'SetFooter' => [''],
+                        'SetFooter' => ['
+
+                        <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
+                        </div>
+
+
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;

@@ -1,0 +1,60 @@
+.Footer {
+    width: 100%;
+    color: #333333b8 !important;
+    font-size: 11px !important;
+    line-height: 14px !important;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+    font-style: normal !important;
+    font-family: "FrutingerBQRoman" !important;
+    margin-top: -13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.BorderBottom {
+    font-weight: 900;
+    font-family: "FRUTBL_";
+}
+html,
+body,
+table {
+    height: 100% !important
+}
+html {
+    background: #000 !important
+}
+/*.CheckBox{width: 24px!important;height: 24px!important;border-color: red!important;}*/
+@font-face {
+    font-family: FrutingerBQBold;
+    src: url(.../../common/web/.../../common/web/common/web/fonts/FRUTBB_.ttf);
+}
+@font-face {
+    font-family: FrutingerBQLight;
+    src: url(../../common/web/fonts/FRUTBL_.ttf);
+}
+@font-face {
+    font-family: FrutingerBQRoman;
+    src: url(../../common/web/fonts/FRUTBR_.ttf);
+}
+@font-face {
+    font-family: FrutingerCondensedBQLight;
+    src: url(../../common/web/fonts/FRUTCBL.ttf);
+}
+@font-face {
+    font-family: Helvetica;
+    src: url(../../common/web/fonts/Helvetica.ttc);
+}
+@font-face {
+    font-family: Impact;
+    src: url(../../common/web/fonts/Impact.ttf);
+}
+@font-face {
+    font-family: leaguegothic-regular-webfont;
+    src: url(../../common/web/fonts/leaguegothic-regular-webfont.ttf);
+}
+@font-face {
+    font-family: Playlist Script;
+    src: url(../../common/web/fonts/Playlist Script.otf);
+}
