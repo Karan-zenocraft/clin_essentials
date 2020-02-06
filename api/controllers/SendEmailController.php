@@ -462,7 +462,6 @@ class SendEmailController extends \yii\base\Controller
                     </tr>
                 </table>
                 <!--/table 1.4-->
-
                 <!--table 1.5-->
                 <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="background: #fff">
                     <tr>
@@ -470,8 +469,6 @@ class SendEmailController extends \yii\base\Controller
                     </tr>
                 </table>
                 <!--/table 1.5-->
-
-
                 <!--table 1.6-->
                 ' . $list_arr . '
                 <!--/table 1.6-->
@@ -506,11 +503,8 @@ class SendEmailController extends \yii\base\Controller
                     'methods' => [
                         'SetHeader' => [''],
                         'SetFooter' => ['
-
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-
-
                         '],
                     ],
                 ]);
