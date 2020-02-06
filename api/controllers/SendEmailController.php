@@ -189,8 +189,14 @@ class SendEmailController extends \yii\base\Controller
             if (!empty($usersSentMailDateList)) {
                 foreach ($usersSentMailDateList as $key => $value) {
                     $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
+                    array_walk($getDataDateWise, function ($arr) use (&$amResponseData) {
+                        $ttt = $arr;
+                        $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                        $amResponseData[] = $ttt;
+                        return $amResponseData;
+                    });
                     $amReponseParam[$key]['date'] = $value['dateOnly'];
-                    $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
+                    $amReponseParam[$key]['datewiseData'] = $amResponseData;
                 }
                 $ssMessage = 'List of sent emails.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
