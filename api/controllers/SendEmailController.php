@@ -534,7 +534,7 @@ class SendEmailController extends \yii\base\Controller
                     }
                 }
                 $amReponseParam = $toDoList;
-                $ssMessage = 'To do list PDF is successfully sent.';
+                $ssMessage = 'Visit To do list PDF is successfully sent.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             } else {
                 $ssMessage = 'Invalid user_id';
