@@ -149,7 +149,7 @@ class SendEmailController extends \yii\base\Controller
                 }
             }
             $amReponseParam = $sentNotes;
-            $ssMessage = 'PDF is successfully sent through email.';
+            $ssMessage = 'CRA Notes PDF is successfully sent.';
             $amResponse = Common::successResponse($ssMessage, $amReponseParam);
         } else {
             $ssMessage = 'Invalid user_id';
@@ -534,7 +534,7 @@ class SendEmailController extends \yii\base\Controller
                     }
                 }
                 $amReponseParam = $toDoList;
-                $ssMessage = 'To do list PDF is successfully sent through email.';
+                $ssMessage = 'To do list PDF is successfully sent.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             } else {
                 $ssMessage = 'Invalid user_id';
@@ -933,7 +933,7 @@ class SendEmailController extends \yii\base\Controller
                 }
 
                 $amReponseParam = $toDoList;
-                $ssMessage = 'To do list PDF is successfully sent through email.';
+                $ssMessage = 'Action Item PDF is successfully sent.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             } else {
                 $ssMessage = 'Invalid user_id';
@@ -1093,7 +1093,7 @@ class SendEmailController extends \yii\base\Controller
                 }
 
                 $amReponseParam = $clinicalStudyProtocolArr;
-                $ssMessage = 'Clinical Study Protocol PDF is successfully sent through email.';
+                $ssMessage = 'Clinical Study Protocol PDF is successfully sent.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             } else {
                 $ssMessage = 'Invalid user_id';
