@@ -372,12 +372,16 @@ class SendEmailController extends \yii\base\Controller
                         <td>
                             <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
                                 <tr>
-                                    <td valign="middle" align="left" height="40"></td>
+                                    <td valign="middle" align="left" height="20"></td>
                                 </tr>
                                 <tr>
                                     <td valign="bottom" align="center" style="font-size: 50px;letter-spacing: 2px;color: #fff;line-height: 35px;font-family: "FrutingerBQRoman";font-weight: 700;">
                                         VISIT TO DO LIST
                                     </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td valign="middle" align="left" height="20"></td>
                                 </tr>
                             </table>
                         </td>
@@ -705,12 +709,16 @@ class SendEmailController extends \yii\base\Controller
                         <td>
                             <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
                                 <tr>
-                                    <td valign="middle" align="left" height="40"></td>
+                                    <td valign="middle" align="left" height="20"></td>
                                 </tr>
                                 <tr>
                                     <td valign="bottom" align="center" style="font-size: 50px;letter-spacing: 2px;color: #fff;line-height: 35px;font-family: "FrutingerBQRoman";font-weight: 700;">
                                      ACTION ITEMS
                                     </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td valign="middle" align="left" height="20"></td>
                                 </tr>
                             </table>
                         </td>
