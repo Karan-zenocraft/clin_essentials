@@ -511,7 +511,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -907,7 +907,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1173,7 +1173,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1208,6 +1208,74 @@ class SendEmailController extends \yii\base\Controller
             }
         } else {
             $ssMessage = 'protocol_array can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
+    }
+
+    public function actionSaveNote()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+
+        $amRequiredParams = array('user_id');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        //$notes = json_decode(json_encode($requestParam['notes']), true);
+        $notes = $requestParam['notes'];
+
+        $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description');
+
+        foreach ($notes as $key => $note) {
+            $amParamsResultNotes = Common::checkRequestParameterKey($note, $amRequiredParamsNotes);
+
+            if (!empty($amParamsResultNotes['error'])) {
+                $amResponse = Common::errorResponse($amParamsResultNotes['error']);
+                Common::encodeResponseJSON($amResponse);
+            }
+        }
+        // Check User Status
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+
+        $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+        if (!empty($userModel)) {
+            $fromEmail = $userModel->email;
+            foreach ($notes as $key => $note) {
+
+                $sentNotesModel = new SentNotes();
+                $sentNotesModel->note_id = $note['note_id'];
+                $sentNotesModel->color_code = $note['color_code'];
+                $sentNotesModel->title = $note['title'];
+                $sentNotesModel->description = $note['description'];
+                $sentNotesModel->user_id = $requestParam['user_id'];
+                $sentNotesModel->patient_id = $note['patient_id'];
+                $sentNotesModel->patient_email = $note['patient_email'];
+                $sentNotesModel->font_size = $note['font_size'];
+                $sentNotesModel->font_name = $note['font_name'];
+                $sentNotesModel->mail_sent = Yii::$app->params['mail_sent']['false'];
+                $sentNotesModel->save(false);
+                $sentNotes[] = $sentNotesModel;
+
+            }
+            $amReponseParam = $sentNotes;
+            $ssMessage = 'Your note is successfully saved.';
+            $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+        } else {
+            $ssMessage = 'Invalid user_id';
             $amResponse = Common::errorResponse($ssMessage);
         }
         Common::encodeResponseJSON($amResponse);
