@@ -511,7 +511,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -907,7 +907,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -976,12 +976,10 @@ class SendEmailController extends \yii\base\Controller
         }
         Common::checkAuthentication($authToken, $requestParam['user_id']);
         $amRequiredParamsList = array('text', 'is_checked');
-
         if (!empty($requestParam['protocol_array'])) {
             $protocol_array = $requestParam['protocol_array'];
             foreach ($protocol_array as $key => $single_item) {
                 $amParamsResultList = Common::checkRequestParameterKey($single_item, $amRequiredParamsList);
-
                 if (!empty($amParamsResultList['error'])) {
                     $amResponse = Common::errorResponse($amParamsResultList['error']);
                     Common::encodeResponseJSON($amResponse);
@@ -991,19 +989,50 @@ class SendEmailController extends \yii\base\Controller
             foreach ($protocol_array as $key => $single_item) {
             $checked = ($single_item['is_checked'] == 1) ? "checked" : "unchecked";
             $list_arr .= "<div class='row'><div class='col-md-6'>'" . $single_item['is_checked'] . "'<span>'" . $single_item['text'] . "'</span></div>";
-
             }*/
-            $list_arr = '<div class="row"><div class="col-md-12 SectionList"><nav><ul>';
 
+            $checkedbox = Yii::$app->params['root_url'] . "/uploads/images/icon_checked.jpg";
+            $unchecked = Yii::$app->params['root_url'] . "/uploads/images/icon_unchecked.jpg";
+
+            $list_arr = '<tr>
+                            <td valign="middle" align="left">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">';
             foreach ($protocol_array as $key => $single_item) {
-                $checked = ($single_item['is_checked'] == 1) ? true : false;
-                $list_arr .= '<li><input type="checkbox" style="color:#ff6a0c" name="list" value="' . $key . '" checked=' . $checked . '><span style="padding-left:60;">' . $single_item['text'] . '</span></li>';
-            }
-            $list_arr = $list_arr . "</ul></nav></div></div>";
-            // $list = $requestParam['list'];
+//                $checked = ($single_item['is_checked'] == 1) ? true : false;
 
+                if ($checked = $single_item['is_checked'] == 1) {
+                    $list_arr .= '<tr>
+                            <td valign="middle" align="center" height="20px" width="20px"><img src="' . $checkedbox . '" alt="" style="height:20px;width:20px"></td>
+                            <td width="10px" height="20px"></td>
+                            <td style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #f37420;font-family: FRUTBL_;">' . $single_item['text'] . ' :</td>
+                            </tr>
+                            <tr>
+                            <td valign="middle" align="left" height="12"></td>
+                            </tr>';
+
+                } else if ($checked = $single_item['is_checked'] == 0) {
+
+                    $list_arr .= '<tr>
+                            <td valign="middle" align="center" height="20px" width="20px"><img src="' . $unchecked . '" alt="" style="height:20px;width:20px"></td>
+                            <td width="10px" height="20px"></td>
+                            <td style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #f37420;font-family: FRUTBL_;">' . $single_item['text'] . ' :</td>
+                            </tr>
+                            <tr>
+                            <td valign="middle" align="left" height="12"></td>
+                            </tr>';
+                }
+            }
+            $list_arr = $list_arr . "</table>
+
+                            </td>
+                            </tr>";
+            // $list = $requestParam['list'];
             $userModel = Users::findOne(['id' => $requestParam['user_id']]);
             $logo = Yii::$app->params['root_url'] . "/uploads/images/logo-orange.png";
+            $header = Yii::$app->params['root_url'] . "/uploads/images/pdf_header2.png";
+            $text = Yii::$app->params['root_url'] . "/uploads/images/text4.jpg";
+            $footer = Yii::$app->params['root_url'] . "/uploads/images/footer.jpg";
+
             if (!empty($userModel)) {
                 $fromEmail = $userModel->email;
                 $html = '<!DOCTYPE html>
@@ -1014,42 +1043,114 @@ class SendEmailController extends \yii\base\Controller
                         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
                     </head>
                     <body>
-                        <header>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <h1>Reviewing a Clinical Study Protocol</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </header>
-                        <section>
-                            <div class="container-fluid">
-                             ' . $list_arr . '
-                            </div>
-                        </section>
-                        <footer>
-                        <h2>MY NOTES</h2>' . $requestParam['my_notes'] . '
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-12 d-flex align-items-center justify-content-between">
-                                        <div class="Left" style="position: relative;width: 100%;">
-                                            <p style="position: absolute;right: 0;top: 5px;font-size: 11px;line-height: 14px;font-weight: bold;letter-spacing: 1px;color: #333333b8;font-family:FrutingerBQRoman; "class="BottomText">Resources and Tools for Clinical Research Professionals</p>
-                                        </div>
 
+                        <!--table 1-->
+    <table align="center" cellpadding="0px" cellspacing="0px" border="0" style="width: 100%;height: 100%;">
+        <tr>
+            <td valign="top">
+                <!--table 1.1-->
+                <table align="center" cellpadding="0px" cellspacing="0px" border="0" style="width: 100%;">
+                    <tr>
+                        <td>
+                            <!--table 1.2-->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="background: url(' . $header . ');background-repeat: no-repeat;background-size: contain;background-position: center;height: auto;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="middle" align="left" height="122px" style="width: 100%;"></td>
+                                                    </tr>
 
-                                        <div class="Logo" style="display:flex;align-items:center;justify-content:center">
-                                      <hr style="display: block;margin-top: 0.5em;margin-left: auto;margin-right: auto; border-style: inset;border-width: 1px;width:80%;position:absolute;left:auto;bottom:0;right:0">
-                                            <img src="' . $logo . '" width="auto" max-height="80" alt="" class="img-fluid" style="float:right;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!--/table 1.2-->
+                            <!--table 1.3-->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="background: #fff">
+                                <tr>
+                                    <td valign="middle" align="left" height="20"></td>
+                                </tr>
+                            </table>
+                            <!--/table 1.3-->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tr>
+                            <td valign="middle" align="center" style="font-size: 16px;line-height: 22px;letter-spacing: 1px;font-weight: 400;color: #10436e;font-family: "FRUTBL_";">You have just been assigned to a new study. How should you prepare and get up to speed</td>
+                            </tr>
+                            <tr>
+                            <td valign="middle" align="center" style="font-size: 16px;line-height: 22px;letter-spacing: 1px;font-weight: 400;color: #10436e;font-family: "FRUTBL_";"> What key information do you need to know about the protocol?</td>
+                            </tr>
+                            <tr>
+                            <td valign="middle" align="left" height="20"></td>
+                            </tr>
+                            <tr>
+                            <td valign="middle" align="center" style="font-size: 10px;line-height: 16px;letter-spacing: 1px;font-weight: 400;color: #10436e;font-family: "FRUTBL_";"> As you start, review these sections and either jot down main points here or flag the section in the protocol for easy future reference. Us</td>
+                            </tr>
+                            <tr>
+                            <td valign="middle" align="center" style="font-size: 10px;line-height: 16px;letter-spacing: 1px;font-weight: 400;color: #10436e;font-family: "FRUTBL_";"> the check boxes so you know which areas you have reviewed. Once you have completed this outline of key sections, go back and review</td>
+                            </tr>
+                            <tr>
+                            <td valign="middle" align="center" style="font-size: 10px;line-height: 16px;letter-spacing: 1px;font-weight: 400;color: #10436e;font-family: "FRUTBL_";"> the entire protocol from start to finish and add any study specific nuances to the “My Notes” section on the next page.</td>
+                            </tr>
+                              <tr>
+                            <td valign="middle" align="left" height="20"></td>
+                            </tr>
+                                <tr>
+                            <td valign="middle" align="center" style="font-size: 10px;line-height: 16px;letter-spacing: 1px;font-weight: 400;color: #10436e;font-family: "FRUTBL_";"> As a bonus tip, also review the informed consent template for this study so you can learn about the study from the patients prospective.</td>
+                            </tr>
+                            <tr>
+                            <td valign="middle" align="left" height="30"></td>
+                            </tr>
+                              ' . $list_arr . '
+
+                         </tr>
+                            <tr>
+                            <td valign="middle" align="left" height="20"></td>
+                            </tr>
+                            <tr>
+                            <td align="center" valign="middle" width="100%">
+                            <table width="70%" cellpadding="5px" cellspacing="0" border="0" align="center" style="background:#d1d2d4;border-radius:30px;background: url(' . $text . ');background-repeat: no-repeat;background-size: contain;background-position: center;height: auto;">
+                            <tr>
+                            <td align="center" valign="middle" height="70px">
+                            </td>
+                            </tr>
+                            </table>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td align="center" valign="middle" height="20px">
+                            </td>
+                            </tr>
+                             <tr>
+                            <td align="center" valign="middle" style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: bold;color: #f37420;font-family: FRUTBL_;">
+                            My Notes
+                            </td>
+                            </tr>
+                                 <tr>
+                            <td align="center" valign="middle" style="height:10px;">
+                            </td>
+                            </tr>
+                             <tr>
+                            <td align="left" valign="middle" style="font-size: 12px;line-height: 15px;letter-spacing: 1px;font-weight: bold;color: #5A5A5A;font-family: FrutingerBQRoman;">' . $requestParam['my_notes'] . '
+                            </td>
+                            </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!--/table 1.1-->
+            </td>
+        </tr>
+    </table>
+    <!--/table 1-->
+
                     </body>
                     </html>';
 //            $content = $this->renderPartial('_reportView');
-
                 // setup kartik\mpdf\Pdf component
                 $pdf = new Pdf([
                     // set to use core fonts only
@@ -1063,13 +1164,16 @@ class SendEmailController extends \yii\base\Controller
                     // your html content input
                     'content' => $html,
                     // any css to be embedded if required
-                    'cssFile' => '@api/web/css/todolist.css',
+                    'cssFile' => '@api/web/css/clinical_study.css',
                     // set mPDF properties on the fly
                     'options' => ['title' => "Reviewing a Clinical Study Protocol"],
                     // call mPDF methods on the fly
                     'methods' => [
                         'SetHeader' => [''],
-                        'SetFooter' => [''],
+                        'SetFooter' => ['
+                        <div class="Footer"></div>
+
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1078,7 +1182,6 @@ class SendEmailController extends \yii\base\Controller
                 echo $pdf->render();
                 $emailformatemodel = EmailFormat::findOne(["title" => 'critical_study_protocol', "status" => '1']);
                 if ($emailformatemodel) {
-
                     $body = $emailformatemodel->body;
                     $ssSubject = $emailformatemodel->subject;
                     //send email for new generated password
@@ -1095,11 +1198,9 @@ class SendEmailController extends \yii\base\Controller
                         $clinicalStudyModel->save(false);
                         $clinicalStudyProtocolArr[] = $clinicalStudyModel;
                     }
-
                 }
-
                 $amReponseParam = $clinicalStudyProtocolArr;
-                $ssMessage = 'Clinical Study Protocol PDF is successfully sent.';
+                $ssMessage = 'Clinical Study Protocol PDF is successfully sent through email.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
             } else {
                 $ssMessage = 'Invalid user_id';
@@ -1107,73 +1208,6 @@ class SendEmailController extends \yii\base\Controller
             }
         } else {
             $ssMessage = 'protocol_array can not be blank';
-            $amResponse = Common::errorResponse($ssMessage);
-        }
-        Common::encodeResponseJSON($amResponse);
-
-    }
-    public function actionSaveNote()
-    {
-        $amData = Common::checkRequestType();
-        $amResponse = array();
-        $ssMessage = '';
-        $amRequiredParams = array('user_id');
-        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
-        // If any getting error in request paramter then set error message.
-        if (!empty($amParamsResult['error'])) {
-            $amResponse = Common::errorResponse($amParamsResult['error']);
-            Common::encodeResponseJSON($amResponse);
-        }
-        $requestParam = $amData['request_param'];
-        //$notes = json_decode(json_encode($requestParam['notes']), true);
-        $notes = $requestParam['notes'];
-
-        $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description');
-
-        foreach ($notes as $key => $note) {
-            $amParamsResultNotes = Common::checkRequestParameterKey($note, $amRequiredParamsNotes);
-
-            if (!empty($amParamsResultNotes['error'])) {
-                $amResponse = Common::errorResponse($amParamsResultNotes['error']);
-                Common::encodeResponseJSON($amResponse);
-            }
-        }
-        // Check User Status
-        Common::matchUserStatus($requestParam['user_id']);
-        //VERIFY AUTH TOKEN
-        $authToken = Common::get_header('auth_token');
-        if ($authToken == "error") {
-            $ssMessage = 'auth_token value can not be blank';
-            $amResponse = Common::errorResponse($ssMessage);
-            Common::encodeResponseJSON($amResponse);
-        }
-        Common::checkAuthentication($authToken, $requestParam['user_id']);
-
-        $userModel = Users::findOne(['id' => $requestParam['user_id']]);
-        if (!empty($userModel)) {
-            $fromEmail = $userModel->email;
-            foreach ($notes as $key => $note) {
-
-                $sentNotesModel = new SentNotes();
-                $sentNotesModel->note_id = $note['note_id'];
-                $sentNotesModel->color_code = $note['color_code'];
-                $sentNotesModel->title = $note['title'];
-                $sentNotesModel->description = $note['description'];
-                $sentNotesModel->user_id = $requestParam['user_id'];
-                $sentNotesModel->patient_id = $note['patient_id'];
-                $sentNotesModel->patient_email = $note['patient_email'];
-                $sentNotesModel->font_size = $note['font_size'];
-                $sentNotesModel->font_name = $note['font_name'];
-                $sentNotesModel->mail_sent = Yii::$app->params['mail_sent']['false'];
-                $sentNotesModel->save(false);
-                $sentNotes[] = $sentNotesModel;
-
-            }
-            $amReponseParam = $sentNotes;
-            $ssMessage = 'Your note is successfully saved.';
-            $amResponse = Common::successResponse($ssMessage, $amReponseParam);
-        } else {
-            $ssMessage = 'Invalid user_id';
             $amResponse = Common::errorResponse($ssMessage);
         }
         Common::encodeResponseJSON($amResponse);
