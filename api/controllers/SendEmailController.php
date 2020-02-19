@@ -45,16 +45,15 @@ class SendEmailController extends \yii\base\Controller
                 $amResponse = Common::errorResponse($amParamsResultNotes['error']);
                 Common::encodeResponseJSON($amResponse);
             }
-            
-            
-        if ($checked = $note['late_entry'] == 1) {
-                    $list_array = ' <span>Late Entry</span>  <img src="' .$checkedboxs. '" alt="" style="height:12px;width:12px">  ';
 
-                } else if ($unchecked = $note['late_entry'] == 0) {
+            if ($checked = $note['late_entry'] == 1) {
+                $list_array = '<img src="' . $checkedboxs . '" alt="" style="height:12px;width:12px"><span>   Late Entry</span>';
 
-                    $list_array = ' <span>Late Entry</span>  <img src="' .$uncheckeds. '" alt="" style="height:12px;width:12px">';
-                }
-            
+            } else if ($unchecked = $note['late_entry'] == 0) {
+
+                $list_array = '<img src="' . $uncheckeds . '" alt="" style="height:12px;width:12px"><span>   Late Entry</span>';
+            }
+
         }
         // Check User Status
         Common::matchUserStatus($requestParam['user_id']);
@@ -96,9 +95,9 @@ class SendEmailController extends \yii\base\Controller
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-12">
-                                        
-                                       <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">  '.$list_array.' </p>
-                                        
+
+                                       <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">  ' . $list_array . ' </p>
+
                                             <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">Patient <span style="text-transform:uppercase">id:</span><span>' . ' ' . $note['patient_id'] . '</span></p>
                                             <p style="font-family:' . $note['font_name'] . ';font-size: ' . $note['font_size'] . 'px">Notes : ' . $note['description'] . '</p>
                                         </div>
@@ -155,6 +154,7 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->patient_email = $note['patient_email'];
                         $sentNotesModel->font_size = $note['font_size'];
                         $sentNotesModel->font_name = $note['font_name'];
+                        $sentNotesModel->late_entry = $note['late_entry'];
                         $sentNotesModel->pdf_filename = Yii::$app->params['root_url'] . "/uploads/pdf_files/" . $file_name;
                         $sentNotesModel->save(false);
                         $sentNotes[] = $sentNotesModel;
@@ -393,7 +393,7 @@ class SendEmailController extends \yii\base\Controller
                                         VISIT TO DO LIST
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td valign="middle" align="left" height="20"></td>
                                 </tr>
@@ -529,7 +529,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -730,7 +730,7 @@ class SendEmailController extends \yii\base\Controller
                                      ACTION ITEMS
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td valign="middle" align="left" height="20"></td>
                                 </tr>
@@ -929,7 +929,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1195,7 +1195,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
