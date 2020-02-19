@@ -36,7 +36,8 @@ class SendEmailController extends \yii\base\Controller
         $notes = $requestParam['notes'];
 
         $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description');
-
+        $checkedboxs = Yii::$app->params['root_url'] . "/uploads/images/icon_checked.jpg";
+        $uncheckeds = Yii::$app->params['root_url'] . "/uploads/images/icon_unchecked.jpg";
         foreach ($notes as $key => $note) {
             $amParamsResultNotes = Common::checkRequestParameterKey($note, $amRequiredParamsNotes);
 
@@ -44,6 +45,16 @@ class SendEmailController extends \yii\base\Controller
                 $amResponse = Common::errorResponse($amParamsResultNotes['error']);
                 Common::encodeResponseJSON($amResponse);
             }
+            
+            
+        if ($checked = $note['late_entry'] == 1) {
+                    $list_array = ' <span>Late Entry</span>  <img src="' .$checkedboxs. '" alt="" style="height:12px;width:12px">  ';
+
+                } else if ($unchecked = $note['late_entry'] == 0) {
+
+                    $list_array = ' <span>Late Entry</span>  <img src="' .$uncheckeds. '" alt="" style="height:12px;width:12px">';
+                }
+            
         }
         // Check User Status
         Common::matchUserStatus($requestParam['user_id']);
@@ -85,6 +96,9 @@ class SendEmailController extends \yii\base\Controller
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-md-12">
+                                        
+                                       <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">  '.$list_array.' </p>
+                                        
                                             <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">Patient <span style="text-transform:uppercase">id:</span><span>' . ' ' . $note['patient_id'] . '</span></p>
                                             <p style="font-family:' . $note['font_name'] . ';font-size: ' . $note['font_size'] . 'px">Notes : ' . $note['description'] . '</p>
                                         </div>
