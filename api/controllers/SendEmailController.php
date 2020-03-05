@@ -198,7 +198,7 @@ class SendEmailController extends \yii\base\Controller
 
         $userModel = Users::findOne(['id' => $requestParam['user_id']]);
         if (!empty($userModel)) {
-            $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+            $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id'], 'mail_sent' => '1'])->asArray()->groupBy('dateOnly')->all();
 
             if (!empty($usersSentMailDateList)) {
                 foreach ($usersSentMailDateList as $key => $value) {
@@ -529,7 +529,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -929,7 +929,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1195,7 +1195,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
