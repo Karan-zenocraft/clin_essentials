@@ -198,7 +198,7 @@ class SendEmailController extends \yii\base\Controller
 
         $userModel = Users::findOne(['id' => $requestParam['user_id']]);
         if (!empty($userModel)) {
-            $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id'], 'mail_sent' => '1'])->asArray()->groupBy('dateOnly')->all();
+            $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id'], 'mail_sent' => Yii::$app->params['mail_sent']['true']])->asArray()->groupBy('dateOnly')->all();
 
             if (!empty($usersSentMailDateList)) {
                 foreach ($usersSentMailDateList as $key => $value) {
