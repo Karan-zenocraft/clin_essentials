@@ -36,24 +36,15 @@ class SendEmailController extends \yii\base\Controller
         $notes = $requestParam['notes'];
 
         $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description');
-        $amRequiredParamsNotePleaseComplete = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description', 'please_complete_data');
         $checkedboxs = Yii::$app->params['root_url'] . "/uploads/images/icon_checked.jpg";
         $uncheckeds = Yii::$app->params['root_url'] . "/uploads/images/icon_unchecked.jpg";
         foreach ($notes as $key => $note) {
-            if (!empty($note['note_id'] && ($note['note_id'] == "9"))) {
-                $amParamsResultNotesPleaseComplete = Common::checkRequestParameterKey($note, $amRequiredParamsNotePleaseComplete);
 
-                if (!empty($amParamsResultNotesPleaseComplete['error'])) {
-                    $amResponse = Common::errorResponse($amParamsResultNotesPleaseComplete['error']);
-                    Common::encodeResponseJSON($amResponse);
-                }
-            } else {
-                $amParamsResultNotes = Common::checkRequestParameterKey($note, $amRequiredParamsNotes);
+            $amParamsResultNotes = Common::checkRequestParameterKey($note, $amRequiredParamsNotes);
 
-                if (!empty($amParamsResultNotes['error'])) {
-                    $amResponse = Common::errorResponse($amParamsResultNotes['error']);
-                    Common::encodeResponseJSON($amResponse);
-                }
+            if (!empty($amParamsResultNotes['error'])) {
+                $amResponse = Common::errorResponse($amParamsResultNotes['error']);
+                Common::encodeResponseJSON($amResponse);
             }
             if (($note['note_id'] == "3") || ($note['note_id'] == "6")) {
                 if ($checked = $note['late_entry'] == 1) {
@@ -85,9 +76,14 @@ class SendEmailController extends \yii\base\Controller
             foreach ($notes as $key => $note) {
                 $note_color = (!empty($note['note_id'] && ($note['note_id'] == "3"))) ? "#76777A" : "#FFFFFF";
                 if (!empty($note['note_id'] && ($note['note_id'] == "9"))) {
-                    $html = '<!DOCTYPE html>
+                    if (empty($note['please_complete_data'])) {
+                        $ssMessage = 'please_complete_data can not be blank.';
+                        $amResponse = Common::errorResponse($ssMessage);
+                        Common::encodeResponseJSON($amResponse);
+                    } else {
+                        p($note['please_complete_data']);
+                        $html = '<!DOCTYPE html>
                         <html>
-
                         <head>
                             <meta charset="UTF-8">
                             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,6 +117,7 @@ class SendEmailController extends \yii\base\Controller
                             </section>
                         </body>
                         </html>';
+                    }
                 } else {
                     $html = '<!DOCTYPE html>
                         <html>
