@@ -45,13 +45,16 @@ class SendEmailController extends \yii\base\Controller
                 $amResponse = Common::errorResponse($amParamsResultNotes['error']);
                 Common::encodeResponseJSON($amResponse);
             }
+            if (($note['note_id'] == "3") || ($note['note_id'] == "6")) {
+                if ($checked = $note['late_entry'] == 1) {
+                    $list_array = '<img src="' . $checkedboxs . '" alt="" style="height:12px;width:12px"><span>   Late Entry</span>';
 
-            if ($checked = $note['late_entry'] == 1) {
-                $list_array = '<img src="' . $checkedboxs . '" alt="" style="height:12px;width:12px"><span>   Late Entry</span>';
+                } else if ($unchecked = $note['late_entry'] == 0) {
 
-            } else if ($unchecked = $note['late_entry'] == 0) {
-
-                $list_array = '<img src="' . $uncheckeds . '" alt="" style="height:12px;width:12px"><span>   Late Entry</span>';
+                    $list_array = '<img src="' . $uncheckeds . '" alt="" style="height:12px;width:12px"><span>   Late Entry</span>';
+                }
+            } else {
+                $list_array = "";
             }
 
         }
@@ -154,7 +157,7 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->patient_email = $note['patient_email'];
                         $sentNotesModel->font_size = $note['font_size'];
                         $sentNotesModel->font_name = $note['font_name'];
-                        $sentNotesModel->late_entry = $note['late_entry'];
+                        $sentNotesModel->late_entry = !empty($note['late_entry']) ? $note['late_entry'] : "0";
                         $sentNotesModel->pdf_filename = Yii::$app->params['root_url'] . "/uploads/pdf_files/" . $file_name;
                         $sentNotesModel->save(false);
                         $sentNotes[] = $sentNotesModel;
@@ -529,7 +532,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -929,7 +932,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1195,7 +1198,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
