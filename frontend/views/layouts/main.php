@@ -1,87 +1,30 @@
-<?php
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody>
+        <tr>
+            <td style="padding:20px 0 20px 0" align="center" valign="top"><!-- [ header starts here] -->
+            <table style="border:1px solid #E0E0E0;" cellpadding="10" cellspacing="0" bgcolor="FFFFFF" border="0" width="650">
+                <tbody>
+                    <tr>
+                        <td style="background: #444444; " bgcolor="#EAEAEA" valign="top"><p style="color:#fff;display: inline-flex;">&nbsp;&nbsp;Clin Essentials</p><p></p><p></p></td>
+                    </tr>
+                    <!-- [ middle starts here] -->
+                    <tr>
+                        <td valign="top">
+                        <p>Dear  {username},</p>
+                        <p>Your New Password is :<br></p><p><strong>E-mail:</strong> {email}<br>
+                         </p><p><strong>Password:</strong> {password}<br>
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
-use common\widgets\Alert;
-use frontend\assets\AppAsset;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
-
-AppAsset::register($this);
-?>
-<?php $this->beginPage()?>
-<!DOCTYPE html>
-<html lang="<?=Yii::$app->language?>">
-<head>
-    <meta charset="<?=Yii::$app->charset?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php $this->registerCsrfMetaTags()?>
-    <title><?=Html::encode($this->title)?></title>
-    <?php $this->head()?>
-</head>
-<body>
-<?php $this->beginBody()?>
-
-<div class="wrap">
-    <?php
-NavBar::begin([
-    'brandLabel' => '<img src="/clin_essentials/image/ClinEApp-logo.png"/>',
-    'brandUrl' => Yii::$app->homeUrl,
-    'options' => [
-        'class' => 'navbar-inverse navbar-fixed-top',
-    ],
-]);
-$menuItems = [
-    ['label' => 'Home', 'url' => ['/site/index']],
-    [
-        'label' => 'About',
-        'url' => 'https://www.clinessentials.com/index.php#about-us',
-        'template' => '<a href="{url}" target="_blank">{label}</a>',
-    ],
-
-];
-/*if (Yii::$app->user->isGuest) {
-$menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-$menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-} else {*/
-/*$menuItems[] = '<li>'
-. Html::beginForm(['/site/logout'], 'post')
-. Html::submitButton(
-'Logout (' . Yii::$app->user->identity->username . ')',
-['class' => 'btn btn-link logout']
-)
-. Html::endForm()
-. '</li>';*/
-//}
-echo Nav::widget([
-    'options' => ['class' => 'navbar-nav navbar-right'],
-    'items' => $menuItems,
-]);
-NavBar::end();
-?>
-
-    <div class="container">
-        <?=Breadcrumbs::widget([
-    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-])?>
-        <?=Alert::widget()?>
-        <?=$content?>
-    </div>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?=Html::encode(Yii::$app->name)?> <?=date('Y')?></p>
-
-        <p class="pull-right"><?php //Yii::powered()?></p>
-    </div>
-</footer>
-
-<?php $this->endBody()?>
-</body>
-</html>
-<?php $this->endPage()?>
+                        </p><p>&nbsp;</p>
+                        </td>
+                    </tr>
+                   <tr>
+                        <td style="background: #444444; text-align:center;color: white;" align="center" bgcolor="#EAEAEA"><center>
+                        <p style="font-size:12px; margin:0;">ClinEssentials team</p>
+                        </center></td>
+                    </tr>
+                </tbody>
+            </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

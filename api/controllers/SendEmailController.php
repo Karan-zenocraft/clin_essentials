@@ -36,14 +36,24 @@ class SendEmailController extends \yii\base\Controller
         $notes = $requestParam['notes'];
 
         $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description');
+        $amRequiredParamsNotePleaseComplete = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description', 'please_complete_data');
         $checkedboxs = Yii::$app->params['root_url'] . "/uploads/images/icon_checked.jpg";
         $uncheckeds = Yii::$app->params['root_url'] . "/uploads/images/icon_unchecked.jpg";
         foreach ($notes as $key => $note) {
-            $amParamsResultNotes = Common::checkRequestParameterKey($note, $amRequiredParamsNotes);
+            if (!empty($note['note_id'] && ($note['note_id'] == "9"))) {
+                $amParamsResultNotesPleaseComplete = Common::checkRequestParameterKey($note, $amRequiredParamsNotePleaseComplete);
 
-            if (!empty($amParamsResultNotes['error'])) {
-                $amResponse = Common::errorResponse($amParamsResultNotes['error']);
-                Common::encodeResponseJSON($amResponse);
+                if (!empty($amParamsResultNotesPleaseComplete['error'])) {
+                    $amResponse = Common::errorResponse($amParamsResultNotesPleaseComplete['error']);
+                    Common::encodeResponseJSON($amResponse);
+                }
+            } else {
+                $amParamsResultNotes = Common::checkRequestParameterKey($note, $amRequiredParamsNotes);
+
+                if (!empty($amParamsResultNotes['error'])) {
+                    $amResponse = Common::errorResponse($amParamsResultNotes['error']);
+                    Common::encodeResponseJSON($amResponse);
+                }
             }
             if (($note['note_id'] == "3") || ($note['note_id'] == "6")) {
                 if ($checked = $note['late_entry'] == 1) {
@@ -74,7 +84,8 @@ class SendEmailController extends \yii\base\Controller
             $fromEmail = $userModel->email;
             foreach ($notes as $key => $note) {
                 $note_color = (!empty($note['note_id'] && ($note['note_id'] == "3"))) ? "#76777A" : "#FFFFFF";
-                $html = '<!DOCTYPE html>
+                if (!empty($note['note_id'] && ($note['note_id'] == "9"))) {
+                    $html = '<!DOCTYPE html>
                         <html>
 
                         <head>
@@ -110,6 +121,44 @@ class SendEmailController extends \yii\base\Controller
                             </section>
                         </body>
                         </html>';
+                } else {
+                    $html = '<!DOCTYPE html>
+                        <html>
+
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+                        </head>
+
+                        <body>
+
+                            <header style="background:' . $note['color_code'] . '">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12 p-0">
+                                            <h1 style="color:' . $note_color . '">' . $note['title'] . '...</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                            <section>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                       <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">  ' . $list_array . ' </p>
+
+                                            <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">Patient <span style="text-transform:uppercase">id:</span><span>' . ' ' . $note['patient_id'] . '</span></p>
+                                            <p style="font-family:' . $note['font_name'] . ';font-size: ' . $note['font_size'] . 'px">Notes : ' . $note['description'] . '</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                        </body>
+                        </html>';
+                }
 //            $content = $this->renderPartial('_reportView');
 
                 // setup kartik\mpdf\Pdf component
@@ -532,7 +581,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -932,7 +981,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1198,7 +1247,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
