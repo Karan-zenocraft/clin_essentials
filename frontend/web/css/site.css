@@ -3,9 +3,9 @@ body {
     height: 100%;
 }
 
-.navbar-inverse{background: #ddd!important;border-color:#ddd;box-shadow: 0 1px 6px rgba(57,73,76,.35);}
+.navbar-inverse{padding: 5px 0px;background: #333!important;border-color:#333;box-shadow: 0 1px 6px rgba(57,73,76,.35);}
 .nav > .active a{color: #f3731e!important;background: unset!important;}
-.nav > li > a{color: #333!important;font-weight: 600;letter-spacing: 1px;font-size: 14px;}
+.nav > li > a{color: #fff!important;font-weight: 600;letter-spacing: 1px;font-size: 14px;}
 .nav > li > a {padding: 20px 20px;}
 .navbar-brand > img{max-width: 100px;}
 .navbar-brand{margin-left: 0!important;display: flex;padding: 30px 15px;
