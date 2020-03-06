@@ -194,7 +194,7 @@ class UsersController extends \yii\base\Controller
                 if ($emailformatemodel) {
 
                     //create template file
-                    $AreplaceString = array('{password}' => $requestParam['password'], '{username}' => $model->user_name, '{email}' => $model->email, '{email_verify_link}' => $email_verify_link);
+                    $AreplaceString = array('{username}' => $model->user_name, '{email}' => $model->email, '{email_verify_link}' => $email_verify_link);
 
                     $body = Common::MailTemplate($AreplaceString, $emailformatemodel->body);
                     $ssSubject = $emailformatemodel->subject;
