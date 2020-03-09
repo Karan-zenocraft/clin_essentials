@@ -81,7 +81,6 @@ class SendEmailController extends \yii\base\Controller
                         $amResponse = Common::errorResponse($ssMessage);
                         Common::encodeResponseJSON($amResponse);
                     } else {
-                        p($note['please_complete_data']);
                         $html = '<!DOCTYPE html>
                         <html>
                         <head>
@@ -204,6 +203,7 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->font_size = $note['font_size'];
                         $sentNotesModel->font_name = $note['font_name'];
                         $sentNotesModel->late_entry = !empty($note['late_entry']) ? $note['late_entry'] : "0";
+                        $sentNotesModel->please_complete_data = !empty($note['please_complete_data']) ? $note['please_complete_data'] : "";
                         $sentNotesModel->pdf_filename = Yii::$app->params['root_url'] . "/uploads/pdf_files/" . $file_name;
                         $sentNotesModel->save(false);
                         $sentNotes[] = $sentNotesModel;
@@ -255,6 +255,7 @@ class SendEmailController extends \yii\base\Controller
                     array_walk($getDataDateWise, function ($arr) use (&$amResponseData) {
                         $ttt = $arr;
                         $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                        $ttt['please_complete_data'] = !empty($ttt['please_complete_data']) ? json_decode($ttt['please_complete_data']) : "";
                         $amResponseData[] = $ttt;
                         return $amResponseData;
                     });
@@ -1472,6 +1473,108 @@ class SendEmailController extends \yii\base\Controller
             }
         } else {
             $ssMessage = 'id can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
+    }
+
+    public function actionGetActionItemsList()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+        $amRequiredParams = array('user_id');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        // Check User Status
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+
+        $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+        if (!empty($userModel)) {
+            $ActionItemsList = ActionItems::find()->where(['user_id' => $requestParam['user_id']])->asArray()->all();
+            if (!empty($ActionItemsList)) {
+                array_walk($ActionItemsList, function ($arr) use (&$amResponseData) {
+                    $ttt = $arr;
+                    $ttt['action_items'] = json_decode($ttt['action_items']);
+                    $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                    $amResponseData[] = $ttt;
+                    return $amResponseData;
+                });
+                $amReponseParam = $amResponseData;
+                $ssMessage = 'List of Action Items';
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+
+            } else {
+                $amReponseParam = [];
+                $ssMessage = 'Action Items not found.';
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+            }
+        } else {
+            $ssMessage = 'Invalid user_id';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
+    }
+
+    public function actionGetToDoList()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+        $amRequiredParams = array('user_id');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        // Check User Status
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+
+        $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+        if (!empty($userModel)) {
+            $toDoList = TodoList::find()->where(['user_id' => $requestParam['user_id']])->asArray()->all();
+            if (!empty($toDoList)) {
+                array_walk($toDoList, function ($arr) use (&$amResponseData) {
+                    $ttt = $arr;
+                    $ttt['list'] = json_decode($ttt['list']);
+                    $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                    $amResponseData[] = $ttt;
+                    return $amResponseData;
+                });
+                $amReponseParam = $amResponseData;
+                $ssMessage = 'List of To Do List';
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+
+            } else {
+                $amReponseParam = [];
+                $ssMessage = 'To Do List not found.';
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+            }
+        } else {
+            $ssMessage = 'Invalid user_id';
             $amResponse = Common::errorResponse($ssMessage);
         }
         Common::encodeResponseJSON($amResponse);
