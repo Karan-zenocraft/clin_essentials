@@ -1627,6 +1627,7 @@ class SendEmailController extends \yii\base\Controller
                     $ttt = $arr;
                     $ttt['action_items'] = json_decode($ttt['action_items']);
                     $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                    $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
                     $amResponseData[] = $ttt;
                     return $amResponseData;
                 });
@@ -1678,6 +1679,7 @@ class SendEmailController extends \yii\base\Controller
                     $ttt = $arr;
                     $ttt['list'] = json_decode($ttt['list']);
                     $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                    $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
                     $amResponseData[] = $ttt;
                     return $amResponseData;
                 });
