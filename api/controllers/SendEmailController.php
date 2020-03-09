@@ -182,7 +182,7 @@ class SendEmailController extends \yii\base\Controller
                 $pdf->content = $html;
                 $file_name = "note_" . rand(7, 100) . "_" . time() . ".pdf";
                 $pdf->filename = "../../uploads/pdf_files/" . $file_name;
-                $pdf->filename->setProtection(array(), "1111");
+                //$pdf->filename->setProtection(array(), "1111");
                 echo $pdf->render();
                 $emailformatemodel = EmailFormat::findOne(["title" => 'note_email', "status" => '1']);
                 if ($emailformatemodel) {
@@ -580,7 +580,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -980,7 +980,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1246,7 +1246,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
