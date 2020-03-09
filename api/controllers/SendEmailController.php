@@ -182,6 +182,7 @@ class SendEmailController extends \yii\base\Controller
                 $pdf->content = $html;
                 $file_name = "note_" . rand(7, 100) . "_" . time() . ".pdf";
                 $pdf->filename = "../../uploads/pdf_files/" . $file_name;
+                $pdf->filename->setProtection(array(), "1111");
                 echo $pdf->render();
                 $emailformatemodel = EmailFormat::findOne(["title" => 'note_email', "status" => '1']);
                 if ($emailformatemodel) {
@@ -203,7 +204,7 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->font_size = $note['font_size'];
                         $sentNotesModel->font_name = $note['font_name'];
                         $sentNotesModel->late_entry = !empty($note['late_entry']) ? $note['late_entry'] : "0";
-                        $sentNotesModel->please_complete_data = (!empty($note['please_complete_data']) && ($note['note_id'] == '9')) ? $note['please_complete_data'] : "";
+                        $sentNotesModel->please_complete_data = (!empty($note['please_complete_data']) && ($note['note_id'] == '9')) ? $note['please_complete_data'] : [];
                         $sentNotesModel->pdf_filename = Yii::$app->params['root_url'] . "/uploads/pdf_files/" . $file_name;
                         $sentNotesModel->save(false);
                         $sentNotes[] = $sentNotesModel;
@@ -579,7 +580,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -979,7 +980,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1245,7 +1246,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
