@@ -40,7 +40,7 @@ class ClinicalStudyProtocolBase extends \yii\db\ActiveRecord
             [['user_id', 'my_notes', 'protocol_array', 'pdf_file_name', 'to_patient_email', 'created_at', 'updated_at'], 'required'],
             [['user_id'], 'integer'],
             [['my_notes'], 'string'],
-            [['protocol_array', 'created_at', 'updated_at'], 'safe'],
+            [['protocol_array', 'created_at', 'updated_at', 'pdf_password'], 'safe'],
             [['patient_id', 'pdf_file_name', 'to_patient_email'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -59,6 +59,7 @@ class ClinicalStudyProtocolBase extends \yii\db\ActiveRecord
             'patient_id' => 'Patient ID',
             'pdf_file_name' => 'Pdf File Name',
             'to_patient_email' => 'To Patient Email',
+            'pdf_password' => 'Password of PDF',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

@@ -35,7 +35,7 @@ class SendEmailController extends \yii\base\Controller
         //$notes = json_decode(json_encode($requestParam['notes']), true);
         $notes = $requestParam['notes'];
 
-        $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description');
+        $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description', 'pdf_password');
         $checkedboxs = Yii::$app->params['root_url'] . "/uploads/images/icon_checked.jpg";
         $uncheckeds = Yii::$app->params['root_url'] . "/uploads/images/icon_unchecked.jpg";
         foreach ($notes as $key => $note) {
@@ -81,6 +81,23 @@ class SendEmailController extends \yii\base\Controller
                         $amResponse = Common::errorResponse($ssMessage);
                         Common::encodeResponseJSON($amResponse);
                     } else {
+                        $please_complete_data = $note['please_complete_data'];
+                        $section0_checked = ($please_complete_data[0]['is_checked'] == "1") ? $checkedboxs : $uncheckeds;
+                        $section0_text = $please_complete_data[0]['text'];
+                        $section1_checked = ($please_complete_data[1]['is_checked'] == "1") ? $checkedboxs : $uncheckeds;
+                        $section1_text = $please_complete_data[1]['text'];
+                        $section2_checked = ($please_complete_data[2]['is_checked'] == "1") ? $checkedboxs : $uncheckeds;
+                        $section2_text = $please_complete_data[2]['text'];
+                        $section3_checked = ($please_complete_data[3]['is_checked'] == "1") ? $checkedboxs : $uncheckeds;
+                        $section3_text = $please_complete_data[3]['text'];
+                        $section4_checked = ($please_complete_data[4]['is_checked'] == "1") ? $checkedboxs : $uncheckeds;
+                        $section4_text = $please_complete_data[4]['text'];
+                        $section5_checked = ($please_complete_data[5]['is_checked'] == "1") ? $checkedboxs : $uncheckeds;
+                        $section5_text = $please_complete_data[5]['text'];
+                        $section6_checked = ($please_complete_data[6]['is_checked'] == "1") ? $checkedboxs : $uncheckeds;
+                        $section6_text = $please_complete_data[6]['text'];
+                        $section7_checked = ($please_complete_data[7]['is_checked'] == "1") ? $checkedboxs : $uncheckeds;
+                        $section7_text = $please_complete_data[7]['text'];
                         $html = '<!DOCTYPE html>
                         <html>
                         <head>
@@ -88,9 +105,7 @@ class SendEmailController extends \yii\base\Controller
                             <meta name="viewport" content="width=device-width, initial-scale=1.0">
                             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
                         </head>
-
                         <body>
-
                             <header style="background:' . $note['color_code'] . '">
                                 <div class="container-fluid">
                                     <div class="row">
@@ -105,10 +120,103 @@ class SendEmailController extends \yii\base\Controller
                                     <div class="row">
                                         <div class="col-md-12">
 
-                                       <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">  ' . $list_array . ' </p>
+                                      <table width="100%" cellpadding="15px" cellspacing="0" border="0" align="center">
+                <tr>
+                <td>
+            <table width="10%" cellpadding="0" cellspacing="0" border="0" align="right">
+                <tr>
+                            <td valign="middle"  height="20px" width="20px"><img  src="' . $section0_checked . '" alt="" style="height:20px;width:20px"></td>
 
-                                            <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">Patient <span style="text-transform:uppercase">id:</span><span>' . ' ' . $note['patient_id'] . '</span></p>
-                                            <p style="font-family:' . $note['font_name'] . ';font-size: ' . $note['font_size'] . 'px">Notes : ' . $note['description'] . '</p>
+                            <td valign="middle" width="10px" height="20px"></td>
+
+                            <td valign="middle"  style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">' . $section0_text . '</td>
+            </tr>
+          </table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+          <tr>
+             <td valign="middle" height="15px"></td>
+            </tr>
+                    <tr>
+                            <td valign="middle" align="center" height="20px" width="20px"><img src="' . $section1_checked . '" alt="" style="height:20px;width:20px"></td>
+
+                            <td width="10px" height="20px"></td>
+
+                            <td style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">' . $section1_text . '</td>
+
+            </tr>
+            <tr>
+             <td valign="middle" height="15px"></td>
+            </tr>
+                    <tr>
+                            <td valign="middle" align="center" height="20px" width="20px"><img src="' . $section2_checked . '" alt="" style="height:20px;width:20px"></td>
+
+                            <td width="10px" height="20px"></td>
+
+                            <td style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">' . $section2_text . '</td>
+
+            </tr>
+            <tr>
+             <td valign="middle" height="15px"></td>
+            </tr>
+                    <tr>
+                            <td valign="middle" align="center" height="20px" width="20px"><img src="' . $section3_checked . '" alt="" style="height:20px;width:20px"></td>
+
+                            <td width="10px" height="20px"></td>
+
+                            <td style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">' . $section3_text . '</td>
+
+            </tr>
+            <tr>
+             <td valign="middle" height="15px"></td>
+            </tr>
+                    <tr>
+                            <td valign="middle" align="center" height="20px" width="20px"><img src="' . $section4_checked . '" alt="" style="height:20px;width:20px"></td>
+
+                            <td width="10px" height="20px"></td>
+
+                            <td style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">' . $section4_text . '</td>
+
+            </tr>
+            <tr>
+             <td valign="middle" height="15px"></td>
+            </tr>
+                    <tr>
+                            <td valign="middle" align="center" height="20px" width="20px"><img src="' . $section5_checked . '" alt="" style="height:20px;width:20px"></td>
+
+                            <td width="10px" height="20px"></td>
+
+                            <td style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">' . $section5_text . '</td>
+
+            </tr>
+            <tr>
+             <td valign="middle" height="15px"></td>
+            </tr>
+                    <tr>
+                            <td valign="middle" align="center" height="20px" width="20px"><img src="' . $section6_checked . '" alt="" style="height:20px;width:20px"></td>
+
+                            <td width="10px" height="20px"></td>
+
+                            <td style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">' . $section6_text . '</td>
+
+            </tr>
+            <tr>
+                            <td valign="middle" align="left" height="12"></td>
+            </tr>
+            <td valign="middle" height="15px"></td>
+                <tr>
+                            <td valign="middle" align="center" height="20px" width="20px"><img src="' . $section7_checked . '" alt="" style="height:20px;width:20px"></td>
+                            <td width="10px" height="20px"></td>
+                            <td  style="border-bottom: 1px solid #d1d3d5;font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">' . $section7_text . '</td>
+                            <td style=" font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">Section </td>
+            </tr>
+            <tr>
+                            <td valign="middle" align="left" height="12"></td>
+            </tr>
+            </table>
+                  </tr>
+                </td>
+</table>
+                                       <!---REMOVE OLD--->
                                         </div>
                                     </div>
 
@@ -182,7 +290,7 @@ class SendEmailController extends \yii\base\Controller
                 $pdf->content = $html;
                 $file_name = "note_" . rand(7, 100) . "_" . time() . ".pdf";
                 $pdf->filename = "../../uploads/pdf_files/" . $file_name;
-                //$pdf->filename->setProtection(array(), "1111");
+                $pdf->getApi()->setProtection(array(), $note['pdf_password']);
                 echo $pdf->render();
                 $emailformatemodel = EmailFormat::findOne(["title" => 'note_email', "status" => '1']);
                 if ($emailformatemodel) {
@@ -201,6 +309,7 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->user_id = $requestParam['user_id'];
                         $sentNotesModel->patient_id = $note['patient_id'];
                         $sentNotesModel->patient_email = $note['patient_email'];
+                        $sentNotesModel->pdf_password = md5($note['pdf_password']);
                         $sentNotesModel->font_size = $note['font_size'];
                         $sentNotesModel->font_name = $note['font_name'];
                         $sentNotesModel->late_entry = !empty($note['late_entry']) ? $note['late_entry'] : "0";
@@ -256,7 +365,7 @@ class SendEmailController extends \yii\base\Controller
                     array_walk($getDataDateWise, function ($arr) use (&$amResponseData) {
                         $ttt = $arr;
                         $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
-                        $ttt['please_complete_data'] = !empty($ttt['please_complete_data']) ? json_decode($ttt['please_complete_data']) : "";
+                        $ttt['please_complete_data'] = !empty($ttt['please_complete_data']) ? json_decode($ttt['please_complete_data']) : [];
                         $amResponseData[] = $ttt;
                         return $amResponseData;
                     });
@@ -347,7 +456,7 @@ class SendEmailController extends \yii\base\Controller
         $amData = Common::checkRequestType();
         $amResponse = array();
         $ssMessage = '';
-        $amRequiredParams = array('user_id', 'protocol', 'investigator', 'date', 'to_patient_email');
+        $amRequiredParams = array('user_id', 'protocol', 'investigator', 'date', 'to_patient_email', 'pdf_password');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
         // If any getting error in request paramter then set error message.
         if (!empty($amParamsResult['error'])) {
@@ -580,12 +689,13 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
                 $file_name = "note_" . rand(7, 100) . "_" . time() . ".pdf";
                 $pdf->filename = "../../uploads/pdf_todolist/" . $file_name;
+                $pdf->getApi()->setProtection(array(), $requestParam['pdf_password']);
                 echo $pdf->render();
                 $emailformatemodel = EmailFormat::findOne(["title" => 'todolist_email', "status" => '1']);
                 if ($emailformatemodel) {
@@ -603,6 +713,7 @@ class SendEmailController extends \yii\base\Controller
                         $toDoListModel->list = $requestParam['list'];
                         $toDoListModel->patient_id = !empty($requestParam['patient_id']) ? $requestParam['patient_id'] : "";
                         $toDoListModel->to_patient_email = $requestParam['to_patient_email'];
+                        $toDoListModel->pdf_password = md5($requestParam['pdf_password']);
                         $toDoListModel->pdf_file_name = Yii::$app->params['root_url'] . "/uploads/pdf_todolist/" . $file_name;
                         $toDoListModel->save(false);
                         $toDoList[] = $toDoListModel;
@@ -627,7 +738,7 @@ class SendEmailController extends \yii\base\Controller
         $amData = Common::checkRequestType();
         $amResponse = array();
         $ssMessage = '';
-        $amRequiredParams = array('user_id', 'protocol', 'investigator', 'date', 'to_patient_email');
+        $amRequiredParams = array('user_id', 'protocol', 'investigator', 'date', 'to_patient_email', 'pdf_password');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
         // If any getting error in request paramter then set error message.
         if (!empty($amParamsResult['error'])) {
@@ -980,12 +1091,13 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
                 $file_name = "note_" . rand(7, 100) . "_" . time() . ".pdf";
                 $pdf->filename = "../../uploads/pdf_action_items/" . $file_name;
+                $pdf->getApi()->setProtection(array(), $requestParam['pdf_password']);
                 echo $pdf->render();
                 $emailformatemodel = EmailFormat::findOne(["title" => 'action_items_email', "status" => '1']);
                 if ($emailformatemodel) {
@@ -1003,6 +1115,7 @@ class SendEmailController extends \yii\base\Controller
                         $toDoListModel->date = $requestParam['date'];
                         $toDoListModel->action_items = $requestParam['action_items'];
                         $toDoListModel->patient_id = !empty($requestParam['patient_id']) ? $requestParam['patient_id'] : "";
+                        $toDoListModel->pdf_password = !empty($requestParam['pdf_password']) ? md5($requestParam['pdf_password']) : "";
                         $toDoListModel->to_patient_email = $requestParam['to_patient_email'];
                         $toDoListModel->pdf_file_name = Yii::$app->params['root_url'] . "/uploads/pdf_action_items/" . $file_name;
                         $toDoListModel->save(false);
@@ -1031,7 +1144,7 @@ class SendEmailController extends \yii\base\Controller
         $amData = Common::checkRequestType();
         $amResponse = array();
         $ssMessage = '';
-        $amRequiredParams = array('user_id', 'my_notes', 'to_patient_email');
+        $amRequiredParams = array('user_id', 'my_notes', 'to_patient_email', 'pdf_password');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
         // If any getting error in request paramter then set error message.
         if (!empty($amParamsResult['error'])) {
@@ -1246,12 +1359,13 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
                 $file_name = "note_" . rand(7, 100) . "_" . time() . ".pdf";
                 $pdf->filename = "../../uploads/pdf_clinical_study_protocol/" . $file_name;
+                $pdf->getApi()->setProtection(array(), $requestParam['pdf_password']);
                 echo $pdf->render();
                 $emailformatemodel = EmailFormat::findOne(["title" => 'critical_study_protocol', "status" => '1']);
                 if ($emailformatemodel) {
@@ -1267,6 +1381,8 @@ class SendEmailController extends \yii\base\Controller
                         $clinicalStudyModel->protocol_array = $requestParam['protocol_array'];
                         $clinicalStudyModel->patient_id = !empty($requestParam['patient_id']) ? $requestParam['patient_id'] : "";
                         $clinicalStudyModel->to_patient_email = $requestParam['to_patient_email'];
+                        $clinicalStudyModel->pdf_password = !empty($requestParam['pdf_password']) ? md5($requestParam['pdf_password']) : "";
+
                         $clinicalStudyModel->pdf_file_name = Yii::$app->params['root_url'] . "/uploads/pdf_clinical_study_protocol/" . $file_name;
                         $clinicalStudyModel->save(false);
                         $clinicalStudyProtocolArr[] = $clinicalStudyModel;

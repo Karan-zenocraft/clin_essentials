@@ -41,7 +41,7 @@ class TodoListBase extends \yii\db\ActiveRecord
         return [
             [['user_id', 'protocol', 'investigator', 'date', 'list', 'pdf_file_name', 'to_patient_email', 'created_at', 'updated_at'], 'required'],
             [['user_id'], 'integer'],
-            [['date', 'list', 'created_at', 'updated_at', 'is_archive'], 'safe'],
+            [['date', 'list', 'created_at', 'updated_at', 'is_archive', 'pdf_password'], 'safe'],
             [['protocol', 'investigator', 'patient_id', 'pdf_file_name', 'to_patient_email'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -63,6 +63,7 @@ class TodoListBase extends \yii\db\ActiveRecord
             'pdf_file_name' => 'Pdf File Name',
             'to_patient_email' => 'To Patient Email',
             'is_archive' => "Is Archive",
+            'pdf_password' => "Password of PDF",
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
