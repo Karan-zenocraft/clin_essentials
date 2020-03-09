@@ -579,7 +579,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -979,7 +979,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1245,7 +1245,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1606,26 +1606,26 @@ class SendEmailController extends \yii\base\Controller
 
         $userModel = Users::findOne(['id' => $requestParam['user_id']]);
         if (!empty($userModel)) {
-            $note = TodoList::find()->where(['id' => $requestParam['id']])->one();
+            $todolist = TodoList::find()->where(['id' => $requestParam['id']])->one();
             $amReponseParam = [];
-            if (!empty($note)) {
+            if (!empty($todolist)) {
                 if (Yii::$app->params['action'][$requestParam['action']] == "delete") {
-                    $note->delete();
-                    $ssMessage = 'Note deleted successfully.';
+                    $todolist->delete();
+                    $ssMessage = 'To do list deleted successfully.';
                     $amResponse = Common::successResponse($ssMessage, $amReponseParam);
                 } else if (Yii::$app->params['action'][$requestParam['action']] == "archive") {
-                    $note->is_archive = "1";
-                    $note->save(false);
-                    $ssMessage = 'Note archived successfully.';
+                    $todolist->is_archive = "1";
+                    $todolist->save(false);
+                    $ssMessage = 'To do list archived successfully.';
                 } else if (Yii::$app->params['action'][$requestParam['action']] == "un_archive") {
-                    $note->is_archive = "0";
-                    $note->save(false);
-                    $ssMessage = 'Note un archived successfully.';
+                    $todolist->is_archive = "0";
+                    $todolist->save(false);
+                    $ssMessage = 'To do list un archived successfully.';
                 }
-                $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
-                if (!empty($usersSentMailDateList)) {
-                    foreach ($usersSentMailDateList as $key => $value) {
-                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
+                $usersSentToDoLIst = TodoList::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+                if (!empty($usersSentToDoLIst)) {
+                    foreach ($usersSentToDoLIst as $key => $value) {
+                        $getDataDateWise = TodoList::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
                         $amReponseParam[$key]['date'] = $value['dateOnly'];
                         $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
                     }
@@ -1635,7 +1635,70 @@ class SendEmailController extends \yii\base\Controller
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
 
             } else {
-                $ssMessage = 'Invalid note id';
+                $ssMessage = 'Invalid to do list id';
+                $amResponse = Common::errorResponse($ssMessage);
+            }
+        } else {
+            $ssMessage = 'Invalid user_id';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
+    }
+
+    public function actionDeleteOrArchiveActionItems()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+        $amRequiredParams = array('user_id', 'id', 'action');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        // Check User Status
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+
+        $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+        if (!empty($userModel)) {
+            $actionItems = ActionItems::find()->where(['id' => $requestParam['id']])->one();
+            $amReponseParam = [];
+            if (!empty($actionItems)) {
+                if (Yii::$app->params['action'][$requestParam['action']] == "delete") {
+                    $actionItems->delete();
+                    $ssMessage = 'Action Item deleted successfully.';
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                } else if (Yii::$app->params['action'][$requestParam['action']] == "archive") {
+                    $actionItems->is_archive = "1";
+                    $actionItems->save(false);
+                    $ssMessage = 'Action Item archived successfully.';
+                } else if (Yii::$app->params['action'][$requestParam['action']] == "un_archive") {
+                    $actionItems->is_archive = "0";
+                    $actionItems->save(false);
+                    $ssMessage = 'Action Item un archived successfully.';
+                }
+                $usersSentActionItems = ActionItems::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+                if (!empty($usersSentActionItems)) {
+                    foreach ($usersSentActionItems as $key => $value) {
+                        $getDataDateWise = ActionItems::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
+                        $amReponseParam[$key]['date'] = $value['dateOnly'];
+                        $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
+                    }
+                }
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+
+            } else {
+                $ssMessage = 'Invalid action items id';
                 $amResponse = Common::errorResponse($ssMessage);
             }
         } else {
