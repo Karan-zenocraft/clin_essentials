@@ -203,7 +203,7 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->font_size = $note['font_size'];
                         $sentNotesModel->font_name = $note['font_name'];
                         $sentNotesModel->late_entry = !empty($note['late_entry']) ? $note['late_entry'] : "0";
-                        $sentNotesModel->please_complete_data = !empty($note['please_complete_data']) ? $note['please_complete_data'] : "";
+                        $sentNotesModel->please_complete_data = (!empty($note['please_complete_data']) && ($note['note_id'] == '9')) ? $note['please_complete_data'] : "";
                         $sentNotesModel->pdf_filename = Yii::$app->params['root_url'] . "/uploads/pdf_files/" . $file_name;
                         $sentNotesModel->save(false);
                         $sentNotes[] = $sentNotesModel;
@@ -1572,6 +1572,71 @@ class SendEmailController extends \yii\base\Controller
                 $amReponseParam = [];
                 $ssMessage = 'To Do List not found.';
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+            }
+        } else {
+            $ssMessage = 'Invalid user_id';
+            $amResponse = Common::errorResponse($ssMessage);
+        }
+        Common::encodeResponseJSON($amResponse);
+    }
+
+    public function actionDeleteOrArchiveToDoList()
+    {
+        $amData = Common::checkRequestType();
+        $amResponse = array();
+        $ssMessage = '';
+        $amRequiredParams = array('user_id', 'id', 'action');
+        $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
+        // If any getting error in request paramter then set error message.
+        if (!empty($amParamsResult['error'])) {
+            $amResponse = Common::errorResponse($amParamsResult['error']);
+            Common::encodeResponseJSON($amResponse);
+        }
+        $requestParam = $amData['request_param'];
+        // Check User Status
+        Common::matchUserStatus($requestParam['user_id']);
+        //VERIFY AUTH TOKEN
+        $authToken = Common::get_header('auth_token');
+        if ($authToken == "error") {
+            $ssMessage = 'auth_token value can not be blank';
+            $amResponse = Common::errorResponse($ssMessage);
+            Common::encodeResponseJSON($amResponse);
+        }
+        Common::checkAuthentication($authToken, $requestParam['user_id']);
+
+        $userModel = Users::findOne(['id' => $requestParam['user_id']]);
+        if (!empty($userModel)) {
+            $note = TodoList::find()->where(['id' => $requestParam['id']])->one();
+            $amReponseParam = [];
+            if (!empty($note)) {
+                if (Yii::$app->params['action'][$requestParam['action']] == "delete") {
+                    $note->delete();
+                    $ssMessage = 'Note deleted successfully.';
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                } else if (Yii::$app->params['action'][$requestParam['action']] == "archive") {
+                    $note->is_archive = "1";
+                    $note->save(false);
+                    $ssMessage = 'Note archived successfully.';
+                } else if (Yii::$app->params['action'][$requestParam['action']] == "un_archive") {
+                    $note->is_archive = "0";
+                    $note->save(false);
+                    $ssMessage = 'Note un archived successfully.';
+                }
+                $usersSentMailDateList = SentNotes::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+                if (!empty($usersSentMailDateList)) {
+                    foreach ($usersSentMailDateList as $key => $value) {
+                        $getDataDateWise = SentNotes::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
+                        $amReponseParam[$key]['date'] = $value['dateOnly'];
+                        $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
+                    }
+
+                }
+
+                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+
+            } else {
+                $ssMessage = 'Invalid note id';
+                $amResponse = Common::errorResponse($ssMessage);
             }
         } else {
             $ssMessage = 'Invalid user_id';
