@@ -689,7 +689,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1091,7 +1091,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1359,7 +1359,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1621,20 +1621,23 @@ class SendEmailController extends \yii\base\Controller
 
         $userModel = Users::findOne(['id' => $requestParam['user_id']]);
         if (!empty($userModel)) {
-            $ActionItemsList = ActionItems::find()->where(['user_id' => $requestParam['user_id']])->asArray()->all();
-            if (!empty($ActionItemsList)) {
-                array_walk($ActionItemsList, function ($arr) use (&$amResponseData) {
-                    $ttt = $arr;
-                    $ttt['action_items'] = json_decode($ttt['action_items']);
-                    $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
-                    $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
-                    $amResponseData[] = $ttt;
-                    return $amResponseData;
-                });
-                $amReponseParam = $amResponseData;
-                $ssMessage = 'List of Action Items';
-                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
-
+            $usersSentActionItems = ActionItems::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+            if (!empty($usersSentActionItems)) {
+                foreach ($usersSentActionItems as $key => $value) {
+                    $getDataDateWise = ActionItems::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
+                    $amReponseParam[$key]['date'] = $value['dateOnly'];
+                    array_walk($getDataDateWise, function ($arr) use (&$amResponseData) {
+                        $ttt = $arr;
+                        $ttt['action_items'] = json_decode($ttt['action_items']);
+                        $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                        $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
+                        $amResponseData[] = $ttt;
+                        return $amResponseData;
+                    });
+                    $amReponseParam[$key]['datewiseData'] = $amResponseData;
+                    $ssMessage = 'Action Items List.';
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                }
             } else {
                 $amReponseParam = [];
                 $ssMessage = 'Action Items not found.';
@@ -1673,19 +1676,24 @@ class SendEmailController extends \yii\base\Controller
 
         $userModel = Users::findOne(['id' => $requestParam['user_id']]);
         if (!empty($userModel)) {
-            $toDoList = TodoList::find()->where(['user_id' => $requestParam['user_id']])->asArray()->all();
-            if (!empty($toDoList)) {
-                array_walk($toDoList, function ($arr) use (&$amResponseData) {
-                    $ttt = $arr;
-                    $ttt['list'] = json_decode($ttt['list']);
-                    $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
-                    $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
-                    $amResponseData[] = $ttt;
-                    return $amResponseData;
-                });
-                $amReponseParam = $amResponseData;
-                $ssMessage = 'List of To Do List';
-                $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+            $usersSentToDoLIst = TodoList::find()->select("DATE(created_at) dateOnly")->where(['user_id' => $requestParam['user_id']])->asArray()->groupBy('dateOnly')->all();
+            if (!empty($usersSentToDoLIst)) {
+                foreach ($usersSentToDoLIst as $key => $value) {
+                    $getDataDateWise = TodoList::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
+                    $amReponseParam[$key]['date'] = $value['dateOnly'];
+                    array_walk($getDataDateWise, function ($arr) use (&$amResponseData) {
+                        $ttt = $arr;
+                        $ttt['list'] = json_decode($ttt['list']);
+                        $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                        $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
+                        $amResponseData[] = $ttt;
+                        return $amResponseData;
+                    });
+                    $amReponseParam[$key]['datewiseData'] = $amResponseData;
+
+                    $ssMessage = 'To Do List';
+                    $amResponse = Common::successResponse($ssMessage, $amReponseParam);
+                }
 
             } else {
                 $amReponseParam = [];
