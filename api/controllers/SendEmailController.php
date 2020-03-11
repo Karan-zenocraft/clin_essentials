@@ -1746,6 +1746,14 @@ class SendEmailController extends \yii\base\Controller
                     foreach ($usersSentToDoLIst as $key => $value) {
                         $getDataDateWise = TodoList::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
                         $amReponseParam[$key]['date'] = $value['dateOnly'];
+                        array_walk($getDataDateWise, function ($arr) use (&$amResponseData) {
+                            $ttt = $arr;
+                            $ttt['list'] = json_decode($ttt['list']);
+                            $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                            $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
+                            $amResponseData[] = $ttt;
+                            return $amResponseData;
+                        });
                         $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
                     }
 
