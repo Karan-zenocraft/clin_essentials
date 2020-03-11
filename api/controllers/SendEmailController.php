@@ -1819,7 +1819,15 @@ class SendEmailController extends \yii\base\Controller
                     foreach ($usersSentActionItems as $key => $value) {
                         $getDataDateWise = ActionItems::find()->where(['DATE(created_at)' => $value['dateOnly'], 'user_id' => $requestParam['user_id']])->asArray()->all();
                         $amReponseParam[$key]['date'] = $value['dateOnly'];
-                        $amReponseParam[$key]['datewiseData'] = $getDataDateWise;
+                        array_walk($getDataDateWise, function ($arr) use (&$amResponseData) {
+                            $ttt = $arr;
+                            $ttt['action_items'] = json_decode($ttt['action_items']);
+                            $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                            $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
+                            $amResponseData[] = $ttt;
+                            return $amResponseData;
+                        });
+                        $amReponseParam[$key]['datewiseData'] = $amResponseData;
                     }
                 }
                 $amResponse = Common::successResponse($ssMessage, $amReponseParam);
