@@ -1462,6 +1462,8 @@ class SendEmailController extends \yii\base\Controller
                 $sentNotesModel->patient_email = $note['patient_email'];
                 $sentNotesModel->font_size = $note['font_size'];
                 $sentNotesModel->font_name = $note['font_name'];
+                $sentNotesModel->late_entry = !empty($note['late_entry']) ? $note['late_entry'] : "0";
+                $sentNotesModel->please_complete_data = (!empty($note['please_complete_data']) && ($note['note_id'] == '9')) ? $note['please_complete_data'] : [];
                 $sentNotesModel->mail_sent = Yii::$app->params['mail_sent']['false'];
                 $sentNotesModel->save(false);
                 $sentNotes[] = $sentNotesModel;
@@ -1508,6 +1510,7 @@ class SendEmailController extends \yii\base\Controller
                     $ttt = $arr;
                     $ttt['font_size'] = (int) $ttt['font_size'];
                     $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                    $ttt['please_complete_data'] = !empty($ttt['please_complete_data']) ? json_decode($ttt['please_complete_data']) : [];
                     unset($ttt['pdf_filename']);
                     unset($ttt['is_archive']);
                     unset($ttt['created_at']);
@@ -1577,6 +1580,8 @@ class SendEmailController extends \yii\base\Controller
                         array_walk($notesArr, function ($arr) use (&$amResponseData) {
                             $ttt = $arr;
                             $ttt['font_size'] = (int) $ttt['font_size'];
+                            $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                            $ttt['please_complete_data'] = !empty($ttt['please_complete_data']) ? json_decode($ttt['please_complete_data']) : [];
                             unset($ttt['pdf_filename']);
                             unset($ttt['is_archive']);
                             unset($ttt['created_at']);
