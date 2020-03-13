@@ -363,7 +363,7 @@ class UsersController extends \yii\base\Controller
     /*
      * Function : ForgotPassword()
      * Description : if user can forgot passord so send password by mail.
-     * Request Params : email,auth_token
+     * Request Params : email
      * Response Params : success or error message
      * Author : Rutusha Joshi
      */

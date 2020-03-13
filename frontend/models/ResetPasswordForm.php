@@ -32,7 +32,8 @@ class ResetPasswordForm extends Model
         }
         $this->_users = Users::findByPasswordResetToken($token);
         if (!$this->_users) {
-            throw new InvalidParamException('Wrong password reset token.');
+            p("Reset password token is Expired!");
+            // throw new InvalidParamException('Wrong password reset token.');
         }
         parent::__construct($config);
     }
