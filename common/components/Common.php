@@ -78,7 +78,7 @@ class Common
     public static function sendMailToUser($ssToEmail, $asFromEmail, $ssSubject, $ssBody, $attach = false)
     {
         $result = Yii::$app->mail->compose()
-            ->setFrom([$asFromEmail => "Clin Essentials Admin"])
+            ->setFrom([$asFromEmail => "info@clinessentials.com"])
             ->setTo($ssToEmail)
             ->setSubject($ssSubject)
             ->setHtmlBody($ssBody)
