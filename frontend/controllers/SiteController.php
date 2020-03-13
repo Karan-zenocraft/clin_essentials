@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\LoginForm;
 use common\models\Users;
+use frontend\components\FrontCoreController;
 use frontend\models\ContactForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResendVerificationEmailForm;
@@ -19,7 +20,7 @@ use yii\web\Controller;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends FrontCoreController
 {
     public function beforeAction($action)
     {
