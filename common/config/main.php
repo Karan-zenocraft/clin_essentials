@@ -34,19 +34,13 @@ return [
             //comment the following array to send mail using php's mail function
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'mail.clinessentials.com',
-                'username' => 'h322zkksbfpr',
-                'password' => '?x&W:;E&1m5',
+                'host' => 'smtp.gmail.com',
+                'username' => 'clinessentialsapp@gmail.com',
+                'password' => 'Zenocraft@123',
                 'port' => '587',
                 'encryption' => 'tls',
-                'streamOptions' => [
-                    'ssl' => [
-                        'allow_self_signed' => true,
-                        'verify_peer' => false,
-                        'verify_peer_name' => false,
-                    ],
-                ],
             ],
+
         ],
         /*     'pdf' => [
     'class' => Pdf::classname(),
