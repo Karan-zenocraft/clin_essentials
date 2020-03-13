@@ -38,7 +38,7 @@ return [
                 'username' => 'h322zkksbfpr',
                 'password' => '?x&W:;E&1m5',
                 'port' => '465',
-                'encryption' => 'tls',
+                'encryption' => 'ssl',
                 'streamOptions' => [
                     'ssl' => [
                         'allow_self_signed' => true,
