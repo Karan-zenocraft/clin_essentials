@@ -32,21 +32,21 @@ return [
             'useFileTransport' => false,
 //'useFileTransport' => false,//to send mails to real email addresses else will get stored in your mail/runtime folder
             //comment the following array to send mail using php's mail function
-            /*            'transport' => [
-        'class' => 'Swift_SmtpTransport',
-        'host' => 'mail.clinessentials.com',
-        'username' => 'h322zkksbfpr',
-        'password' => '?x&W:;E&1m5',
-        'port' => '587',
-        'encryption' => 'tls',
-        'streamOptions' => [
-        'ssl' => [
-        'allow_self_signed' => true,
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        ],
-        ],
-        ],*/
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'mail.clinessentials.com',
+                'username' => 'h322zkksbfpr',
+                'password' => '?x&W:;E&1m5',
+                'port' => '465',
+                'encryption' => 'tls',
+                'streamOptions' => [
+                    'ssl' => [
+                        'allow_self_signed' => true,
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                    ],
+                ],
+            ],
         ],
         /*     'pdf' => [
     'class' => Pdf::classname(),
