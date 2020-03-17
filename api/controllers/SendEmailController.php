@@ -254,7 +254,7 @@ class SendEmailController extends \yii\base\Controller
                                        <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">  ' . $list_array . ' </p>
 
                                             <p class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">Patient <span style="text-transform:uppercase">id:</span><span>' . ' ' . $note['patient_id'] . '</span></p>
-                                            <p style="font-family:' . $note['font_name'] . ';font-size: ' . $note['font_size'] . 'px">Notes : ' . $note['description'] . '</p>
+                                            <p style="font-family:' . $note['font_name'] . ';font-size: ' . $note['font_size'] . 'px">Notes: ' . $note['description'] . '</p>
                                         </div>
                                     </div>
 
@@ -696,7 +696,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1098,7 +1098,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1366,7 +1366,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
