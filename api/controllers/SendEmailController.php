@@ -326,6 +326,7 @@ class SendEmailController extends \yii\base\Controller
                     $ssSubject = $emailformatemodel->subject;
                     //send email for new generated password
                     $attach = !empty($file_name) && file_exists(Yii::getAlias('@root') . '/' . "uploads/pdf_files/" . $file_name) ? Yii::$app->params['root_url'] . '/' . "uploads/pdf_files/" . $file_name : "";
+                    p($ssSubject);
                     $ssResponse = Common::sendMailToUserWithAttachment($note['patient_email'], $fromEmail, $ssSubject, $body, $attach);
                     if ($ssResponse) {
                         $sentNotesModel = new SentNotes();
