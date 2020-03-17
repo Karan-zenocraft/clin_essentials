@@ -467,6 +467,7 @@ class SendEmailController extends \yii\base\Controller
                         array_walk($getDataDateWise, function ($arr) use (&$amResponseData) {
                             $ttt = $arr;
                             $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                            $ttt['sent_mail_time'] = !empty($ttt['sent_mail_time']) ? $ttt['sent_mail_time'] : $ttt['created_at'];
                             $ttt['please_complete_data'] = !empty($ttt['please_complete_data']) ? json_decode($ttt['please_complete_data']) : [];
                             $amResponseData[] = $ttt;
                             return $amResponseData;
@@ -726,7 +727,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1129,7 +1130,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1398,7 +1399,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1613,6 +1614,7 @@ class SendEmailController extends \yii\base\Controller
                             $ttt = $arr;
                             $ttt['font_size'] = (int) $ttt['font_size'];
                             $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                            $ttt['sent_mail_time'] = !empty($ttt['sent_mail_time']) ? $ttt['sent_mail_time'] : $ttt['created_at'];
                             $ttt['please_complete_data'] = !empty($ttt['please_complete_data']) ? json_decode($ttt['please_complete_data']) : [];
                             unset($ttt['pdf_filename']);
                             unset($ttt['is_archive']);
@@ -1806,6 +1808,7 @@ class SendEmailController extends \yii\base\Controller
                             $ttt = $arr;
                             $ttt['list'] = json_decode($ttt['list']);
                             $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                            $ttt['sent_mail_time'] = !empty($ttt['sent_mail_time']) ? $ttt['sent_mail_time'] : $ttt['created_at'];
                             $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
                             $amResponseData[] = $ttt;
                             return $amResponseData;
@@ -1879,6 +1882,7 @@ class SendEmailController extends \yii\base\Controller
                             $ttt = $arr;
                             $ttt['action_items'] = json_decode($ttt['action_items']);
                             $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                            $ttt['sent_mail_time'] = !empty($ttt['sent_mail_time']) ? $ttt['sent_mail_time'] : $ttt['created_at'];
                             $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
                             $amResponseData[] = $ttt;
                             return $amResponseData;
