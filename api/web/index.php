@@ -28,6 +28,7 @@ $config = yii\helpers\ArrayHelper::merge(
     // require(__DIR__ . '/../config/main-local.php')
 );
 require __DIR__ . '/../../common/config/aliases.php';
+date_default_timezone_set(Yii::$app->params['timezone']);
 
 $application = new yii\web\Application($config);
 $application->run();
