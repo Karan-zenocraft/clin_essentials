@@ -27,7 +27,7 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
-$img = '<img src="http://zenocraft.com/clin_essentials/image/ClinEApp-logo.png" alt="Clin Essentials" width="100px">';
+$img = '<img src="http://zenocraft.com/clin_essentials/image/ClinEApp-logo.png" alt="ClinEssentials" width="100px">';
 NavBar::begin([
     'brandLabel' => $img,
     'brandUrl' => Yii::$app->homeUrl,

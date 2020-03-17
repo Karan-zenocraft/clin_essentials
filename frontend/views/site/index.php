@@ -15,14 +15,14 @@ color: #ffff;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Clin Essentials';
+$this->title = 'ClinEssentials';
 ?>
 <div class="site-index">
 
     <div class="jumbotron" style="color: #ffff">
         <h1>Welcome</h1>
 
-        <p class="lead">To Clin Essentials</p>
+        <p class="lead">To ClinEssentials</p>
     </div>
 
     <div class="body-content">

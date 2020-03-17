@@ -15,8 +15,8 @@ Yii::setAlias('console', dirname(dirname(__DIR__)) . '/console');
 Yii::setAlias('@root', realpath(dirname(__FILE__) . '/../../'));
 
 //START: site configuration
-Yii::setAlias('site_title', 'Clin Essentials');
-Yii::setAlias('site_footer', 'Clin Essentials');
+Yii::setAlias('site_title', 'ClinEssentials');
+Yii::setAlias('site_footer', 'ClinEssentials');
 //END: site configuration
 
 //START: BACK-END message
