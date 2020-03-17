@@ -322,7 +322,7 @@ class SendEmailController extends \yii\base\Controller
                 echo $pdf->render();
                 $emailformatemodel = EmailFormat::findOne(["title" => 'note_email', "status" => '1']);
                 if ($emailformatemodel) {
-
+                    p($ssSubject);
                     $body = $emailformatemodel->body;
                     $ssSubject = $emailformatemodel->subject;
                     //send email for new generated password
@@ -727,7 +727,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1130,7 +1130,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1399,7 +1399,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
