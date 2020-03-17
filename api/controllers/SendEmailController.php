@@ -120,18 +120,46 @@ class SendEmailController extends \yii\base\Controller
                                     <div class="row">
                                         <div class="col-md-12">
 
+                                            
+                                            
+
                                       <table width="100%" cellpadding="15px" cellspacing="0" border="0" align="center">
                 <tr>
                 <td>
-            <table width="10%" cellpadding="0" cellspacing="0" border="0" align="right">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="left">
                 <tr>
+
+                    <td>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="left">
+                <tr>
+<td class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">  ' . $list_array . ' </td>
+
+<td class="p_id" style="font-family:' . $note['font_name'] . ';font-size:' . $note['font_size'] . 'px;">Patient <span style="text-transform:uppercase">id:</span><span>' . ' ' . $note['patient_id'] . '</span></td>
+
+ </tr>
+          </table>
+
+                    </td>
+
+
+                    <td>
+
+                    <table width="20%" cellpadding="0" cellspacing="0" border="0" align="right">
+                <tr>
+
                             <td valign="middle"  height="20px" width="20px"><img  src="' . $section0_checked . '" alt="" style="height:20px;width:20px"></td>
 
                             <td valign="middle" width="10px" height="20px"></td>
 
                             <td valign="middle"  style="font-size: 14px;line-height: 20px;letter-spacing: 1px;font-weight: 400;color: #333;font-family: FRUTBL_;">' . $section0_text . '</td>
+
+</tr>
+          </table>
+                    <td>
             </tr>
           </table>
+
+
 <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
           <tr>
              <td valign="middle" height="15px"></td>
