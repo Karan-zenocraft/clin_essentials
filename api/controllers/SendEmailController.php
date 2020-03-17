@@ -35,7 +35,7 @@ class SendEmailController extends \yii\base\Controller
         //$notes = json_decode(json_encode($requestParam['notes']), true);
         $notes = $requestParam['notes'];
 
-        $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description', 'pdf_password');
+        $amRequiredParamsNotes = array('note_id', 'color_code', 'title', 'font_name', 'font_size', 'patient_id', 'patient_email', 'description', 'pdf_password', 'sent_mail_time');
         $checkedboxs = Yii::$app->params['root_url'] . "/uploads/images/icon_checked.jpg";
         $uncheckeds = Yii::$app->params['root_url'] . "/uploads/images/icon_unchecked.jpg";
         foreach ($notes as $key => $note) {
@@ -120,8 +120,8 @@ class SendEmailController extends \yii\base\Controller
                                     <div class="row">
                                         <div class="col-md-12">
 
-                                            
-                                            
+
+
 
                                       <table width="100%" cellpadding="15px" cellspacing="0" border="0" align="center">
                 <tr>
@@ -343,6 +343,7 @@ class SendEmailController extends \yii\base\Controller
                         $sentNotesModel->late_entry = !empty($note['late_entry']) ? $note['late_entry'] : "0";
                         $sentNotesModel->please_complete_data = (!empty($note['please_complete_data']) && ($note['note_id'] == '9')) ? $note['please_complete_data'] : [];
                         $sentNotesModel->pdf_filename = Yii::$app->params['root_url'] . "/uploads/pdf_files/" . $file_name;
+                        $sentNotesModel->sent_mail_time = $note['sent_mail_time'];
                         $sentNotesModel->save(false);
                         $sentNotes[] = $sentNotesModel;
                     }
@@ -393,6 +394,7 @@ class SendEmailController extends \yii\base\Controller
                     array_walk($getDataDateWise, function ($arr) use (&$amResponseData) {
                         $ttt = $arr;
                         $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
+                        $ttt['sent_mail_time'] = !empty($ttt['sent_mail_time']) ? $ttt['sent_mail_time'] : $ttt['created_at'];
                         $ttt['please_complete_data'] = !empty($ttt['please_complete_data']) ? json_decode($ttt['please_complete_data']) : [];
                         $amResponseData[] = $ttt;
                         return $amResponseData;
@@ -491,7 +493,7 @@ class SendEmailController extends \yii\base\Controller
         $amData = Common::checkRequestType();
         $amResponse = array();
         $ssMessage = '';
-        $amRequiredParams = array('user_id', 'protocol', 'investigator', 'date', 'to_patient_email', 'pdf_password');
+        $amRequiredParams = array('user_id', 'protocol', 'investigator', 'date', 'to_patient_email', 'pdf_password', 'sent_mail_time');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
         // If any getting error in request paramter then set error message.
         if (!empty($amParamsResult['error'])) {
@@ -750,6 +752,7 @@ class SendEmailController extends \yii\base\Controller
                         $toDoListModel->to_patient_email = $requestParam['to_patient_email'];
                         $toDoListModel->pdf_password = md5($requestParam['pdf_password']);
                         $toDoListModel->pdf_file_name = Yii::$app->params['root_url'] . "/uploads/pdf_todolist/" . $file_name;
+                        $toDoListModel->sent_mail_time = $requestParam['sent_mail_time'];
                         $toDoListModel->save(false);
                         $toDoList[] = $toDoListModel;
                     }
@@ -773,7 +776,7 @@ class SendEmailController extends \yii\base\Controller
         $amData = Common::checkRequestType();
         $amResponse = array();
         $ssMessage = '';
-        $amRequiredParams = array('user_id', 'protocol', 'investigator', 'date', 'to_patient_email', 'pdf_password');
+        $amRequiredParams = array('user_id', 'protocol', 'investigator', 'date', 'to_patient_email', 'pdf_password', 'sent_mail_time');
         $amParamsResult = Common::checkRequestParameterKey($amData['request_param'], $amRequiredParams);
         // If any getting error in request paramter then set error message.
         if (!empty($amParamsResult['error'])) {
@@ -1153,6 +1156,7 @@ class SendEmailController extends \yii\base\Controller
                         $toDoListModel->pdf_password = !empty($requestParam['pdf_password']) ? md5($requestParam['pdf_password']) : "";
                         $toDoListModel->to_patient_email = $requestParam['to_patient_email'];
                         $toDoListModel->pdf_file_name = Yii::$app->params['root_url'] . "/uploads/pdf_action_items/" . $file_name;
+                        $toDoListModel->sent_mail_time = $requestParam['sent_mail_time'];
                         $toDoListModel->save(false);
                         $toDoList[] = $toDoListModel;
                     }
@@ -1671,6 +1675,8 @@ class SendEmailController extends \yii\base\Controller
                         $ttt['action_items'] = json_decode($ttt['action_items']);
                         $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
                         $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
+                        $ttt['sent_mail_time'] = !empty($ttt['sent_mail_time']) ? $ttt['sent_mail_time'] : $ttt['created_at'];
+
                         $amResponseData[] = $ttt;
                         return $amResponseData;
                     });
@@ -1726,6 +1732,8 @@ class SendEmailController extends \yii\base\Controller
                         $ttt['list'] = json_decode($ttt['list']);
                         $ttt['patient_id'] = !empty($ttt['patient_id']) ? $ttt['patient_id'] : "";
                         $ttt['pdf_password'] = !empty($ttt['pdf_password']) ? $ttt['pdf_password'] : "";
+                        $ttt['sent_mail_time'] = !empty($ttt['sent_mail_time']) ? $ttt['sent_mail_time'] : $ttt['created_at'];
+
                         $amResponseData[] = $ttt;
                         return $amResponseData;
                     });

@@ -42,7 +42,7 @@ class ActionItemsBase extends \yii\db\ActiveRecord
             [['user_id', 'protocol', 'investigator', 'date', 'action_items', 'pdf_file_name', 'to_patient_email', 'created_at', 'updated_at'], 'required'],
             [['user_id'], 'integer'],
             [['date', 'action_items', 'created_at', 'updated_at', 'is_archive', 'pdf_password'], 'safe'],
-            [['date', 'action_items', 'created_at', 'updated_at', ''], 'safe'],
+            [['date', 'action_items', 'created_at', 'updated_at', 'sent_mail_time'], 'safe'],
             [['protocol', 'investigator', 'patient_id', 'pdf_file_name', 'to_patient_email'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -65,6 +65,7 @@ class ActionItemsBase extends \yii\db\ActiveRecord
             'to_patient_email' => 'To Patient Email',
             'pdf_password' => 'Password of PDF',
             'is_archive' => "Is Archive",
+            'sent_mail_time' => 'Sent Mail Time',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
