@@ -31,8 +31,8 @@ CommonAppAsset::register($this);
                         <span class="icon-bar"></span>
                     </a>
                     <a class="brand logo" href="<?=\Yii::$app->urlManager->createUrl(['site/index']);?>">
-                        <?php //Html::img(Yii::getAlias('@web') . '/img/Chiefs_rs_logo.png', ['width' => "33px", 'height' => "33px"])?>
-                        <?php echo Yii::getAlias('@site_title'); ?>
+                       <img src="<?php echo Yii::$app->params['root_url'] . '/common/web/img/logo.png' ?>" style="max-width: 100px!important;height: auto!important;width: 100px!important;" alt="" class="img-fluid">
+
                     </a>
                     <div class="nav-collapse">
                         <ul class="nav pull-right">
@@ -92,12 +92,13 @@ Breadcrumbs::widget([
                 </div>
             </div>
             <hr>
-            <footer class="footer">
+            
+        </div>
+        <footer class="footer">
                 <div class="container">
                     <p class="pull-left">&copy; <?=Yii::getAlias('@site_footer') . " " . date('Y');?></p>
                 </div>
             </footer>
-        </div>
         <!--div class="wrap">
         <?php
 /* NavBar::begin([
