@@ -323,7 +323,7 @@ class SendEmailController extends \yii\base\Controller
                 $emailformatemodel = EmailFormat::findOne(["title" => 'note_email', "status" => '1']);
                 if ($emailformatemodel) {
                     $body = $emailformatemodel->body;
-                    $ssSubject = $emailformatemodel->subject;
+                    $ssSubject = "ClinEssentials-Note";
                     //send email for new generated password
                     $attach = !empty($file_name) && file_exists(Yii::getAlias('@root') . '/' . "uploads/pdf_files/" . $file_name) ? Yii::$app->params['root_url'] . '/' . "uploads/pdf_files/" . $file_name : "";
 
