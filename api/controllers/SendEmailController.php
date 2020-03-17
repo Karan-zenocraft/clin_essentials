@@ -323,11 +323,10 @@ class SendEmailController extends \yii\base\Controller
                 $emailformatemodel = EmailFormat::findOne(["title" => 'note_email', "status" => '1']);
                 if ($emailformatemodel) {
                     $body = $emailformatemodel->body;
-                    //$ssSubject = "ClinEssentials-Note";
+                    $ssSubject = $emailformatemodel->subject;
                     //send email for new generated password
                     $attach = !empty($file_name) && file_exists(Yii::getAlias('@root') . '/' . "uploads/pdf_files/" . $file_name) ? Yii::$app->params['root_url'] . '/' . "uploads/pdf_files/" . $file_name : "";
-
-                    $ssResponse = Common::sendMailToUserWithAttachment($note['patient_email'], $fromEmail, "ClinEssentials Note", $body, $attach);
+                    $ssResponse = Common::sendMailToUserWithAttachment($note['patient_email'], $fromEmail, $ssSubject, $body, $attach);
                     if ($ssResponse) {
                         $sentNotesModel = new SentNotes();
                         $sentNotesModel->note_id = $note['note_id'];
@@ -727,7 +726,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"><p style="margin-top:2px;margin-right:75px;">Resources and Tools for Clinical Research Professionals</p><div class="Logo"><img src="' . $logo . '" alt="" style="z-index:99999;overflow:hidden;height: 70px;width: auto;margin-top:-60px;"></div>
                         </div>
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1130,7 +1129,7 @@ class SendEmailController extends \yii\base\Controller
                         </div>
 
 
-                        ', ],
+                        '],
                     ],
                 ]);
                 $pdf->content = $html;
@@ -1399,7 +1398,7 @@ class SendEmailController extends \yii\base\Controller
                         'SetFooter' => ['
                         <div class="Footer"></div>
 
-                        '],
+                        ', ],
                     ],
                 ]);
                 $pdf->content = $html;
