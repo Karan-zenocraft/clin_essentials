@@ -5,7 +5,85 @@ body {
     background-color: #f5f5f5;
 }
 
+#login-form hr, #forgot-password-form hr{border-bottom: 1px solid #ddd!important;}
+#login-form, #forgot-password-form{
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+width: 500px;
+    margin: auto;
+    padding: 30px;}
+.container-fluid.logo-container{padding: 0px 30px;}
+.navbar.navbar-fixed-top .navbar-inner{background: #000!important;border: none;padding: 2px 15px;}
+.navbar .nav>li>a{padding: 0;}
+.navbar .brand{padding: 0;}
+.nav.pull-right .dropdown{height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+    footer{background: #000;}
+    
+.navbar .nav li.dropdown.open>.dropdown-toggle{color: #fff;background: #000}
+.navbar .nav>li>a{color: #777;}
+.pull-left {
+    padding-top: 0;
+    width: 100%;
+    margin: 0;
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100%; */
+    padding: 20px 0px!important;
+}
+.brand.logo img{height: unset!important; width: unset!important;}
+.brand.logo{height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+.muted.pull-left{display: unset!important;
+     
+     
+     height:unset!important;
+     padding:10px 0px!important;
+    }
 
+    .navbar.navbar-inner.block-header{min-height: unset!important;display: flex;
+    align-items: center;
+    justify-content: center;}
+    .pull-right .btn{ margin-top: 0px; margin-left: 5px;}
+    .pull-right{display: flex;}
+.footer {
+    height: 60px;
+    position: fixed !important;
+    bottom: 0;
+    background: #000;
+    width: 100%;
+     z-index: 999;
+     box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+}
+.form-horizontal .control-label {
+   float: left;
+    width: 165px;
+    padding-top: 5px;
+    text-align: left;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.form-horizontal .help-block{margin-left: 15px;}
+.help-block{margin-top: 0;}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a, .label-info, .badge-info{background: #006dcc;}
+.nav-list>.active>a, .nav-list>.active>a:hover, .nav-list>.active>a:focus{background: #006dcc;
+}
+a{color: #000;}
+a:hover, a:focus{color: #000;}
+.radio, .checkbox{padding-left:  0;}
+  form, a, input, h3, p, label, .btn, .form-horizontal .control-label, .summary, .dropdown-menu>li>a, .easyPieChart, .table th, .table td, .bs-docs-sidenav > li > a, .navbar .nav>li>a, .pull-left, .breadcrumb>li, .label-info, .badge-info, .btn-success, .btn-primary{letter-spacing: 1px;
+        font-family: sans-serif;}  
+        .pull-right  {margin-bottom: 0px;margin-top: 0px;}
+
+    .goodtable .table thead tr th a, .table-striped tbody>tr:nth-child(odd)>td, .table-striped tbody>tr:nth-child(odd)>th {
+    
+    white-space: nowrap!important;
+}
 @media (min-width: 979px){
     body {
         padding-top: 60px;
@@ -13,14 +91,14 @@ body {
 }
 
 
-/** Login Page **/
+/** Login Page *
 #login {
     padding-top: 40px;
     padding-bottom: 40px;
 }
 
 #login .form-signin {
-    max-width: 300px;
+    max-width: 500px;
     padding: 19px 29px 29px;
     margin: 0 auto 20px;
     background-color: #fff;
@@ -86,11 +164,14 @@ body {
 .padd-bottom {
     margin-bottom: 5px;
 }
+.breadcrumb{padding: 5px 0px!important;min-height: unset;}
 .breadcrumb {
     margin: 0 0 0px;
-    padding: 10px 0px;
+    padding: 5px 0px;
     background-color: transparent;
 }
+
+.navbar{margin-bottom: 0px}
 
 .block {
     border: 1px solid #ccc;
@@ -364,8 +445,12 @@ body {
 table.table_class { border:solid 2px #08c; }  
 table.table_class tbody {  }
 .row-fluid{
-    padding-top: 15px;
+    padding-top: 30px;
 }
+#content .row-fluid{
+    padding-top: 0px;
+}
+
 .restaurants-form textarea input{
     width: 21%;
 }
@@ -387,6 +472,11 @@ table.table_class tbody {  }
     .row-fluid .leftsidebar {
     width: 100% !important;
 }
+
+}
+
+@media (max-width: 980px){
+    .navbar .btn-navbar{margin: 20px 10px 20px 10px!important;}
 }
 /*@media (max-width: 320px){
     .form-group select, {
@@ -570,3 +660,13 @@ table.table_class tbody {  }
 .restaurants-form input, textarea, .uneditable-input {
     width: 91%;
 }
+.form-control{
+    height: 32px !important;
+}
+#userssearch-status{
+    width:100px !important;
+}
+/*input{
+    height: 32px !important;
+}*/
+
